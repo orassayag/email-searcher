@@ -1,0 +1,87 @@
+.col-centered {
+    display: inline-block;
+    float: none;
+    margin-right: -4px;
+    text-align: center;
+    width: 31%;
+    opacity: 1;
+    -webkit-transition: width 0.3s ease, opacity 0.3s ease;
+    -moz-transition: width 0.3s ease, opacity 0.3s ease;
+    -ms-transition: width 0.3s ease, opacity 0.3s ease;
+    -o-transition: width 0.3s ease, opacity 0.3s ease;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    &.fade-out {
+        opacity: 0;
+        width: 0px;
+    }
+    .search-info {
+        font-size: 12px;
+        line-height: 1.2;
+        margin-bottom: 5px;
+        height: 56px;
+    }
+    .option-input {
+        width: 100%;
+        .form-control {
+            width: 100%;
+            height: auto;
+            margin-right: 10px;
+            &.error {
+                border: 1px solid #d9534f;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .col-centered {
+        display: block;
+        width: 100%;
+        .option-input {
+            .form-control {
+                margin-right: 0px;
+                margin: auto;
+                width: 99%;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .col-centered {
+        display: block;
+        width: 100%;
+        .option-input {
+            .form-control {
+                margin: auto;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .col-centered {
+        display: block;
+        width: 100%;
+        .option-input {
+            .form-control {
+                margin: auto;
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media (min-width: 969px) and (max-width: 1169px) {
+    .col-centered {
+        display: inline-block;
+        width: 100%;
+        .option-input {
+            .form-control {
+                margin: auto;
+                width: 80%;
+            }
+        }
+    }
+}

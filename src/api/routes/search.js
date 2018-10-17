@@ -1,0 +1,42 @@
+// In this API file stored all the API calls within promises
+// and Axios to the Firebase database to get data or store data
+// that related to search processes and emails.
+
+import apiSearch from '../api';
+import * as enums from '../../enums/enums';
+
+// Handle the call to the API to preform email search process.
+export const search = (searchData) => {
+    return new Promise((resolve, reject) => {
+        try {
+
+            // ToDo: In Node.js need to pass the searchData object to fetch real emails and not fake.
+            apiSearch.get(`/${enums.APIRouteType.FAKE_EMAILS}.json`).then((response) => {
+                resolve(response);
+            }).catch((error) => {
+                reject(error);
+            });
+
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
+// Handle the call to the API to preform insert of email (For development checks).
+export const insertFakeEmail = (fakeEmailData) => {
+    return new Promise((resolve, reject) => {
+        try {
+
+            apiSearch.post(`/${enums.APIRouteType.FAKE_EMAILS}.json`, fakeEmailData).then((response) => {
+                resolve(response);
+
+            }).catch((error) => {
+                reject(error);
+            });
+
+        } catch (error) {
+            reject(error);
+        }
+    });
+};

@@ -1,0 +1,45 @@
+.item-delete {
+    position: static;
+    top: 0px;
+    cursor: pointer;
+    .list-group-item {
+        padding: 0px;
+        border: 0px;
+        margin-right: 6px;
+        transition: none;
+        &.user-emails {
+            span {
+                font-size: 14px;
+                color: #555555;
+            }
+        }
+        &.added {
+            span {
+                color: #53c17e;
+                cursor: default;
+            }
+        }
+        span {
+            float: right;
+            font-size: 1.5em;
+            color: #fdc600;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .item-delete {
+        position: absolute;
+        top: -44px;
+        right: 5%;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .item-delete {
+        position: absolute;
+        top: -44px;
+        right: 3%;
+    }
+}
