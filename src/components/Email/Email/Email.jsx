@@ -10,12 +10,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Email.less';
+import emailShape from '../../../modals/proptypes/email';
 import translate from '../../../translate/translate';
 import * as enums from '../../../enums/enums';
 import { formatDate } from '../../../utils/textUtils';
-import EmailDetail from '../EmailDetail/EmailDetail';
-import EmailAction from '../EmailAction/EmailAction';
-import emailShape from '../../../modals/proptypes/email';
+import { EmailDetail, EmailAction } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

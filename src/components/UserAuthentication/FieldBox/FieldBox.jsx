@@ -1,11 +1,11 @@
-// This component implement label and text-box, it displays on the user-authentication pager
+// This component implement label and text-box, it displays on the user-authentication page
 // for email and password, to enable the user to input data and receive it.
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FieldBox.less';
-import TextBox from '../../UI/TextBox/TextBox';
 import { validateParameters } from '../../../utils/validationUtils';
+import { TextBox } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

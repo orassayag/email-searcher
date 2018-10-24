@@ -8,8 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './DeleteEmail.less';
 import translate from '../../../translate/translate';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
-import SubmitButton from '../../UI/SubmitButton/SubmitButton';
+import { Auxiliary } from '../../../hoc';
+import { SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

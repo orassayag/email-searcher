@@ -7,8 +7,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchSelect.less';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 import { validateParameters } from '../../../utils/validationUtils';
+import { Auxiliary } from '../../../hoc';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

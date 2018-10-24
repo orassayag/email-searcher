@@ -9,7 +9,7 @@ import * as enums from '../../../enums/enums';
 import { updateObject } from '../../../utils/coreUtils';
 import { initialState } from '../initialStates/userAuthentication';
 
-// This reducer function resets the state to init position and called when the page first load.
+// This reducer function resets the state to initial position and called when the page first load.
 // Why we do this? Since the inputs of the state not erase when the user redirect to another page.
 const onUserAuthenticationResetStateSuccess = (state) => {
 
@@ -29,7 +29,7 @@ const onUserAuthenticationResetStateSuccess = (state) => {
 };
 
 // This reducer function track the changes of email / password inputs by
-// updating the state each time ant of these inputs changes.
+// updating the state each time ant of these inputs’ changes.
 const onUserAuthenticationInputChangeSuccess = (state, action) => {
 
     // Clone the state and update.

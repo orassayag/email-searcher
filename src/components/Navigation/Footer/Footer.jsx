@@ -11,7 +11,7 @@ import Routes from '../../../routes/routes';
 import { getCreationYear } from '../../../utils/textUtils';
 import { isUserAuthenticated } from '../../../utils/userAuthenticationUtils';
 import userAuthenticationShape from '../../../modals/proptypes/userAuthentication';
-import NavigationItem from '../NavigationItem/NavigationItem';
+import { NavigationItem } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -27,7 +27,7 @@ const Footer = (props) => {
 
     // Check user-authentication data for relevant pages:
     // If user is authenticated don't display link to user-authentication (Login / registration) page,
-    // If user is not authenticated, don't display link to UserEmails page.
+    // If user is not authenticated, don't display link to user-emails page.
     // Default values for user that not authenticated.
     let footerData = null;
     if (isUserAuthenticated(props.userAuthentication)) {

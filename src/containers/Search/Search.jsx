@@ -12,14 +12,14 @@ import * as actions from '../../store/actions/actions';
 import * as enums from '../../enums/enums';
 import * as shapes from '../../modals/proptypes/proptypes';
 import { scrollToElementByRef, isStandartScreen } from '../../utils/UIUtils';
+import { isUserAuthenticated } from '../../utils/userAuthenticationUtils';
 import logicSettings from '../../settings/logic/logicSettings';
 import translate from '../../translate/translate';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import Emails from '../../components/Email/Emails/Emails';
-import Modal from '../../components/UI/Modal/Modal';
-import AuthenticationRequired from '../../components/UserAuthentication/AuthenticationRequired/AuthenticationRequired';
-import { isUserAuthenticated } from '../../utils/userAuthenticationUtils';
-import { SearchAddEmail, SearchBar, SearchEmailsLimit } from '../../components/Search/Search';
+import { Auxiliary } from '../../hoc';
+import { Emails } from '../../components/Email';
+import { Modal } from '../../components/UI';
+import { AuthenticationRequired } from '../../components/UserAuthentication';
+import { SearchAddEmail, SearchBar, SearchEmailsLimit } from '../../components/Search';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -103,36 +103,16 @@ const mapStateToProps = (state) => {
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSearchOnLoadStart: () => {
-            return dispatch(actions.onSearchOnLoadStart());
-        },
-        onSearchKeyChangeSuccess: (searchKeyTempValue) => {
-            return dispatch(actions.onSearchKeyChangeSuccess(searchKeyTempValue));
-        },
-        onSearchProcessStart: (searchData) => {
-            return dispatch(actions.onSearchProcessStart(searchData));
-        },
-        onSearchOptionsToggleSuccess: () => {
-            return dispatch(actions.onSearchOptionsToggleSuccess());
-        },
-        onSearchModeChangeStart: (searchModeData) => {
-            return dispatch(actions.onSearchModeChangeStart(searchModeData));
-        },
-        onSearchOptionChangeStart: (searchOptionData) => {
-            return dispatch(actions.onSearchOptionChangeStart(searchOptionData));
-        },
-        onSearchModalToggleStart: (toggleModalData) => {
-            return dispatch(actions.onSearchModalToggleStart(toggleModalData));
-        },
-        onSearchAddEmailModalToggleStart: (toggleAddEmailModalData) => {
-            return dispatch(actions.onSearchAddEmailModalToggleStart(toggleAddEmailModalData));
-        },
-        onSearchAddEmailCommentsChangeSuccess: (addEmailComments) => {
-            return dispatch(actions.onSearchAddEmailCommentsChangeSuccess(addEmailComments));
-        },
-        onSearchAddEmailProcessStart: (addEmailData) => {
-            return dispatch(actions.onSearchAddEmailProcessStart(addEmailData));
-        }
+        onSearchOnLoadStart: () => dispatch(actions.onSearchOnLoadStart()),
+        onSearchKeyChangeSuccess: (searchKeyTempValue) => dispatch(actions.onSearchKeyChangeSuccess(searchKeyTempValue)),
+        onSearchProcessStart: (searchData) => dispatch(actions.onSearchProcessStart(searchData)),
+        onSearchOptionsToggleSuccess: () => dispatch(actions.onSearchOptionsToggleSuccess()),
+        onSearchModeChangeStart: (searchModeData) => dispatch(actions.onSearchModeChangeStart(searchModeData)),
+        onSearchOptionChangeStart: (searchOptionData) => dispatch(actions.onSearchOptionChangeStart(searchOptionData)),
+        onSearchModalToggleStart: (toggleModalData) => dispatch(actions.onSearchModalToggleStart(toggleModalData)),
+        onSearchAddEmailModalToggleStart: (toggleAddEmailModalData) => dispatch(actions.onSearchAddEmailModalToggleStart(toggleAddEmailModalData)),
+        onSearchAddEmailCommentsChangeSuccess: (addEmailComments) => dispatch(actions.onSearchAddEmailCommentsChangeSuccess(addEmailComments)),
+        onSearchAddEmailProcessStart: (addEmailData) => dispatch(actions.onSearchAddEmailProcessStart(addEmailData))
     };
 };
 
@@ -142,9 +122,9 @@ class Search extends Component {
         super(props);
 
         // Will determine if the user authenticated or not.
-        this.isUserAuthenticated = isUserAuthenticated(this.props.userAuthentication);
+        this.isUserAuthenticated = isUserAuthenticated(props.userAuthentication);
 
-        // All references points to scroll down to each location on mobile or small devices.
+        // All references point to scroll down to each location on mobile or small devices.
         this.scrollMobileRefs = Object.values(enums.SearchScrollPosition).map(item => ({ item, ref: React.createRef() }));
 
         // Bind all the functions.
@@ -157,7 +137,8 @@ class Search extends Component {
     // on the search saga and pull out fake emails on first load.
     componentDidMount() {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If there is a need in development mode to create and store on the database fake emails,
         // there is a call to a special saga that do it, or to verify existence of fake emails on Firebase database.
@@ -175,7 +156,8 @@ class Search extends Component {
     // updated, to scroll in case of tan error on mobile devices or small screens.
     componentDidUpdate() {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If there is validation error in the search, scroll down to the problematic field (Mobile and small screens only).
         if (props.searchErrorRefType) {
@@ -192,7 +174,8 @@ class Search extends Component {
         // Stop any default actions.
         e.preventDefault();
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If the user is not authenticated or - Show to the user the authentication required (Login / register) modal window.
         // Since its email action icon click, display the add authentication required modal.
@@ -238,7 +221,8 @@ class Search extends Component {
     // "Apply" button on the bottom of the search panel).
     handleToggleSearchOptionsClick = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If the user is authenticated and the search options panel is already opened,
         // call the search emails function to validate only the search options inputs
@@ -261,7 +245,8 @@ class Search extends Component {
     // This handler method handles on add email modal, track on comments text-box changes.
     handleCommentsChange = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If the user is not authenticated, don't do nothing.
         // The add comments process is only for authenticated users.
@@ -278,7 +263,8 @@ class Search extends Component {
     // This handler method handles to track any change of the text-areas of the search options.
     handleSearchOptionChange = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Update the search option text-area (Email key, email domain, etc...).
         props.onSearchOptionChangeStart({
@@ -293,7 +279,8 @@ class Search extends Component {
     // include / exclude it, or when search option changed (TEXT / URL).
     handleSearchSelectChange = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Check if the element is mode. If so, the update the mode of search option selects.
         if (e.currentTarget.dataset.id === enums.SearchElementType.MODE) {
@@ -335,7 +322,8 @@ class Search extends Component {
         // Stop any default actions.
         e.preventDefault();
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Check if not in the middle of a previous search.
         // If so - Cancel the new one and wait for the user to click again.
@@ -356,7 +344,8 @@ class Search extends Component {
     // There is call to add email saga to add the email selected by the user to his emails list.
     handleAddEmailClick = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If user is not authenticated- Don't do nothing.
         // The add email to list process is for authenticated users only.
@@ -393,7 +382,8 @@ class Search extends Component {
     // Redirect the user to the user-authentication page.
     handleRedirectToAuthenticationClick = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If user is not authenticated, or the user token expired,
         // close any modal that the user sees before redirect to other page.
@@ -414,7 +404,8 @@ class Search extends Component {
     // This method handles a request to fetch emails for display.
     handleSearchEmails = (searchConfig) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If the user is not authenticated or - Show to the user the authentication required register / login modal window.
         // Since its email action icon click, display the "search" type authentication required modal.
@@ -475,9 +466,10 @@ class Search extends Component {
     }
 
     // This method handles the titles (If found emails after search and the count of the found emails) of the emails area.
-    handleInitRender = () => {
+    handleInitialRender = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Will hold the data to generate the title and sub title.
         const emailsData = {
@@ -495,9 +487,9 @@ class Search extends Component {
         }
         else {
 
-            // If this is the first time that the page load, display the example title.
+            // If this is the first time that the page load, display the sample title.
             if (props.isComponentMounted && !props.searchKeyInputValue) {
-                emailsData.searchTitle = translate.search_page_example_results;
+                emailsData.searchTitle = translate.search_page_sample_results;
                 emailsData.countTitle = translate.search_page_count_results.replace('#count#', emailsData.emailsCount);
             }
             else if (!props.isLoadingEmails) {
@@ -518,8 +510,11 @@ class Search extends Component {
     // the user each time the page is mounted or updated.
     handleEmailsContent = () => {
 
-        const props = this.props;
-        const emailsData = this.handleInitRender();
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
+
+        // Data to generate all the search components.
+        const emailsData = this.handleInitialRender();
 
         return (
             <Emails
@@ -549,7 +544,10 @@ class Search extends Component {
     // the authentication required modal, the limit modal, or the add comments modal.
     handleModals = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
+
+        // Modal data.
         const modalContent = {
             isLargeModal: false,
             name: '',
@@ -602,7 +600,10 @@ class Search extends Component {
 
     render() {
 
-        const props = this.props;
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
+
+        // Search components data.
         const contentData = {
             emailsContent: this.handleEmailsContent(),
             modalContent: this.handleModals()
@@ -629,7 +630,7 @@ class Search extends Component {
                     isShowModal={props.isShowModal}
                     isLoadingModal={props.isLoadingModal}
                     isLargeModal={contentData.modalContent.isLargeModal}
-                    onCloseClick={this.handleToggleModalClick}
+                    onCloseClick={this.handleCancelModalClick}
                     errorMessage={props.errorMessageModal}
                 >
                     {contentData.modalContent.modalContent}

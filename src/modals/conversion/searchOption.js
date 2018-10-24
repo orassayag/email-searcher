@@ -1,5 +1,5 @@
 // This conversion file holds a function to convert string
-// of search option type enum into a search option instance
+// of SearchOptionType enum into a search option instance
 // after successful validation.
 
 import SearchOption from '../modals/SearchOption';

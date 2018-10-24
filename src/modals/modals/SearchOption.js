@@ -19,7 +19,7 @@ class SearchOption {
         }
 
         // This field hold the key and the type of the search option from
-        // the enum SearchOptionType that include email domain, email
+        // the SearchOptionType enum that include email domain, email
         // key, and URL. This will represent the search options when need
         // to be unidentified.
         this.searchOptionType = searchOptionType;

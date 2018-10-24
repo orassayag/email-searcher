@@ -31,6 +31,20 @@ export const generateRandomBoolean = () => {
     return Math.random() >= 0.5;
 };
 
+// This function generates random number.
+export const generateRandomNumber = (randomNumberData) => {
+
+    // Check the existence and the validity of the randomNumberData parameters. If not exists or invalid, return default number.
+    if (!randomNumberData || !validateNumber(randomNumberData.minimumNumber) || !validateNumber(randomNumberData.maximumNumber)) {
+
+        // Return default number.
+        return 0;
+    }
+
+    // Return calculated result.
+    return Math.floor(Math.random() * randomNumberData.maximumNumber) + randomNumberData.minimumNumber;
+};
+
 // This function gets a creation year for the footer's title.
 // If the current year is passed, will display the creation year until current year.
 export const getCreationYear = () => {

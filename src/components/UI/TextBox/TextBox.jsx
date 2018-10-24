@@ -1,5 +1,5 @@
 // This component represent a text box and error box component in one component,
-// so when the user submit some input he entered, a validation operation is
+// so, when the user submits some input he entered, a validation operation is
 // taken place and if the input is invalid, he displayed an error. Example of
 // this component implementation can be found on the search bar to perform
 // a search operation by user input.
@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import { validateParametersAndType } from '../../../utils/validationUtils';
 import { generateClassName } from '../../../utils/textUtils';
 import * as enums from '../../../enums/enums';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
-import ErrorBox from '../ErrorBox/ErrorBox';
+import { Auxiliary } from '../../../hoc';
+import { ErrorBox } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

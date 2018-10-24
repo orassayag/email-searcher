@@ -16,11 +16,11 @@ import { isUserAuthenticated } from '../../utils/userAuthenticationUtils';
 import translate from '../../translate/translate';
 import settings from '../../settings/application/settings';
 import userAuthenticationShape from '../../modals/proptypes/userAuthentication';
-import Loader from '../../components/UI/Loader/Loader';
-import Logout from '../../components/UserAuthentication/Logout/Logout';
-import { Auxiliary, Layout } from '../../hoc/hoc';
-import { AppRoute, PrivateRoute } from '../../components/Navigation/Navigation';
-import * as containers from '../../containers/containers';
+import { Loader } from '../../components/UI';
+import { Logout } from '../../components/UserAuthentication';
+import { Auxiliary, Layout } from '../../hoc';
+import { AppRoute, PrivateRoute } from '../../components/Navigation';
+import * as containers from '../../containers';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -45,12 +45,8 @@ const mapStateToProps = (state) => {
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
   return {
-    onUserAuthenticationCheckState: () => {
-      return dispatch(actions.onUserAuthenticationCheckState());
-    },
-    onAppOnLoadStart: () => {
-      return dispatch(actions.onAppOnLoadStart());
-    }
+    onUserAuthenticationCheckState: () => dispatch(actions.onUserAuthenticationCheckState()),
+    onAppOnLoadStart: () => dispatch(actions.onAppOnLoadStart())
   };
 };
 
@@ -62,7 +58,8 @@ class App extends Component {
   // On page load, check if user have user-authentication credentials on localStorage, if so - Auto login.
   componentDidMount() {
 
-    const props = this.props;
+    // Take the scoped props.
+    const { props } = this;
 
     // On load, check if the user is already authenticated to the site by checking the
     // localStorage. If so, initial the state according to the localStorage values
@@ -76,7 +73,8 @@ class App extends Component {
 
   render() {
 
-    const props = this.props;
+    // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+    const { props } = this;
 
     // Will hold the JSX code of the layout body.
     let layoutBody = (<Loader isInsideModal={false} />);

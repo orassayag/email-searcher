@@ -8,7 +8,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Routes from '../../../routes/routes';
-import AppRoute from '../AppRoute/AppRoute';
+import { AppRoute } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

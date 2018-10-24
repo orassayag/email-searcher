@@ -7,7 +7,8 @@
 
 import Email from '../modals/Email';
 import { validateArrayItems, validateNumber } from '../../utils/validationUtils';
-import { getObjectKeysLength, hasObjectKeys } from '../../utils/textUtils';
+import { getObjectKeysLength, hasObjectKeys, generateRandomNumber } from '../../utils/textUtils';
+import logicSettings from '../../settings/logic/logicSettings';
 
 // This function convert a single data of strings into email class instance.
 const toEmail = (emailData) => {
@@ -60,18 +61,48 @@ const toServerEmails = (emailsArrayData) => {
     if (emailsCountLimit && validateNumber(emailsCountLimit)) {
 
         // Check if exceeds the limit.
-        if (getObjectKeysLength(emailsArrayData.emailsArray) > emailsArrayData.emailsCount) {
+        if (getObjectKeysLength(emailsArrayData.emailsArray) > emailsCountLimit) {
 
             // Slice to a new array within a specific count.
-            emailsArrayData.emailsArray = Object.entries(emailsArrayData.emailsArray).slice(0, emailsArrayData.emailsCount).map(entry => entry[1]);
+            emailsArrayData.emailsArray = Object.entries(emailsArrayData.emailsArray).slice(0, emailsCountLimit).map(entry => entry[1]);
         }
     }
 
-    // Loop on the key / value result from the server and fetch them into emails array.
-    for (const key in emailsArrayData.emailsArray) {
+    // Check if limit exists and if to generate fake emails or samples emails from the logic settings.
+    if (emailsCountLimit && logicSettings.isSamplesInsteadFakeEmails) {
 
-        // Convert the creation date to date object.
-        emailsArray.push(toEmail(emailsArrayData.emailsArray[key]));
+        // Get random results of emails.
+        // Random numbers that generated. This array is needed to avoid getting duplicates emails records.
+        const anArrayOfUniqueNumbers = [];
+
+        // Generate random numbers to take random emails count. Run as long as the new arrays smaller than the requested emails count.
+        while (emailsArray.length < emailsCountLimit) {
+
+            // Get random number to pull out from samples array.
+            const number = generateRandomNumber({
+                minimumNumber: 0,
+                maximumNumber: emailsCountLimit
+            });
+
+            // If the number exists already, continue to the next round.
+            if (anArrayOfUniqueNumbers.indexOf(number) >= 0) {
+                continue;
+            }
+
+            // Convert the creation date to date object.
+            emailsArray.push(toEmail(emailsArrayData.emailsArray[number]));
+
+            // Insert the selected number into the numbers array.
+            anArrayOfUniqueNumbers.push(number);
+        }
+    } else {
+
+        // Loop on the key / value result from the server and fetch them into emails array.
+        for (const key in emailsArrayData.emailsArray) {
+
+            // Convert the creation date to date object.
+            emailsArray.push(toEmail(emailsArrayData.emailsArray[key]));
+        }
     }
 
     // Return emails array.

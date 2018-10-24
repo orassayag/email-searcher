@@ -78,9 +78,16 @@ const dataArray = new Map([
 ]);
 
 // This function creates a copy of the search options and update some of the elements
-// inside it, and return an updated copy of the search options.
-// This function update single search options.
+// inside it, and return an updated copy of the search options. This function updates
+// single search options.
 export const setSearchOptions = (searchOptionsData) => {
+
+    // Check the existence of the searchOptionsData parameter. If not exists, return null instance.
+    if (!searchOptionsData) {
+
+        // Return null instance.
+        return null;
+    }
 
     // Make a copy of the search options.
     const updateSearchOptions = copyObjectsArray(searchOptionsData.searchOptions);
@@ -149,7 +156,7 @@ export const resetMultiSearchOptions = (searchOptions) => {
 
 // This function prepares all the errors to display the user, and the errors that needs to be clear,
 // Also set the ref point to scroll to the field in case of error.
-export const initErrorValidationResults = (errorSearchOptionsData) => {
+export const initialErrorValidationResults = (errorSearchOptionsData) => {
 
     // Error message of search key, error reference on mobile. Will be determining to which
     // element to scroll on mobile in case of an error, and all search options to show to the user.
@@ -380,7 +387,7 @@ const generateSearchOptionsList = (isValid) => {
     // Generates new search options list filtered with mode and comments.
     return Object.keys(enums.SearchElementType).filter(key => {
 
-        // Remove the "MODE" and "COMMENTS" validation from the enum, since we don't have any validation on
+        // Remove the "MODE" and "COMMENTS" validation from the SearchElementType enum, since we don't have any validation on
         // the mode (No input from the user in this search option)
         return enums.SearchElementType[key] !== enums.SearchElementType.MODE &&
             enums.SearchElementType[key] !== enums.SearchElementType.COMMENTS;
@@ -499,6 +506,7 @@ export const validateAddEmailProcessRequest = (addEmailData) => {
     // Check if the if the user entered search key and / or comments - In order to know if to assign the
     // search key and the comments of the specific search or validate the
     // fake search key and comments of the email. Trim the search key and the comments.
+
     validationResult.emailItem.emailSearchKey = trimString(addEmailData.searchKey ? addEmailData.searchKey : validationResult.emailItem.emailSearchKey);
     validationResult.emailItem.emailComments = trimString(addEmailData.comments ? addEmailData.comments : validationResult.emailItem.emailComments);
 

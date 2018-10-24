@@ -32,10 +32,17 @@ const logicSettings = {
     // the search option of URLs text-area in the search option panel.
     maximumURLSLength: 1000,
 
+    // This flag field will determine if to generate real samples of emails rows from external json file or
+    // random characters strings fake emails. Note that if it's true, samples emails would be generated,
+    // and if false, fake string emails would be generated. In case of samples emails to generate, the
+    // fakeEmailsCountToCreate field would not take place and the entire json file emails count will determine
+    // the count of emails to generate.
+    isSamplesInsteadFakeEmails: true,
+
     // The number of fake emails to create each time the searchStoreFakeEmailsStartSaga saga is take place.
     // This number need to be very small, since it's creating the email and store it on the database via API server call.
     // The recommended and default number is 20.
-    fakeEmailsCountToCreate: 20,
+    fakeEmailsCountToCreate: 100,
 
     // The number of search options available on the panel of search options.
     // We keep this number to validate that the search bar component gets the

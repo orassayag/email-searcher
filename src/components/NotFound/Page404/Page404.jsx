@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Page404.less';
 import translate from '../../../translate/translate';
-import SubmitButton from '../../UI/SubmitButton/SubmitButton';
+import { SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

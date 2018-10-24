@@ -12,7 +12,7 @@ const applicationSettings = {
     // to the site. The authentication has another URL, due to Firebase policy. In
     // case of independent REST API base on Node.js, only API URL address will
     // be implemented.
-    apiBaseURL: 'https://email-searcher-9a370.firebaseio.com/',
+    apiBaseURL: 'https://burger-builder-84921.firebaseio.com/',
 
     // This API URL is in charge of all Firebase user authentications
     // processes (Login, register, provide secure user token, and other actions).
@@ -20,7 +20,7 @@ const applicationSettings = {
 
     // This is the key that provides an authentication to process user
     // authentication actions against Firebase database.
-    apiBaseUserAuthenticationKey: 'AIzaSyDAat5vzOC0CEdAJecUj0Wm5zPMmaG4dQs',
+    apiBaseUserAuthenticationKey: 'AIzaSyAPZZY47KGG2aNteQ3p9V8N5o8jy7K5znE',
 
     // This field define the milliseconds count that after that, the user
     // token that authenticated to the site application is expired and the
@@ -65,11 +65,11 @@ const applicationSettings = {
     // emails to be saved.
     maximumUserEmailsTotalCountLimit: 60,
 
-    // This field determine the init key words of each site application's
+    // This field determine the initial key words of each site application's
     // localStorage value that will be stored in the localStorage. This is
     // required to not override some other localStorage values that the
     // user's browser saved from other browsing sites.
-    emailSearcherInit: 'email_searcher',
+    emailSearcherInitial: 'email_searcher',
 
     // This field determine the default local culture of the site's language.
     // It will display the translations from the translate folder with the

@@ -2,7 +2,7 @@
 // can enter some input to perform search operation (By search key mode or by URL search mode). One main
 // feature of this component is the search options panel, that the user can use to perform the search
 // operation to get some more desired and specific results. The toggle panel open by a box button
-// component and display the search mode and the 3 search options (Email domains, email keys, and URLs), and
+// component and display the search mode and the three search options (Email domains, email keys, and URLs), and
 // for each one of them the user can include or exclude the relevant input he entered, during the search
 // process. There is also the submit button to perform the search, and several validation errors will
 // be displayed if the user enters some invalid data. The search operation is available only for
@@ -14,12 +14,11 @@ import './SearchBar.less';
 import * as enums from '../../../enums/enums';
 import { generateClassName } from '../../../utils/textUtils';
 import { validateParametersAndArray } from '../../../utils/validationUtils';
-import translate from '../../../translate/translate';
-import SearchSelect from '../SearchSelect/SearchSelect';
-import SearchOption from '../SearchOption/SearchOption';
-import { BoxButton, ErrorBox, SubmitButton, TextBox } from '../../UI/UI';
 import searchOptionsShape from '../../../modals/proptypes/searchOptions';
 import logicSettings from '../../../settings/logic/logicSettings';
+import translate from '../../../translate/translate';
+import { SearchSelect, SearchOption } from '../';
+import { BoxButton, ErrorBox, SubmitButton, TextBox } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

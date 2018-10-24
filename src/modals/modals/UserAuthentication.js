@@ -1,5 +1,5 @@
 // This class represent the user-authentication that allow the user
-// to be logged in / registered and to check if the user is authenticated or not.
+// to be logged-in / registered and to check if the user is authenticated or not.
 // The separation from UserEmails class due to separate concerns,
 // to not have a big user class with all the details, and for technical reasons
 // (Exposing one class in all places cause refresh the page once deep cloning it).
@@ -26,7 +26,7 @@ class UserAuthentication {
         // on the site, and with it the user can login to the system.
         this.userName = userAuthenticationData.userName;
 
-        // The password of the user, that within he logged in / registered.
+        // The password of the user, that within he logged-in / registered.
         // Saved only in the state, not in localStorage.
         this.userPassword = userAuthenticationData.userPassword;
 
@@ -40,7 +40,7 @@ class UserAuthentication {
         this.userTokenExpirationDate = null;
 
         // The logic of the user token expiration date faces 2 scenarios:
-        // 1. When the user logged in / registered - The userEmails.userTokenExpireIn -
+        // 1. When the user logged-in / registered - The userEmails.userTokenExpireIn -
         // It's a number of seconds that the token will expire (Usually it's 3600 - One hour).
         // In this case we need to convert it to date time and store it.
         // 2. When the user refreshes the browser and get the expiration date from the

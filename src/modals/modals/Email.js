@@ -50,7 +50,7 @@ class Email {
         // Note that we check that if the given value is a string, we try to convert it.
         this.emailCreationDate = getDateConverted(emailData.emailCreationDate);
 
-        // The search engine website that the email was found in. In fake emails it's a random within "SearchEngine" enum.
+        // The search engine website that the email was found in. In fake emails it's a random within SearchEngine enum.
         this.emailSearchEngine = emailData.emailSearchEngine;
 
         // The search key that within the search process found the email. In fake emails it's a random string.
@@ -66,7 +66,7 @@ class Email {
         this.emailType = emailData.emailType;
 
         // This is a field that generated for UI purposes and therefore not included
-        // in the database. For each action from "EmailActionType" enum.
+        // in the database. For each action from EmailActionType enum.
         // The default value is "CREATED" which not effect on the UI in any case.
         this.emailActionType = enums.EmailActionType.CREATED;
 

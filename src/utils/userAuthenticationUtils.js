@@ -18,7 +18,7 @@ import { toUserInstances } from '../modals/conversion/userInstances';
 // This function gets all email searcher application's user-authentication credentials saved on localStorage.
 const getUserAuthentication = () => {
 
-    // Get all data in localStorage by init email search parameter.
+    // Get all data in localStorage by initial email search parameter.
     return Object.values(enums.UserParameter).reduce((acc, userParameter) => ({ ...acc, [userParameter]: storageUtils.getItem(userParameter) }), {});
 };
 
@@ -52,7 +52,7 @@ export const setUserAuthentication = (userLocalStorageData) => {
         return;
     }
 
-    // Set all data in localStorage by init email search parameter
+    // Set all data in localStorage by initial email search parameter
     // (To not override other possible parameters or to be override).
     Object.values(enums.UserParameter).forEach(userParameter => {
         storageUtils.setItem(userParameter, userLocalStorageData[userParameter]);
@@ -92,7 +92,7 @@ export const setAuthentication = () => {
 // Clear all localStorage of the application with specific data keys of user-authentication.
 export const clearUserAuthentication = () => {
 
-    // Clear all data in localStorage by init email search parameter.
+    // Clear all data in localStorage by initial email search parameter.
     Object.values(enums.UserParameter).forEach(userItem => {
         storageUtils.removeItem(userItem);
     });

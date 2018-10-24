@@ -1,10 +1,11 @@
 // In this API file stored all the API calls within promises
 // and Axios to the Firebase database to get data or store data
 // that related to user-authentication actions.
-// Note that the separation between api and apiUserAuthentication took
+// Note that the separation between "api" and "apiUserAuthentication" took
 // place due to the separation in Firebase for authentication operations
 // and CRUD operations in different URL paths, so there are
 // two different Axios instances.
+// Note: All calls can be done with ES6 async / await.
 
 import apiUserAuthentication from '../apiUserAuthentication';
 import settings from '../../settings/application/settings';

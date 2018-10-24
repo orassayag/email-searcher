@@ -6,10 +6,12 @@
 // limits are configured and places.
 
 import * as enums from '../enums/enums';
-import { generateRandomBoolean } from './textUtils';
+import { generateRandomBoolean, generateRandomNumber } from './textUtils';
 import { validateNumber, validateEnumValue } from './validationUtils';
 import fakeSettings from '../settings/logic/fakeSettings';
+import logicSettings from '../settings/logic/logicSettings';
 import translate from '../translate/translate';
+import { samples } from '../assets/data/samples';
 
 // This function generates random string.
 const generateRandomString = (charactersLength) => {
@@ -29,21 +31,6 @@ const generateRandomString = (charactersLength) => {
 
     // Return random string.
     return text;
-};
-
-// This function generates random number.
-const generateRandomNumber = (randomNumberData) => {
-
-    // Check the existence and the validity of the randomNumberData parameters. If not exists or invalid, return default number.
-    if (!randomNumberData || !randomNumberData.minimumNumber || !randomNumberData.maximumNumber ||
-        !validateNumber(randomNumberData.minimumNumber) || !validateNumber(randomNumberData.maximumNumber)) {
-
-        // Return default number.
-        return 0;
-    }
-
-    // Return calculated result.
-    return Math.floor(Math.random() * randomNumberData.maximumNumber) + randomNumberData.minimumNumber;
 };
 
 // This function generates random date.
@@ -115,8 +102,9 @@ const genrateRandomSearchEngine = () => {
 const generateRandomText = (randomTextData) => {
 
     // Check for existence of the randomTextData parameters. If not exists or invalid, stop any further actions.
-    if (!randomTextData || !randomTextData.minimumStringsCount || !randomTextData.maximumStringsCount ||
-        !validateNumber(randomTextData.minimumStringsCount) || !validateNumber(!randomTextData.maximumStringsCount)) {
+    if (!randomTextData ||
+        !validateNumber(randomTextData.minimumStringsCount) || !validateNumber(randomTextData.maximumStringsCount) ||
+        !validateNumber(randomTextData.minimumStringLength) || !validateNumber(randomTextData.maximumStringLength)) {
 
         // Stop any further actions.
         return;
@@ -133,7 +121,7 @@ const generateRandomText = (randomTextData) => {
 
     // Append the search key by loop count of random strings.
     for (let i = 0; i < stringsCount; i++) {
-        searchKey += `${generateRandomString(generateRandomNumber({
+        searchKey += ` ${generateRandomString(generateRandomNumber({
             minimumNumber: randomTextData.minimumStringLength,
             maximumNumber: randomTextData.maximumStringLength
         }))}`;
@@ -170,7 +158,9 @@ const generateRandomComments = () => {
     // Return random comments.
     return `${translate.search_example_comments_text} ${generateRandomText({
         minimumStringsCount: fakeSettings.minimumCommentsStringsCount,
-        maximumStringsCount: fakeSettings.maximumCommentsStringsCount
+        maximumStringsCount: fakeSettings.maximumCommentsStringsCount,
+        minimumStringLength: fakeSettings.minimumStringLength,
+        maximumStringLength: fakeSettings.maximumStringLength
     })}`;
 };
 
@@ -195,22 +185,95 @@ export const generateFakeEmails = (generateData) => {
     }
 
     // Will hold the array of emails.
-    const emailsArray = [];
+    let emailsArray = [];
 
-    // Loop and generate fake emails.
-    for (let i = 0; i < generateData.emailsCount; i++) {
-        emailsArray.push({
-            emailId: generateRandomEmailId(),
-            emailUserId: null,
-            emailUserAddedDate: null,
-            emailAddress: generateRandomEmail(),
-            emailLink: generateRandomLink(),
-            emailCreationDate: generateRandomDate(),
-            emailSearchEngine: genrateRandomSearchEngine(),
-            emailSearchKey: generateRandomSearchKeys(),
-            emailComments: generateRandomComments(),
-            emailType: generateData.emailType
-        });
+    // Check if to generate fake emails or samples emails from the logic settings.
+    if (logicSettings.isSamplesInsteadFakeEmails) {
+
+        // Load all the samples data from the samples json. This file contains real emails search manually by Google,
+        // but in order to display samples, we would generate the real data with some random fake data, such as
+        // the search engines and the comments.
+
+        // If the emails length array equals to the emails count, no need for random generate, just take all the samples emails.
+        if (generateData.emailsCount === samples.length) {
+            emailsArray = samples.map((sample) => {
+                return {
+                    emailId: generateRandomEmailId(),
+                    emailUserId: null,
+                    emailUserAddedDate: null,
+                    emailAddress: sample.emailAddress,
+                    emailLink: sample.emailLink,
+                    emailCreationDate: new Date(),
+                    emailSearchEngine: genrateRandomSearchEngine(),
+                    emailSearchKey: sample.emailSearchKey,
+                    emailComments: sample.emailComments,
+                    emailType: generateData.emailType
+                };
+            });
+        } else {
+
+            // Check if the requested emails count is bigger than the json samples length.
+            // If so, take the length and assign it to as the new emails count.
+            if (generateData.emailsCount > samples.length) {
+                generateData.emailsCount = samples.length;
+            }
+
+            // Random numbers that generated. This array is needed to avoid getting duplicates emails records.
+            const anArrayOfUniqueNumbers = [];
+
+            // Generate random numbers to take random emails count. Run as long as the new arrays smaller than the requested emails count.
+            while (emailsArray.length < generateData.emailsCount) {
+
+                // Get random number to pull out from samples array.
+                const number = generateRandomNumber({
+                    minimumNumber: 0,
+                    maximumNumber: samples.length
+                });
+
+                // If the number exists already, continue to the next round.
+                if (anArrayOfUniqueNumbers.indexOf(number) >= 0) {
+                    continue;
+                }
+
+                // Pull out selected sample.
+                const sample = samples[number];
+
+                // Insert selected sample into the emails array.
+                emailsArray.push({
+                    emailId: generateRandomEmailId(),
+                    emailUserId: null,
+                    emailUserAddedDate: null,
+                    emailAddress: sample.emailAddress,
+                    emailLink: sample.emailLink,
+                    emailCreationDate: new Date(),
+                    emailSearchEngine: genrateRandomSearchEngine(),
+                    emailSearchKey: sample.emailSearchKey,
+                    emailComments: sample.emailComments,
+                    emailType: generateData.emailType
+                });
+
+                // Insert the selected number into the numbers array.
+                anArrayOfUniqueNumbers.push(number);
+            }
+        }
+
+    } else {
+
+        // Loop and generate fake emails.
+        for (let i = 0; i < generateData.emailsCount; i++) {
+            emailsArray.push({
+                emailId: generateRandomEmailId(),
+                emailUserId: null,
+                emailUserAddedDate: null,
+                emailAddress: generateRandomEmail(),
+                emailLink: generateRandomLink(),
+                emailCreationDate: generateRandomDate(),
+                emailSearchEngine: genrateRandomSearchEngine(),
+                emailSearchKey: generateRandomSearchKeys(),
+                emailComments: generateRandomComments(),
+                emailType: generateData.emailType
+            });
+        }
     }
 
     // Return fake emails.

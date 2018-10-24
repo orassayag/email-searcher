@@ -1,6 +1,7 @@
 // This component is a shallow one, and enable the user to logout from the site
 // application, just redirect the user back to the search-page (Home-page)
-// once the logout saga ends the process of logging out the user from the site.
+// once the userAuthenticationLogoutStartSaga saga ends the process of
+// logging-out the user from the site.
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -20,20 +21,18 @@ const defaultProps = {};
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
     return {
-        onUserAuthenticationLogoutStart: () => {
-            return dispatch(actions.onUserAuthenticationLogoutStart());
-        }
+        onUserAuthenticationLogoutStart: () => dispatch(actions.onUserAuthenticationLogoutStart())
     };
 };
 
 class Logout extends Component {
 
-    // Perform the logout saga.
+    // Perform the userAuthenticationLogoutStartSaga saga.
     componentDidMount() {
         this.props.onUserAuthenticationLogoutStart();
     }
 
-    // After the logout saga finished, redirect the user back to home page.
+    // After the userAuthenticationLogoutStartSaga saga finished, redirect the user back to search-page (Home-page).
     render() {
         return (
             <Redirect to={Routes.SEARCH} />

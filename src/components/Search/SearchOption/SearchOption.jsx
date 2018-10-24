@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 import './SearchOption.less';
 import { generateClassName } from '../../../utils/textUtils';
 import { validateParameters } from '../../../utils/validationUtils';
-import SearchSelect from '../SearchSelect/SearchSelect';
-import ErrorBox from '../../UI/ErrorBox/ErrorBox';
+import { SearchSelect } from '../';
+import { ErrorBox } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

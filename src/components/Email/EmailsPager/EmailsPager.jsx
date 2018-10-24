@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import './EmailsPager.less';
 import * as enums from '../../../enums/enums';
 import logicSettings from '../../../settings/logic/logicSettings';
-import EmailsPagerLink from '../EmailsPagerLink/EmailsPagerLink';
+import { EmailsPagerLink } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

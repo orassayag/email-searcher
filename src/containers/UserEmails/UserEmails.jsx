@@ -16,10 +16,10 @@ import * as shapes from '../../modals/proptypes/proptypes';
 import { scrollToElementByRef, isStandartScreen } from '../../utils/UIUtils';
 import { isUserAuthenticated } from '../../utils/userAuthenticationUtils';
 import translate from '../../translate/translate';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import Emails from '../../components/Email/Emails/Emails';
-import DeleteEmail from '../../components/UserEmails/DeleteEmail/DeleteEmail';
-import { Modal, PageTitle } from '../../components/UI/UI';
+import { Auxiliary } from '../../hoc';
+import { Emails } from '../../components/Email';
+import { DeleteEmail } from '../../components/UserEmails';
+import { Modal, PageTitle } from '../../components/UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -71,27 +71,13 @@ const mapStateToProps = (state) => {
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
     return {
-        onUserGetEmailsProcessStart: (getUserEmailsData) => {
-            return dispatch(actions.onUserGetEmailsProcessStart(getUserEmailsData));
-        },
-        onUserToggleEmailMoreInformationStart: (toggleEmailData) => {
-            return dispatch(actions.onUserToggleEmailMoreInformationStart(toggleEmailData));
-        },
-        onUserCounterUpdateStart: (userCounterUpdateData) => {
-            return dispatch(actions.onUserCounterUpdateStart(userCounterUpdateData));
-        },
-        onUserPagerUpdateStart: (userPagerUpdateData) => {
-            return dispatch(actions.onUserPagerUpdateStart(userPagerUpdateData));
-        },
-        onUserDeleteEmailModalToggleStart: (toggleDeleteEmailModalData) => {
-            return dispatch(actions.onUserDeleteEmailModalToggleStart(toggleDeleteEmailModalData));
-        },
-        onUserDeleteEmailModalToggleSuccess: (deleteEmailData) => {
-            return dispatch(actions.onUserDeleteEmailModalToggleSuccess(deleteEmailData));
-        },
-        onUserDeleteEmailProcessStart: (deleteEmailData) => {
-            return dispatch(actions.onUserDeleteEmailProcessStart(deleteEmailData));
-        }
+        onUserGetEmailsProcessStart: (getUserEmailsData) => dispatch(actions.onUserGetEmailsProcessStart(getUserEmailsData)),
+        onUserToggleEmailMoreInformationStart: (toggleEmailData) => dispatch(actions.onUserToggleEmailMoreInformationStart(toggleEmailData)),
+        onUserCounterUpdateStart: (userCounterUpdateData) => dispatch(actions.onUserCounterUpdateStart(userCounterUpdateData)),
+        onUserPagerUpdateStart: (userPagerUpdateData) => dispatch(actions.onUserPagerUpdateStart(userPagerUpdateData)),
+        onUserDeleteEmailModalToggleStart: (toggleDeleteEmailModalData) => dispatch(actions.onUserDeleteEmailModalToggleStart(toggleDeleteEmailModalData)),
+        onUserDeleteEmailModalToggleSuccess: (deleteEmailData) => dispatch(actions.onUserDeleteEmailModalToggleSuccess(deleteEmailData)),
+        onUserDeleteEmailProcessStart: (deleteEmailData) => dispatch(actions.onUserDeleteEmailProcessStart(deleteEmailData))
     };
 };
 
@@ -101,7 +87,7 @@ class UserEmails extends Component {
         super(props);
 
         // Will determine if the user authenticated or not.
-        this.isUserAuthenticated = isUserAuthenticated(this.props.userAuthentication);
+        this.isUserAuthenticated = isUserAuthenticated(props.userAuthentication);
 
         // A reference point to scroll down to the emails results on mobile or small devices.
         this.resultsRef = React.createRef();
@@ -116,7 +102,8 @@ class UserEmails extends Component {
     // and gets the emails list after the component is mounted.
     componentDidMount() {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Check that the user is authenticated.
         this.handleCheckAuthentication();
@@ -152,7 +139,8 @@ class UserEmails extends Component {
         // Stop any default actions.
         e.preventDefault();
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Go to toggle delete email modal saga and try show open the modal to the user.
         props.onUserDeleteEmailModalToggleStart({
@@ -166,7 +154,8 @@ class UserEmails extends Component {
     // details within the "More information" panel of each email item.
     handleMoreInformationToggleClick = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Toggle the selected email "More information" panel to
         // display or hide the full information of the email.
@@ -181,7 +170,8 @@ class UserEmails extends Component {
     // window, to confirm the removal of the specific email selected.
     handleDeleteEmailClick = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Call the delete email saga to delete the
         // email from the database and the state.
@@ -196,7 +186,8 @@ class UserEmails extends Component {
     // Hide the modal window and reset the delete email object instance.
     handleCancelModalClick = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Call the success toggle action to hide the delete email modal window.
         props.onUserDeleteEmailModalToggleSuccess({
@@ -209,7 +200,8 @@ class UserEmails extends Component {
     // the page with relevant emails according to the new count of emails.
     handleCounterChangeClick = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Call the counter update saga to update the counter and load the emails again.
         props.onUserCounterUpdateStart({
@@ -223,7 +215,8 @@ class UserEmails extends Component {
     // or on the arrow links, to change the pager to view other emails.
     handleChangePageClick = (e) => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Call the pager update saga to update the pager and load the emails again.
         props.onUserPagerUpdateStart({
@@ -251,7 +244,8 @@ class UserEmails extends Component {
     // - Redirect back to search-page (Home-page).
     handleCheckAuthentication = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If no userEmails instance exists or the user is not authenticated to
         // the site application, or the user token expired, redirect back to the
@@ -264,9 +258,10 @@ class UserEmails extends Component {
     }
 
     // This handler method generates titles (If exist any and if not) of the emails area.
-    handleInitRender = () => {
+    handleInitialRender = () => {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Will hold the data to generate the title and sub title.
         const emailsData = {
@@ -284,8 +279,10 @@ class UserEmails extends Component {
         }
         else {
 
-            // If this is the first time that the page load, display the example title.
+            // Check if this is the first load.
             if (!props.isLoadingEmails && props.isComponentMounted) {
+
+                // Check if any emails exists on the user's emails list. If not, display appropriate message.
                 if (emailsData.noEmails) {
                     emailsData.emailsTitle = translate.emails_page_no_emails_text;
                     emailsData.countTitle = translate.emails_page_emails_count.replace('#count#', 0);
@@ -306,8 +303,11 @@ class UserEmails extends Component {
 
     render() {
 
-        const props = this.props;
-        const emailsData = this.handleInitRender();
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
+
+        // Data with all titles.
+        const emailsData = this.handleInitialRender();
 
         return (
             <Auxiliary>

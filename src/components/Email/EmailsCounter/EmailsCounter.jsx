@@ -7,8 +7,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './EmailsCounter.less';
 import translate from '../../../translate/translate';
-import { getEqualLowerNumbers } from '../../../utils/textUtils';
 import logicSettings from '../../../settings/logic/logicSettings';
+import { getEqualLowerNumbers } from '../../../utils/textUtils';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

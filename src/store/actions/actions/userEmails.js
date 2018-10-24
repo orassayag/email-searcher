@@ -7,7 +7,7 @@
 import * as actionTypes from '../actionTypes';
 
 // This action function called when the login / registration processes are
-// successfully preformed and the user is now logged in to the system.
+// successfully preformed and the user is now logged-in to the system.
 export const onUserEmailsAuthenticationProcessSuccess = (userEmails) => {
     return {
         type: actionTypes.userEmailsActions.USER_EMAILS_AUTHENTICATION_PROCESS_SUCCESS,
@@ -16,7 +16,7 @@ export const onUserEmailsAuthenticationProcessSuccess = (userEmails) => {
 };
 
 // This action function called when the logout process is
-// successfully preformed and the user is now logged out from the system.
+// successfully preformed and the user is now logged-out from the system.
 export const onUserEmailsAuthenticationLogoutSuccess = () => {
     return {
         type: actionTypes.userEmailsActions.USER_EMAILS_AUTHENTICATION_LOGOUT_SUCCESS

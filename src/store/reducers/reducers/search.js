@@ -7,11 +7,11 @@
 import * as actionTypes from '../../actions/actionTypes';
 import * as enums from '../../../enums/enums';
 import { updateObject } from '../../../utils/coreUtils';
-import { initErrorValidationResults, setSearchOptions, resetMultiSearchOptions, setMultiSearchOptions } from '../../../utils/searchUtils';
+import { initialErrorValidationResults, setSearchOptions, resetMultiSearchOptions, setMultiSearchOptions } from '../../../utils/searchUtils';
 import { initialState, clearSearchOptionsErrors } from '../initialStates/search';
 import { toManageEmail } from '../../../modals/conversion/manageEmail';
 
-// This reducer function reset the state to init position and called when the page first load.
+// This reducer function reset the state to initial position and called when the page first load.
 // Why we do this? Since the inputs of the state not erase when the user redirect to another page.
 export const onSearchResetStateSuccess = (state) => {
 
@@ -197,7 +197,7 @@ const onSearchProcessPreparation = (state) => {
 const onSearchProcessValidationError = (state, action) => {
 
     // Prepare all the errors to display the user, and the errors that needs to be clear.
-    const errorResults = initErrorValidationResults(action.errorSearchOptionsData);
+    const errorResults = initialErrorValidationResults(action.errorSearchOptionsData);
 
     // Clone the state and update.
     return updateObject({

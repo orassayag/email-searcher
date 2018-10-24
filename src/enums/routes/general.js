@@ -60,3 +60,11 @@ export const SearchEngine = createEnum(new Map([
     ['BAIDU', 'Baidu'],
     ['DUCK_DUCK_GO', 'DuckDuckGo']
 ]));
+
+// This enum define the effect that the user will experience each time
+// that the user browses from page to page.
+export const PageTransitionType = createEnum(new Map([
+    ['FADE_IN', 'fade_in'],
+    ['FADE_OUT', 'fade_out'],
+    ['RANDOM', 'random']
+]));

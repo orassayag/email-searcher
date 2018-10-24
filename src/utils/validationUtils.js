@@ -67,7 +67,7 @@ export const validateParametersAndType = (validateParametersData) => {
                     throw new Error(translate.error_invalid.replace('#params#', validateParametersData.props[validateParametersData.targetParameters[i]]));
                 }
                 break;
-                case enums.ValidationFunctionType.AUTOCOMPLETE:
+            case enums.ValidationFunctionType.AUTOCOMPLETE:
 
                 // Return calculated result. If not exists, throw new exception to the user.
                 if (['on', 'off'].indexOf(validateParametersData.props[validateParametersData.targetParameters[i]]) < 0) {
@@ -369,7 +369,7 @@ export const validateCharactersLength = (validateLengthData) => {
     if (!validateLengthData || !validateLengthData.value || !validateLengthData.validationType ||
         !validateLengthData.charactersCount || !validateNumber(validateLengthData.charactersCount)) {
 
-        // Is invalid or missing parameters, return false;
+        // Are invalid or missing parameters, return false;
         return false;
     }
 

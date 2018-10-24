@@ -7,16 +7,20 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './PageShell.less';
-import { generateRandomBoolean } from '../../utils/textUtils';
+import { getTransitionSettings } from '../../utils/UIUtils';
 
 const PageShell = (Container) => {
+
+    // Get the settings to determine the transition effects configurations.
+    const settings = getTransitionSettings();
+
     return (props) => (
         <ReactCSSTransitionGroup
-            transitionAppear={true}
-            transitionAppearTimeout={600}
-            transitionEnterTimeout={600}
-            transitionLeaveTimeout={200}
-            transitionName={`Slide${generateRandomBoolean() ? 'In' : 'Out'}`}
+            transitionAppear={settings.PageTransitionAppear}
+            transitionAppearTimeout={settings.PageTransitionAppearTimeout}
+            transitionEnterTimeout={settings.PageTransitionEnterTimeout}
+            transitionLeaveTimeout={settings.PageTransitionLeaveTimeout}
+            transitionName={`Slide${settings.PageTransitionType}`}
         >
             <Container {...props} />
         </ReactCSSTransitionGroup>

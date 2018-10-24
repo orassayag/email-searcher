@@ -6,6 +6,7 @@ import { delay } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 import translate from '../../../translate/translate';
 import logicSettings from '../../../settings/logic/logicSettings';
+import UISettings from '../../../settings/logic/UISettings';
 import * as enums from '../../../enums/enums';
 import * as apiUserEmails from '../../../api/routes/userEmails';
 import * as userEmailsUtils from '../../../utils/userEmailsUtils';
@@ -125,7 +126,7 @@ export function* userAddEmailToDatabaseProcessStartSaga(action) {
 
     // Will hold the saga response error. We will insert the new email and
     // call the server to bring back the update user emails count, and update it on localStorage and state.
-    // If this error will be assign - It will display a message to the user.
+    // If this error will be assigned - It will display a message to the user.
     // Will hold the user emails count. The default is 0.
     let userEmailsTotalCountResult = new UserEmailsTotalCountResult();
 
@@ -586,7 +587,7 @@ export function* userDeleteEmailProcessStartSaga(action) {
     }
 
     // Check if any error exists (In console).
-    // If the validation failed to pass, generate the error within the userDeleteEmailFailSaga.
+    // If the validation failed to pass, generate the error within the userDeleteEmailFailSaga saga.
     if (!validationResult.emailItem || validationResult.errorToConsole || validationResult.errorMessage) {
 
         // Call the error saga to show general error message to the user and console the error.
@@ -627,7 +628,7 @@ export function* userDeleteEmailProcessStartSaga(action) {
     }
 
     // Check if any error exists (In console).
-    // If the validation failed to pass, generate the error within the userDeleteEmailFailSaga.
+    // If the validation failed to pass, generate the error within the userDeleteEmailFailSaga saga.
     if (validationResult.errorToConsole || validationResult.errorMessage) {
 
         // Call the error saga to show general error message to the user and console the error.
@@ -815,8 +816,8 @@ function* userDeleteEmailFailSaga(deleteEmailFailData) {
     // Call the failure process action, to display general error message to the user.
     yield put(actions.onUserDeleteEmailProcessError(translate.error_general));
 
-    // Delay for 5 seconds to let the user see the error message.
-    yield delay(5000);
+    // Delay for a UI settings number of seconds to let the user see the error message.
+    yield delay(UISettings.userEmailsDeleteEmailFailureModalDelay);
 
     // Call the success toggle action to hide the delete email modal window.
     yield put(actions.onUserDeleteEmailModalToggleReset());
@@ -901,7 +902,7 @@ function* userDeleteEmailSuccessSaga(deleteEmailData) {
     // a logic settings number of emails), no need for the logic.
     if (deleteEmailData.userEmailsTotalCount >= logicSettings.minimumEmailsCountToShowPager) {
 
-        // Since delete email don't effect on pager / counter, we want to initialize the
+        // Since delete email don't effect on pager / counter, we want to initial the
         // page after some time of deleting emails. So, the logic is that after a number
         // from logic settings exceeded, deletes without refresh the page, there will be
         // render of the page automatically. This logic applies only if the user has more
@@ -961,7 +962,7 @@ function* userDeleteEmailSuccessSaga(deleteEmailData) {
         // remove the email from the list, and update the emails list in the state.
 
         // After shot time of delay, close the modal window and mark fade-out the deleted email.
-        yield delay(100);
+        yield delay(UISettings.userEmailsDeleteEmailEffectDelay);
 
         // Update the email as deleted on the email's list.
         yield put(actions.onUserDeleteEmailProcessSuccess(deleteEmailData.userEmails));

@@ -13,7 +13,7 @@ import './Modal.less';
 import translate from '../../../translate/translate';
 import { generateClassName } from '../../../utils/textUtils';
 import { validateParameters } from '../../../utils/validationUtils';
-import Loader from '../Loader/Loader';
+import { Loader } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

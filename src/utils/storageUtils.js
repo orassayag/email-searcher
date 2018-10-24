@@ -19,8 +19,8 @@ export const setItem = (key, value) => {
         return;
     }
 
-    // Set the item in the localStorage with special init key.
-    localStorage.setItem(`${settings.emailSearcherInit}_${key}`, value);
+    // Set the item in the localStorage with special initial key.
+    localStorage.setItem(`${settings.emailSearcherInitial}_${key}`, value);
 };
 
 // This function gets specific value by key from localStorage.
@@ -33,8 +33,8 @@ export const getItem = (key) => {
         return;
     }
 
-    // Get the item from the localStorage with special init key.
-    return localStorage.getItem(`${settings.emailSearcherInit}_${key}`);
+    // Get the item from the localStorage with special initial key.
+    return localStorage.getItem(`${settings.emailSearcherInitial}_${key}`);
 };
 
 // This function removes specific value by key from localStorage.
@@ -47,6 +47,6 @@ export const removeItem = (key) => {
         return;
     }
 
-    // Remove the item from the localStorage with special init key.
-    localStorage.removeItem(`${settings.emailSearcherInit}_${key}`);
+    // Remove the item from the localStorage with special initial key.
+    localStorage.removeItem(`${settings.emailSearcherInitial}_${key}`);
 };

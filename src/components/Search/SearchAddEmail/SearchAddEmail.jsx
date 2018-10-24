@@ -13,8 +13,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchAddEmail.less';
 import translate from '../../../translate/translate';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
-import { ErrorBox, SubmitButton } from '../../UI/UI';
+import { Auxiliary } from '../../../hoc';
+import { ErrorBox, SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

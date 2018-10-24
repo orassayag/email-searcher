@@ -12,9 +12,9 @@ import * as enums from '../../enums/enums';
 import translate from '../../translate/translate';
 import { isUserAuthenticated } from '../../utils/userAuthenticationUtils';
 import userAuthenticationShape from '../../modals/proptypes/userAuthentication';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import PageTitle from '../../components/UI/PageTitle/PageTitle';
-import RegisterLogin from '../../components/UserAuthentication/RegisterLogin/RegisterLogin';
+import { Auxiliary } from '../../hoc';
+import { PageTitle } from '../../components/UI';
+import { RegisterLogin } from '../../components/UserAuthentication';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -61,18 +61,10 @@ const mapStateToProps = (state) => {
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
     return {
-        onUserAuthenticationResetStateSuccess: () => {
-            return dispatch(actions.onUserAuthenticationResetStateSuccess());
-        },
-        onUserAuthenticationProcessStart: (userAuthenticationData) => {
-            return dispatch(actions.onUserAuthenticationProcessStart(userAuthenticationData));
-        },
-        onUserAuthenticationInputChangeStart: (userAuthenticationInputChangeData) => {
-            return dispatch(actions.onUserAuthenticationInputChangeStart(userAuthenticationInputChangeData));
-        },
-        onUserAuthenticationModeChangeStart: (userAuthenticationMode) => {
-            return dispatch(actions.onUserAuthenticationModeChangeStart(userAuthenticationMode));
-        }
+        onUserAuthenticationResetStateSuccess: () => dispatch(actions.onUserAuthenticationResetStateSuccess()),
+        onUserAuthenticationProcessStart: (userAuthenticationData) => dispatch(actions.onUserAuthenticationProcessStart(userAuthenticationData)),
+        onUserAuthenticationInputChangeStart: (userAuthenticationInputChangeData) => dispatch(actions.onUserAuthenticationInputChangeStart(userAuthenticationInputChangeData)),
+        onUserAuthenticationModeChangeStart: (userAuthenticationMode) => dispatch(actions.onUserAuthenticationModeChangeStart(userAuthenticationMode))
     };
 };
 
@@ -91,7 +83,8 @@ class UserAuthentication extends Component {
     // authenticated and reset all the state on load of the page.
     componentDidMount() {
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // If user is authenticated (After login or registration) redirect back to search-page (Home-page).
         if (isUserAuthenticated(props.userAuthentication)) {
@@ -122,7 +115,8 @@ class UserAuthentication extends Component {
         // Stop any default actions.
         e.preventDefault();
 
-        const props = this.props;
+        // Take the scoped props.
+        const { props } = this;
 
         // Create the userAuthenticationData to send and start the onUserAuthenticationProcessStart saga.
         // Start the onUserAuthenticationProcessStart saga.
@@ -146,7 +140,9 @@ class UserAuthentication extends Component {
     }
 
     render() {
-        const props = this.props;
+
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
 
         return (
             <Auxiliary>

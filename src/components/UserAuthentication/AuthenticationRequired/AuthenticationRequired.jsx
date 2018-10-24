@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 import './AuthenticationRequired.less';
 import translate from '../../../translate/translate';
 import { getAuthenticationImageSourceByType } from '../../../utils/UIUtils';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
-import SubmitButton from '../../UI/SubmitButton/SubmitButton';
+import { Auxiliary } from '../../../hoc';
+import { SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

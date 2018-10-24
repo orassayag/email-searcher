@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Layout.less';
 import userAuthenticationShape from '../../modals/proptypes/userAuthentication';
-import { Header, Footer } from '../../components/Navigation/Navigation';
+import { Header, Footer } from '../../components/Navigation';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
@@ -35,7 +35,8 @@ class Layout extends Component {
 
     render() {
 
-        const props = this.props;
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
 
         return (
             <div className="main-container">

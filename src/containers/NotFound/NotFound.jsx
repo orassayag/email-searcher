@@ -7,9 +7,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import translate from '../../translate/translate';
 import Routes from '../../routes/routes';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import PageTitle from '../../components/UI/PageTitle/PageTitle';
-import Page404 from '../../components/NotFound/Page404/Page404';
+import { Auxiliary } from '../../hoc';
+import { PageTitle } from '../../components/UI';
+import { Page404 } from '../../components/NotFound';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

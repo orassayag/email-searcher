@@ -12,6 +12,7 @@ import { userAddEmailToDatabaseProcessStartSaga } from './userEmails';
 import translate from '../../../translate/translate';
 import settings from '../../../settings/application/settings';
 import logicSettings from '../../../settings/logic/logicSettings';
+import UISettings from '../../../settings/logic/UISettings';
 import { toEmails, toEmailModal } from '../../../modals/conversion/email';
 import * as enums from '../../../enums/enums';
 import * as apiSearch from '../../../api/routes/search';
@@ -278,7 +279,7 @@ export function* fakeProcessStartSaga(action) {
     });
 
     // Delay for the loading UI look and feel.
-    yield delay(500);
+    yield delay(UISettings.searchEmailInitialDelay);
 
     // Preform success action (Remove loading and save the fake emails
     // to state and display them search-page (Home-page)).
@@ -497,7 +498,7 @@ function* searchStoreFakeEmailsStartSaga() {
         }
 
         // Delay each insert of an email.
-        yield delay(100);
+        yield delay(UISettings.searchStoreEmailDelay);
     }
 }
 
@@ -624,7 +625,7 @@ export function* searchAddEmailProcessStartSaga(action) {
     }
 
     // Check if any error exists (In console, in search user comments).
-    // If the validation failed to pass, generate the error within the searchErrorAddEmailStartSaga.
+    // If the validation failed to pass, generate the error within the searchErrorAddEmailStartSaga saga.
     if (!validationResult.emailItem || validationResult.errorToConsole || validationResult.errorMessage) {
 
         // Call the error saga to print error to the console
@@ -673,7 +674,7 @@ export function* searchAddEmailProcessStartSaga(action) {
     }
 
     // Check if any error exists (In console, in search user comments).
-    // If the validation failed to pass, generate the error within the searchErrorAddEmailStartSaga.
+    // If the validation failed to pass, generate the error within the searchErrorAddEmailStartSaga saga.
     if (validationResult.errorToConsole || validationResult.errorMessage) {
 
         // Call the error saga to print error to the console
@@ -699,8 +700,8 @@ function* searchAddEmailFailSaga() {
     // Show to the user the general error.
     yield put(actions.onSearchAddEmailProcessFail(translate.error_general));
 
-    // After a 5 seconds delay, close the modal window.
-    yield delay(5000);
+    // After a UI settings number of seconds delay, close the modal window.
+    yield delay(UISettings.searchAddEmailFailureModalDelay);
 
     // Call the success toggle action to hide the add email modal window.
     yield put(actions.onSearchAddEmailModalToggleReset());
@@ -742,7 +743,7 @@ function* searchAddEmailSuccessSaga(addEmailData) {
     }
 
     // If any error to console exists - The validation operation failed. Print the error to the console and show a message to the user.
-    // If no emails - There was an error, call the searchAddEmailFailSaga.
+    // If no emails - There was an error, call the searchAddEmailFailSaga saga.
     if (validationResult.errorToConsole || !validationResult.emails) {
 
         // Print the error to the console.
@@ -759,7 +760,7 @@ function* searchAddEmailSuccessSaga(addEmailData) {
     yield put(actions.onSearchAddEmailModalToggleReset());
 
     // After shot time of delay, close the modal window and mark the email as added.
-    yield delay(100);
+    yield delay(UISettings.searchAddEmailEffectDelay);
 
     // Update the email as added on the email's list.
     yield put(actions.onSearchAddEmailProcessSuccess(validationResult.emails));

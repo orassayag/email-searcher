@@ -13,6 +13,7 @@ import { getFunctionName } from '../../../utils/coreUtils';
 import { printErrorToConsole } from '../../../utils/textUtils';
 import { toUserInstances } from '../../../modals/conversion/userInstances';
 import { userGetEmailsTotalCountSaga } from '../sagas/userEmails';
+import UISettings from '../../../settings/logic/UISettings';
 
 // This saga function called when the user enter input on
 // email / password text-boxes on user-authentication form.
@@ -106,7 +107,7 @@ export function* userAuthenticationModeChangeStartSaga(action) {
     }
 
     // Delay for fade-in effect look & feel.
-    yield delay(100);
+    yield delay(UISettings.userAuthenticationSwitchModeDelay);
 
     // If all valid - Continue to change the state of userAuthenticationMode. The delay is for the fade-in animation.
     yield put(actions.onUserAuthenticationModeChangeSuccess(action.userAuthenticationMode));
@@ -367,8 +368,8 @@ function* userLogoutSuccessSaga() {
 }
 
 // This inner saga function called to handle all the actions need to be called after the user
-// logged in / register to the site (Or even after a refresh of the browser
-// after successful authentication operation and logged in to the site).
+// logged-in / register to the site (Or even after a refresh of the browser
+// after successful authentication operation and logged-in to the site).
 function* userLoginSuccessSaga(userInstances) {
 
     // Set the userEmails class instance in state.

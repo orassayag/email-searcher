@@ -212,10 +212,10 @@ export const toggleEmailMoreInformationPanel = (toggleEmailData) => {
         errorToConsole: null
     };
 
-    // Check if the user click wasn't the on the 'X' on the corner, but in other places.
-    // If click on 'X', don't do anything, the user don't want to open the panel,
-    // he want to delete the email.
-    if (toggleEmailData.className && toggleEmailData.className === 'fa fa-close') {
+    // Check if the user click wasn't the on the 'X' on the corner, or click on the link to the URL address, but in other places.
+    // If click on 'X' or on the URL address, don't do anything, the user don't want to open the panel,
+    // he want to delete the email or visit the URL.
+    if (toggleEmailData.className && (toggleEmailData.className === 'fa fa-close' || toggleEmailData.className === 'url')) {
 
         // Set the ignoreAction parameter to true, to stop any further actions in the saga.
         validationResult.ignoreAction = true;
@@ -499,7 +499,7 @@ export const validateToggleManageEmailModal = (toggleManageEmailModalData) => {
     }
 
     // Get the specific email row from the email's list by the fetched Id.
-    // If the email row doesn’t exists by the Id - Something is wrong, don't display the modal to the user.
+    // If the email row doesn’t exist by the Id - Something is wrong, don't display the modal to the user.
     validationResult.emailItem = toggleManageEmailModalData.emails.find(item => item.emailId === validationResult.emailId);
 
     // Check if emailItem found.

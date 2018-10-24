@@ -9,9 +9,9 @@ import translate from '../../../translate/translate';
 import * as enums from '../../../enums/enums';
 import { generateClassName } from '../../../utils/textUtils';
 import { validateParameters } from '../../../utils/validationUtils';
-import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
-import FieldBox from '../FieldBox/FieldBox';
-import { ErrorBox, Loader, SubmitButton } from '../../UI/UI';
+import { Auxiliary } from '../../../hoc';
+import { FieldBox } from '../';
+import { ErrorBox, Loader, SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

@@ -16,7 +16,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/sagas/rootSaga';
 import rootReducer from './store/reducers/rootReducer';
 import { getEnhancers } from './utils/coreUtils';
-import App from './containers/App/App';
+import { App } from './containers';
 import registerServiceWorker from './registerServiceWorker';
 
 // For redux development tools.

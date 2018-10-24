@@ -7,7 +7,7 @@
 import * as actionTypes from '../actionTypes';
 
 // This action function called when the search-page (Home-page) first load to reset
-// all inputs and settings to init state.
+// all inputs and settings to initial state.
 export const onSearchResetStateSuccess = () => {
     return {
         type: actionTypes.searchActions.SEARCH_RESET_STATE_SUCCESS
@@ -199,7 +199,7 @@ export const onSearchAddEmailProcessStart = (addEmailData) => {
     };
 };
 
-// This action function called when the validation on the add email saga vase pass successfully and
+// This action function called when the validation on the add email saga was pass successfully and
 // prepare to add the email to the user emails list by calling the API server - Show animation loader to the user.
 export const onSearchAddEmailProcessPreparation = () => {
     return {

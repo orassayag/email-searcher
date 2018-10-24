@@ -15,7 +15,7 @@ import Routes from '../../../routes/routes';
 import logo from '../../../assets/img/logo.png';
 import { isUserAuthenticated } from '../../../utils/userAuthenticationUtils';
 import userAuthenticationShape from '../../../modals/proptypes/userAuthentication';
-import NavigationItem from '../NavigationItem/NavigationItem';
+import { NavigationItem } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

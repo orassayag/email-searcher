@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { validateParameters } from '../../../utils/validationUtils';
 import { Route } from 'react-router-dom';
-import { PageShell } from '../../../hoc/hoc';
+import { PageShell } from '../../../hoc';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

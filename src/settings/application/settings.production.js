@@ -65,11 +65,11 @@ const applicationSettings = {
     // emails to be saved.
     maximumUserEmailsTotalCountLimit: 200,
 
-    // This field determine the init key words of each site application's
+    // This field determine the initial key words of each site application's
     // localStorage value that will be stored in the localStorage. This is
     // required to not override some other localStorage values that the
     // user's browser saved from other browsing sites.
-    emailSearcherInit: 'email_searcher',
+    emailSearcherInitial: 'email_searcher',
 
     // This field determine the default local culture of the site's language.
     // It will display the translations from the translate folder with the

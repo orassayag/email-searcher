@@ -12,14 +12,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Emails.less';
+import emailShape from '../../../modals/proptypes/email';
 import logicSettings from '../../../settings/logic/logicSettings';
 import { generateClassName } from '../../../utils/textUtils';
 import { validateArrayItems } from '../../../utils/validationUtils';
-import Email from '../../Email/Email/Email';
-import EmailsCounter from '../EmailsCounter/EmailsCounter';
-import EmailsPager from '../EmailsPager/EmailsPager';
-import Loader from '../../UI/Loader/Loader';
-import emailShape from '../../../modals/proptypes/email';
+import { Email, EmailsCounter, EmailsPager } from '../';
+import { Loader } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {

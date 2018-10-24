@@ -4,8 +4,10 @@
 
 import * as enums from '../enums/enums';
 import logicSettings from '../settings/logic/logicSettings';
+import UISettings from '../settings/logic/UISettings';
 import translate from '../translate/translate';
 import { validateEnumValue } from './validationUtils';
+import { generateRandomBoolean } from './textUtils';
 
 // This function takes a ref element and perform
 // animation scroll into the given position of the ref element.
@@ -61,4 +63,39 @@ export const isStandartScreen = () => {
 
     // Return calculated result.
     return window.innerWidth > logicSettings.minimumMobileWindowSize;
+};
+
+// This function calculate and return the UI settings for the PageShell component,
+// to determine and configure the animation transition effect settings to display
+// to the user while browsing from one page to another.
+export const getTransitionSettings = () => {
+
+    // Will hold the final result.
+    const transitionSettings = {
+        PageTransitionAppear: UISettings.PageTransitionAppear,
+        PageTransitionAppearTimeout: UISettings.PageTransitionAppearTimeout,
+        PageTransitionEnterTimeout: UISettings.PageTransitionEnterTimeout,
+        PageTransitionLeaveTimeout: UISettings.PageTransitionLeaveTimeout,
+        PageTransitionType: null
+    };
+
+    // Calculate the effect type of the transition.
+    switch (UISettings.PageTransitionType) {
+        case enums.PageTransitionType.FADE_IN:
+            transitionSettings.PageTransitionType = 'In';
+            break;
+        case enums.PageTransitionType.FADE_OUT:
+            transitionSettings.PageTransitionType = 'Out';
+            break;
+        case enums.PageTransitionType.RANDOM:
+            transitionSettings.PageTransitionType = generateRandomBoolean() ? 'In' : 'Out';
+            break;
+        default:
+
+            // If not match case found - Throw exception with relevant parameter name.
+            throw new Error(translate.error_invalid.replace('#params#', 'UISettings.PageTransitionType'));
+    };
+
+    // Return calculated result.
+    return transitionSettings;
 };

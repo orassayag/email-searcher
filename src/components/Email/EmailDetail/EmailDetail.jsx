@@ -33,7 +33,7 @@ const EmailDetail = (props) => {
     let value = props.value;
     if (props.isLinkMode) {
         value = (
-            <a href={props.value} target="_blank" rel="noopener noreferrer">{props.value}</a>
+            <a href={props.value} className="url" target="_blank" rel="noopener noreferrer">{props.value}</a>
         );
     }
 
