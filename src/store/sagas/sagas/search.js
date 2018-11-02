@@ -3,23 +3,23 @@
 // list, get fake emails, and other sagas that require logic and validations.
 
 import { delay } from 'redux-saga';
-import { put, call } from 'redux-saga/effects';
-import { getFunctionName } from '../../../utils/coreUtils';
-import { validateEnumValue, validateArrayItems, validateAPIResponse } from '../../../utils/validationUtils';
-import { printErrorToConsole, hasObjectKeys } from '../../../utils/textUtils';
-import { generateFakeEmails } from '../../../utils/fakeDataUtils';
-import { userAddEmailToDatabaseProcessStartSaga } from './userEmails';
-import translate from '../../../translate/translate';
+import { call, put } from 'redux-saga/effects';
+import * as apiSearch from '../../../api/routes/search';
+import * as enums from '../../../enums/enums';
+import { toEmailModal, toEmails } from '../../../modals/conversion/email';
+import { toManageEmail } from '../../../modals/conversion/manageEmail';
 import settings from '../../../settings/application/settings';
 import logicSettings from '../../../settings/logic/logicSettings';
 import UISettings from '../../../settings/logic/UISettings';
-import { toEmails, toEmailModal } from '../../../modals/conversion/email';
-import * as enums from '../../../enums/enums';
-import * as apiSearch from '../../../api/routes/search';
+import translate from '../../../translate/translate';
+import { getFunctionName } from '../../../utils/coreUtils';
+import { generateFakeEmails } from '../../../utils/fakeDataUtils';
 import * as searchUtils from '../../../utils/searchUtils';
-import { validateToggleManageEmailModal, setManageEmailAction } from '../../../utils/userEmailsUtils';
+import { hasObjectKeys, printErrorToConsole } from '../../../utils/textUtils';
+import { setManageEmailAction, validateToggleManageEmailModal } from '../../../utils/userEmailsUtils';
+import { validateAPIResponse, validateArrayItems, validateEnumValue } from '../../../utils/validationUtils';
 import * as actions from '../../actions/actions';
-import { toManageEmail } from '../../../modals/conversion/manageEmail';
+import { userAddEmailToDatabaseProcessStartSaga } from './userEmails';
 
 // This saga function called to handle the process of showing or closing the modal
 // on search-page (Home-page), and in case of user-authentication
@@ -443,6 +443,9 @@ export function* searchProcessStartSaga(action) {
 // logic functions, that the user will not notice them and required to healthy
 // running of the application.
 export function* searchOnLoadStartSaga() {
+
+    // Reset search variables.
+    yield put(actions.onSearchResetStateSuccess());
 
     // If there is a need in development mode to create and store on the database fake emails,
     // there is a call to searchStoreFakeEmailsStartSaga saga that do it. It will generate to
