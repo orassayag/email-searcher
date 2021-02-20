@@ -924,7 +924,7 @@ function* userDeleteEmailSuccessSaga(deleteEmailData) {
         // Check that any emails that are not in the action type of "deleted" left.
         // If not, refresh the page and reset the pager number.
         if (emailsCount.length <= 0 || (validationResult.userEmailsTotalCount % deleteEmailData.userEmails.userEmailsCountPerPage <= 0 &&
-                deleteEmailData.userEmails.userEmailsCurrentPageNumber === 1)) {
+            deleteEmailData.userEmails.userEmailsCurrentPageNumber === 1)) {
 
             // The page needs to be reloaded.
             reloadData.isReloadThePage = true;

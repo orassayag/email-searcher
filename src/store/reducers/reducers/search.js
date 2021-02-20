@@ -19,6 +19,8 @@ export const onSearchResetStateSuccess = (state) => {
     return updateObject({
         oldObject: state,
         updatedProperties: {
+            searchKeyTempValue: '',
+            searchKeyInputValue: '',
             searchMode: enums.SearchMode.TEXT,
             searchOptions: resetMultiSearchOptions(state.searchOptions),
 

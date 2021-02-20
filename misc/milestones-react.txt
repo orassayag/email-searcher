@@ -1,0 +1,2375 @@
+React online project:
+https://email-searcher-9a370.firebaseapp.com/
+
+GitHub:
+https://github.com/orassayag/email-searcher
+
+Or Final Project - Steps:
+-------------------------
+-Finish the email to Max. *
+-Correct this document spell mistakes. *
+-Search Max email and send him email about the course. *
+-Send Gilad email about questions in React, and paste here the answers. *
+-Convert the simple project of burger (26) to work with LESS. *
+-Start plan the final project: *
+*Pages. *
+*Database entities. *
+*Options in each page. *
+*API end points. *
+-Correct this document spell mistakes again. *
+-Send to dad the mini documentation I wrote. *
+-Find html template to suit the needs. *
+-Clear the html template to keep only what you need. *
+-Start with main page, step by step, slowly but safe, and always use burger builder as a reference. *
+-When finish:
+1. The client side (React): Make a zip and send to Gilad: giladl82@gmail.com
+2. Correct this document spell mistakes again.
+3. Separate the react parts and make order so other can read this document.
+4. Create backup folder in Client folder and put there all the backups.
+5. Attach file called "rights.txt" with:
+//////////////////////////////
+--Created by Or Assayag 2018--
+//////////////////////////////
+6. Update the project in DropBox.
+-------------------------
+
+garo-estate-master
+------------------
+Html pages needed:
+index.html
+user-properties.html
+register.html
+404.html
+contact.html
+
+ToDoList:
+-Search for logo with same sizes (149px X 48px). *
+-Change colors in all place. Decide on color to change. *
+-Add favicon configurations. *
+-Implement google fonts. *
+
+-index.html:
+*Remove top contact. *
+*Replace logo. *
+*Top Menu: Remove Buttons *, Change Menu to: *
+--If not authenticated: Search, Register | Login. *
+--If authenticated: Search, My Emails, UserName. *
+--Remove bottom arrow menus. *
+--Remove rest of the properties� menu. *
+--Shrink menu padding and margin. *
+*SearchBar Container:
+--Remove gallery image rotate. *
+--Instead shrink the margin and padding. *
+--Change title to "Search your emails". *
+--Remove text. *
+*SearchBar Component: *
+--Remove City and Status. *
+--Expend the "key word" textbox. *
+*SearchBar Component Advance search: *
+--Remove all content *
+--Instead, replace 3 text boxes from contact.html page (make sure stays responsive). *
+--Text below each text box with example of input. *
+*SearchResults Container: *
+--Remove TOP SUBMITTED PROPERTY content only, leave the container. *
+--Remove GARO ESTATE completely. *
+--Remove OUR CUSTOMERS SAID completely. *
+--Remove QUESTIONS? CALL US completely. *
+--Remove ABOUT US | QUICK LINKS | LAST NEWS | STAY IN TOUCH completely. *
+--Give absolute height. *
+*Bottom component: *
+--Change to: (C) Or Assayag, all rights reserved 2018 (make Or Assayag as link to email) | App icon by icons8 (link to https://icons8.com/) *
+--Change the bottom links to: *
+--If not authenticated: Search, Register | Login. *
+--If authenticated: Search, My Emails. *
+
+*SearchResults:
+user-properties.html
+--Change the title to "My Emails" *
+--Blue the background of the title like the home page. *
+--Remove side menu. *
+--Expend the item to all width. *
+--Remove sorting buttons. *
+--Change text: Emails per page. Change drop down values to 10/20/50. *
+--DropDown: give more margin and padding. *
+*SearchResult Item:
+--Remove image. *
+--Expend all the row width. *
+--Title will be the email address. Shrink the font of the title a little bit. *
+--Instead of "Area" change to "URL:" with fake URL. Limit the character number to 100 with ... *
+--Remove rest of the text. *
+--Gray bottom: Remove all icons, leave only the "Delete" without any "/". *
+--Add under "URL" the following: *
+"Add on:" with fake datetime *
+"Search engine:" with fake search engine *
+"Found by key:" with fake key search with "" between the key. *
+"Comments": with fake comments. *
+All of this will not be displayed by default, put them with div with display none *
+--After all that - install it on index.html page in the TOP SUBMITTED PROPERTY area. --Install it without the pager and the drop down of the counts. *
+--With the results - install a div with a message "Sorry, no emails for "". *
+--When item is added on home page / deleted on my emails page, effect the removal div with fade out. (Add �slideup� to the container col-md-4 p0). *
+--Add description for each element in advanced search. *
+
+user-properties.html *
+*Change the title to "My Emails". *
+*Change title image to background color of the search bar container. *
+*Implement the SearchResults Component with pager and dropdown of the counts. *
+*Implement each row with �More information� of "Add on" and so on. *
+
+register.html
+*Change the title to "Registration / Login". *
+*Change title image to background color of the search bar container. *
+*Remove the NEW ACCOUNT box. *
+*Under the button write text "Already registered? login" (link). The link will replace the text of the button from "Register" to "login" and the validation will be others. *
+*Remove the SOCIAL LOGIN section. *
+
+-In the end - DONT FORGET:
+*Merge classes. *
+*Merge duplicate classes.
+*Replace all animations to CSS. *
+*Before clean - do backup. *
+*Clean unneeded styles and links. *
+*Convert all RGB to HEX. *
+*Remove all !important from CSS. *
+*Make sure that all "transform" / "transition" have -webkit rule. *
+*Search how to use bootstrap + LESS + CSS modules.
+*Search how to include external CSS files in bundle.
+*Copy all the code to word to fix spell mistakes.
+
+Or Final Project - Email searcher - Plan
+----------------------------------------
+--------------
+--------------
+--------------
+--**Client**--
+--------------
+--------------
+--------------
+
+To Do List:
+---------
+-Start with the design with dummy data from: https://jsonplaceholder.typicode.com/ *
+-All data operations do with firebase database, like in the burger project.
+-In case no emails found - display a message that no emails were found. *
+-If user don't have emails - display a message that user doesn't have emails yet. *
+-Logic of emails to find - Search for CV spider in the computer.
+-Add option like include/exclude of search type TEXT / URL. *
+-Search text: only alphanumeric, Search URL, only URL characters allowed and validate URL. *
+-Search for every element with id and try to replace with class (If needed), if not, pass id if duplicate element. *
+-Move from page to page with animation. *
+-Change background color of added email with animation. *
+-After added, change the icon from + to v. *
+-Fix fade out on modal.
+-Fix added animation after modal is closed. *
+-Fix enable to change direction of search textbox. *
+-Change placeholder of the search textbox when change the search type. *
+-Add translate folder and add translate.en.js with all the culture translations of the project. *
+-In the end: Add Context API to auth. Learn how to work with it.
+-Add alt title on BoxButton component on the icon. *
+-Add settings.js file by environment. *
+-In the end - try add prettier and disable other beautify (Do a backup before that).
+-Add missing setting on eslint to this settings file. *
+-Manage dependencies and dev dependencies. *
+-Finish settings import. add import keyword. *
+-If settings solved do it also for translations. *
+-Take error messages style from JumboMail.
+-When select "URL" search mode toggle the "URLs" search options in the advance search panel. *
+-Remove "props" from unused components. *
+-Marge search options array from Search with SearchBar (move all from SearchBar to Search to be 1 place). *
+-Format all components for each attribute in separated line. *
+-Find solution to all places with empty space with class (classType=" search-bar"). *
+-Make order on all imports: react, PropTypes, less, functions, components. *
+-Add title to modal close button. *
+-Remove "Function" keyword from events. *
+-Build a function for alphanumeric that receive array of characters that are allowed, maybe replace the regex on with a loop one. Check it. *
+-Separate the title, description and example of array to inner array and find it by searchOptionId (Less things on state). *
+-Make an enum for the searchOptionType. *
+-Make default value of "mode" of search options to include. *
+-Add validation function for each searchOption (Don't search or close the advance search panel). *
+-Validate the search option only if there is a value inside it. Do it also in node.js.
+-First load: Load the example data, after that do validation of empty KEY / URL address. *
+-Make the error message with animation "shake" (Search on google). *
+-Check the error validation on submit, and when switch between mode of TEXT and URL. *
+-Fix search bar initial. *
+-Fix SubmitButton other class. *
+-On password on page of auth - check for hard password.
+-Add general methods of add class to string conditionally. *
+-Make array of objects of each property of each search mode. *
+-Fix bug of long search key in the UI. *
+-On each error on validation on search option display the invalid input. *
+-Both on client and server on URL domains take only the domain and not the full path if entered.
+-Error message - Set the "Shake" animation each time there is an error, not just one time. try set time out and remove the class and force render - Do it with interval on CSS. - StackOverFlow:
+https://stackoverflow.com/questions/52092277/css-animation-with-interval-and-delay-only-from-the-second-time
+-Ask in StackOverFlow about initial value: *
+https://stackoverflow.com/questions/52060905/use-initial-value-after-declared *
+Bonus: Add "tokenfield" plug on each search option.
+-Fix workaround: function() { return 'my count is #count#'.replace('#count#', this.maximumCharactersCount)}} *
+-Fix bug of error message on mobile devices. *
+-Scroll down to error on mobile. *
+-Fix fat rows on mobile devices. *
+-Turn off spell check on textboxes. *
+-Fix name padding bug. *
+-Fix bug on emails keys (No validation is taking place). *
+-Add error scroll both to validation and maximum length characters. *
+-When adding comments do 2 validations: 1. no more than 200 characters. 2. alphanumeric with ' and " only (Build function for that). Don't close the comments window until the validation is off. *
+-On mobile, scroll down (Try with CSS) to the position of the elements results after click on search button and pass all validations. *
+-Refactor scroll function. *
+-Fix bug of always "Example Results" title. *
+-Fix center of BoxButtons on mobile devices. *
+-Fix footer padding on mobile. *
+-When click on "Apply" button on mobile - go to top. *
+-Refactoring of all validations: Missing validations, invalid param validations, array and count validation, add ref.current validation. - StackOverFlow: https://stackoverflow.com/questions/52098535/get-parameter-name-as-passed-to-a-function-inside-array.
+-Refactor get value from array to function. *
+-Merge all lists on Search.jsx into one list. *
+-Fix bug on second added email validation. *
+-Fix validation of Email Keys. *
+-Fix error of URL mode still validating URL domains. *
+-Find a way to load static CSS files, and not to use outside CDN. *
+-Find a way to control all meta tags and browser title on static index.html from translate.en.json file (maybe call a function from static and generate it dynamically). *
+-Add back the "type=text/css" and try another version of normalize.css to overcome the resource warning. *
+-Add sub-title on home page of results count. *
+-Add on my emails page title "My emails" and sub-title of emails count. *
+-Limit the number of emails of user to 200 (put the limitation on settings.js and also check it on node.js server-side API). *
+-When user logged in and try to add mail and he is over limiting the mails he can add, popup modal and tell him he needs to clean old mails. *
+-Add favicon and manifest.json file to static content. *
+-Rearrange static content in folder of "asserts". *
+-Build general function for both Search and MyEmails page with main and sub titles. *
+-Fix modal loader by adding isInsideModel property. *
+-Fix all classes mess inside Email.jsx. *
+-On auth page make password difficult + exclude some keywords (search in google with not allowed keywords). *
+-Convert where there are a lot of parameters - to objects. *
+-My emails page: Show counter and pager if more than 10 emails exist. *
+-My emails page: Add modal of delete email. *
+-Add error cases: *
+1. Home page - Fetch example emails / search. *
+2. Home page - Add email modal. *
+3. Auth page - Submit. *
+4. My emails page - Fetch emails. *
+5. Me emails page - Delete email. *
+-Build function that get the mode (Development / production), in coreUtils, and replace it in all site. *
+-To test counter and pager - do loop in componentdidmount of inserting emails, about 100 with different text, build method for that and generate it only within development mode. *
+-Generate real "fake" emails by one method. *
+-Fix "Scroll" bug when loading emails (After change counter or pager). *
+-Finish pager logic. *
+-Counter logic: Only enable options of 10 only if have more then 10, and so on for all until 50. *
+-Delete logic: After 3 deletes, refresh the page. *
+-Delete logic: If after delete no emails left - display message accordingly. *
+-Delete logic: After changing the state actionType of the specific deleted mail to DELETED, update the emailsDataBase count (In production do the same, of course after deleting the email from the actual database). - Write comment about his on the field - about that in a big application we don't delete rows, just change the state, for statistics. *
+-Make sure that total mails update (Currently have 11 emails) after delete email. *
+-Make order in state parameter - don't pass it in any function - need always updated state. *
+-General refactoring (for example, don't declare of state if there is logic that can be undone before any declaration). *
+-Fix bugs on home page. *
+-Fix bug after change page / change count - the title update with previous count. *
+-Add validation checks of parameters inside functions. *
+-Fix bug UI after delete rows from the middle. *
+-Refactoring of getEmailsToDisplay method. *
+-Fixed bug in pager. *
+-Put totalEmailsCount outside of navigation. *
+-Fix bug of leak memory by redirecting between pages. *
+-Refactoring (When moving to saga):
+1. Make 1 external method for coping shallow of emails list. (use already built method in emailUtils.js file).
+2. Make 1 external method for add and delete, pass the relevant data.
+3. Make 1 external method for settings email's title.
+-Validation of email - take it from react and improve it both places if necessary.
+-Validation of email and URL - search in google test cases of email and test the email and URL, and all results of invalid, ask in StackOverFlow for fix. *
+-When transferring to saga, all validations operations in separate functions. *
+-Refactor all names of button clicks. *
+-When moving to node.js remove the separation (api_base_url / api_base_user_url) between api.js to userApi.js - All requests to 1 API.
+-Fix a lot of bugs: characters limit + pager + QA on all site before continue with saga. *
+-Add the auth token time to settings. *
+-After finish ALL with auth saga: *
+1. Convert arrays into map in all places. *
+2. Implement CSS transition between load and registration. *
+-Write about async component with transition:
+https://stackoverflow.com/questions/52243137/react-reactcsstransitiongroup-with-asynccomponent
+-Add loader in initial site to remove any CSS influence. *
+-Error types to enums. *
+-Fix bug that after error - no inputs and if switch to login / registration - need to clear inputs. *
+-Change "bottomError" to generalError. *
+-Add "auth" initial to all state parameters. *
+-Re-arrange all methods: *
+1. Add "on" to the initial of the function. *
+2. Re-arrange takeEvery by functions order. *
+3. All files re-arrange by functions order. *
+-Refactor all const authData and so o to initialize inside the method. *
+-Move all token check time logic to authUtils. *
+-Build function on textUtils that get array of parameters and generates the "x or x or x" parameters error. *
+-Move all code to word any search for any spell mistakes and fix them.
+-After all finish move this document to word to fix spell mistakes.
+-Change the logic of checking if the token is valid: build 1 method that gets all details credentials and valid them, one time it will be from localStorage (after refresh) and one time it will be in Layout component. *
+-Find appropriate way to get isAuthenticated, not check token each time. Maybe function. *
+-Implement logic to verify the token is valid: Bring back the logic of full check, and build method that check token and expirationDate. *
+-Move the declaration of the culture to the settings. *
+-Add "TOKEN_EXPIRED" to enum. *
+-In each node.js server request - if token is expired, return result of "token expired" and in react the user will automatically logout (Implement this logic in react already).
+-On emails saga - build method that insert emails to the server (it will be in use both on insert user emails and to insert fake emails to load). The fake emails will be resulted only when there will be actual search - not for first time load.
+-Re-arrange all parameters in all components/containers - parameters on top, functions on bottom. *
+-Move all methods from auth saga that are not sagas to auth utils. *
+-After all finish - fix differences in all places between invalid and missing errors in all cases. *
+-COMMENTS COMMENTS COMMENTS After all saga finish - go throw all the code and write COMMENTS COMMENTS COMMENTS:
+-auth. *
+-emails.
+-myemails.
+-Change upper title on auth page according to the current mode (Login / registration). *
+-When transfer to saga - all data arrays to separate methods, and for each array build method that build the array, no need to put hardcoded all values:
+-auth. *
+-emails.
+-myemails.
+-Go on all over the components and convert errors with "or" key to the built function.
+-Change "token" to "userToken" and all the parameters of user with "user" in the start.
+-Search saga: change loadingEmails to "isLoadingEmails" like in auth.
+-In auth saga: change "isLoading" to "isLoadingAuth" for convention reasons.
+-Create general saga that will include "searchErrorSaga" and "authErrorSaga", it will receive function to yield, and error message.
+-Create center error div on the advanced search options for unexpected errors during any changes of the advanced search options. *
+-If any error exists (search option, search advance option, general error) - Don't perform the search.
+-After validation function - loop on each searchOptionStatus - first check if the status is changed, and only then update it. *
+-After finish all validations: Add scrollToSearchOption to state in componentDidUpdate. *
+-On toggle the search options panel - call searchProcessStartSaga saga with parameter if continue after the validations pass or not (in this cast false, in real or default search - true). *
+-On Auth - need to add a call to bring the total number of emails the user has. It's only in login. In registration put 0. On Node.js you don't need 2 API calls, just 1.
+1. Convert all places from userId number to string: *
+2. Load all the emails again with userId null. *
+-Convert all emailId as string (10 characters). *
+-After search saga finish:
+1. Convert all enums to Capitalized: *
+const Colors = Object.freeze({ *
+    RED:   Symbol("red"), *
+    BLUE:  Symbol("blue"), *
+    GREEN: Symbol("green") *
+}); *
+If you don't like the boilerplate, like the repeated Symbol calls, you can of course also write a helper function makeEnum (on CoreUtils.js) that creates the same thing from a list of names. *
+2. Convert all enum keys to UPPER case. *
+3. Go throw all sagas and where is validations - Out on internal sagas. *
+4. All actions - Pass only one main parameter. *
+5. Change names of validation method from "validateLoginAuthMode" to "validateLoginAuthModeRequest". *
+6. Change all "FAIL" actions to "ERROR". *
+7. Change 'searchGeneralError' to 'searchOptionsGeneralErrorMessage'. *
+8. In comments, where "client" change to "user". *
+9. When search option general error on mobile - ref it to the position. *
+10. Change search options - All PropTypes types to enum. *
+11. Build index for each components folder, in order to load all of them in one line. *
+12. Add to the "SEARCH_PROCESS_PREPARATION" "success" in the end. *
+13. On auth saga - response validation is separate to 2 conditions (one with !response and one with response.data.idToken) - merge them to 1 and check everything still works. *
+14. Add the logic that is user is not authenticated and try to search emails - modal with different image and different text (maybe one word to replace?) will raise up. *
+15. Change on "onUserAuthProcessFail" to "errorMessage" instead "error". *
+16. 'Comments' and 'results' put also on enums. *
+17. Insert getSearchErrorMessage all errors to enums. *
+18. Insert all SearchEngine to enums and convert them in all places, and throw error if invalid searchEngine. *
+19. Change all properties of Booleans components to "is" - Make since for the other developers to know immediately that is Boolean. *
+20. Give each email fields: *
+a. addedDate with null as default. *
+b. userId 'default' as enum. *
+c. emailActionType default value - also some enum. *
+d. Update API doc on bottom. *
+21. Set const of:     // Close the modal window and reset all parameters. *
+    yield put(actions.onSearchAddEmailModalToggleSuccess({ *
+        showModal: false, *
+        addEmail: { *
+            emailId: null, *
+            email: null, *
+            errorMessage: null *
+        } *
+    })); *
+22. Create general method of "userAuthErrorSaga" - The logic there repeats itself. *
+23. Change on auth saga the "expirationDate" to "tokenExpirationDate". *
+24. Fix bug on         if (userEmailsCount.errorMessage) { - Display the error message to the user and print in to console. *
+25. Build generic method with enums type for all cases: (like getAddEmailErrorMessage / userAuthErrorSaga and so on). *
+26. Separate enums folder to subfolder and main root and routes folder, like in all places. *
+27. Remove "validateAuthProcessSaga" and implement it like in search saga (1 method that display the error and console error if needed). *
+28. Create Modals folder, "User", "Email", and "Email" classes, and work with them in all places. *
+a. When API return results - send to one method that do validation and after that - convert all the response.data to classes. *
+b. When moving to class email - in the parse function also include the email string to date time and search engine. *
+c. Search about PropTypes of class. *
+d. Add field of EmailType - also to enum - "FAKE" / "SEARCH". *
+29. Implement generic function to check all properties of object are null/empty. *
+30. Move all localStorage functions into storageUtils. *
+31. Loop on enum of the user localStorage, no need for 5 times call the same function. When calling the function, write comment that its not allowed to change the order of the given array. *
+32. Change in all places from "defaultProcess" to "fakeProcess". *
+33. All places needed - Bring back validation on userId and userToken. *
+34. All methods on search - Check is authenticated user where is needed before calling the action. *
+a. checkAuthTimeoutSaga -> userAuthCheckTimeoutSaga. *
+b. logoutSaga -> userAuthLogoutSaga. *
+35. Remove all validations on API functions - No need for them after validate on utils. *
+36. Change the creationDate to addedDate. CreationDate take the original fake data: (On this line:) *
+creationDate: new Date() // This no need on Node.js, will create it on the server. *
+37. All "errorToConsole" one-row convert to multi-row. *
+38. Search for validation on userId and tokenId and uncomment them. *
+40. Clear unneeded code comments. *
+
+validateFields(info, fields);
+42. These lines repeats themselves on: validateLoginUserAuthMode and validateRegistrationUserAuthMode *
+
+    // Validate existence of email and password parameters. *
+    if (!userAuthDataRequest.emailText) { *
+        validationResult.textBoxType = enums.UserAuthInputType.EMAIL; *
+        validationResult.errorMessage = translate.user_authentication_page_error_empty_email; *
+        return validationResult; *
+    } *
+
+    if (!userAuthDataRequest.passwordText) { *
+        validationResult.textBoxType = enums.UserAuthInputType.PASSWORD; *
+        validationResult.errorMessage = translate.user_authentication_page_error_empty_password; *
+        return validationResult; *
+    } *
+43. Change "SEARCHKEY" to "SEARCH_KEY". *
+44. Each "Advanced Search option" change to "Search option". *
+45. In each place where translation is different by one word, use `${}` logic. *
+46. Fix bug when login and back to home page - Failed prop type: You provided a `checked` prop to a form field without an `onChange`. *
+47. Comments on enums too. *
+48. Fix bug with toggle with must auth modal. *
+49. Fix bug of showing empty error container on search options panel. *
+50. Fix bug of error on writing on textbox and redirect and back to the page and still have error (both on auth and search pages). *
+51. Fix bug that redirect after login - no user is authenticated on search page. *
+52. Fix bug in auth that if change auth mode - the values not clear. *
+53. Fix error message incorrect in login mode when user and password incorrect. *
+54. Change "SearchOptionType" to "SearchElementType". *
+55. After "my emails" saga ends, verify that when the token is expired - redirect to home page.
+56. Rearrange searchBarData - move things to searchUtils.js *
+57. Build 1 function that validates if key found in enum list. After check that the function works well - go throw all places where there is manually validation on enums and refactor it. *
+58. On Modal change from "error" to "errorMessage". *
+59. Fix bug when redirect to my emails after change search options settings. *
+60. Each place that handle a date - Check the validity of a date. *
+61. Refactor baseValidateMultiValues *, validateCharactersLength *, baseValidateAlphanumeric * - To receive on object parameter. *
+62. Validate on baseValidateMultiValues function that validateFunction is a function and it's existed. *
+63. Functions of generateRandomText *, generateRandomNumber *, generateClassName * - To receive on object parameter. *
+64. On "My emails" page - add the "AddedDate" to display.
+65. Do the same conversion like you did on emails, to user. *
+66. All places convert from "=== 0" to "<= 0". *
+67. Convert to enum: action.searchOptionData.propertyName === 'mode' *
+68. Add implementing "PrivateRoute" component: https://gist.github.com/rcanepa/b4ce0dff8d85b357504e04b03e69ac66. *
+69. Also build "SearchRoute" that will be wrapped normal Route with PageShell. *
+70. Fix bug that on adding fake email to the user emails - This comment not listed. *
+71. If adding fake email - and the user have no comments - no comments should be added. *
+72. On modal - Same properties. *
+73. setSearchOptionStatus - One parameter received. *
+74. Fix bug of creation date after search process. *
+75. Go throw all methods in the project and make sure all received only one parameter. *
+76. Build map of all counts of validations and all recourses will take it from there. Also build map for all definitions in all places, separated from validations map. Build all this in "settings" folder by separating settings files. Separate for "Development" and "Production" folders. Make sure to use it also in Node.js API Server.
+77. Trim all inputs and text-areas (Search options, comments) and then validate. *
+78. Change all API" and "URL" to uppercase. *
+79. Fix that error still exists when fix validation errors on search options. *
+80. On searchOptions change from "error" to "errorMessage". *
+81. Implement Array PropType with specific length of 3 while passing search options to SearchBar: *
+{ *
+https://stackoverflow.com/questions/42659728/react-proptypes-array-with-specific-length/42661498 *
+https://reactjs.org/docs/typechecking-with-proptypes.html#react.proptypes *
+} *
+83. Fix bug that on add comments the searchkey take fake email value. *
+84. All "#params#" convert to function of getErrorParametersString. Improve this function by getting INVALID or MISSING and return an error. *
+85. Build function for multi generateClassName in ErrorBox component. *
+86. Fix bug with close add comment modal via corner X. *
+87. Build method that check if element exists in enum: 'Object.values(' repeats itself. *
+88. Change "MIN" to "MINIMUM" and so on for "MAX" to "MAXIMUM". *
+89. Fast way: Fix bug that max emails for the user not working. Refactor to a method maybe for double check, in load of the page and in the validation in the saga. In order to do so there is a need to separate userEmailsCount from user, to external property on the state. * change it in all places and check it again in login/registration modes. *
+90. Smart way: Another way to fix this issue is to separate concerns, build 2 classes, one UserCredentials, one UserData, on credentials will be all the fields that can't be changed without refresh the page, on data will be all the user's data, emails count, emails list, etc... *
+91. In user credentials also save the password (only in state, not in localStorage). *
+92. Change the classes to CamelCase. *
+93. In user data also save: The emails list, total emails count, deletedEmailsCount, totalPagesCount, Count of emails per page, current Page number. *
+94. Change field name from "userEmailsCount" to "userEmailsTotalCount" to make it clearer. *
+95. Change enum name "UserAuthParameter" to "UserParameter". *
+96. Add logic that before adding the email to the emails list - Check by calling to the server the total emails count to verify that there the user not crossed the limit to save emails. - After another thinking - this is not needed, since that in the server API we do that check, so it would be 2 calls to the web API. not needed. *
+97. In all places where is a conversion to number - Build function that convert and check if nan, and if nan assign given default value.
+98. Write comments on the top of each component/container/hoc.
+99. Write comments in the beginning of each utils, to explain which kind of functions to place there.
+100. Add shape also to "searchOption" since it's more than one place. *
+101. In "toEmailModal" change the {...} to use the updateObject function. - No need since it's also have deletes properties. *
+102. Change "maxEmailsPerUser" to "maximumUserEmailsTotalCountLimit" (max_emails_per_user -> maximum_user_emails_total_count_limit). *
+103. Fix bug: Write in search options invalid value, and then click "apply". After invalid error, fix it, and click "apply" again. Then, the toggle will take place and the panel will go up. But if click toggle again, you still see error. *
+104. Fix bug on search options: only one validation at each time. Need to be multi error. *
+105. Merge all exact validation results objects into one class, like validationResult and userEmailsTotalCountResult. *
+106. Build a recursive function that gets an array on numbers and return new array with limit values. This function needed for the counter component, built in on textUtils. *
+107. Go throw all numbers from logicSettings and remove the "getNumber" conversion. *
+108. Merge all logic of window.innerWidth < 1170 to one function. *
+109. Comments on everywhere (on the top each JavaScript file). *
+110. Export the root reducer to external file. *
+111. Move all the comments to the beginning of each file. *
+112. Export initialState to external file. *
+113. Move "searchOption" single component into a class. Also, the addEmail (and replace it in the reducer). *
+114. Write comments on each field on the state. *
+115. On localStorage check if number - Export function from textUtils to validation utils and use it on localStorage. *
+116. Build search options enum and merge it with search element and ref points enums. *
+117. Search for //a,b,c,d or //  (tow spaces) and fix them. *
+
+-Auth emails:
+-------------
+1. Check if user id is a number. *
+2. Set that the default emails results will be 'default'. *
+3. When user register, insert 0 to userEmailsCount on state (both on state and localStorage). *
+4. When login, pull the number of emails from API. *
+5. Change all "auth" to "userAuth", and mark in API that this is the only place that there is separation. *
+5. When try add, first check on localStorage, then result from API. *
+6. Fix bug on try to close limit modal. *
+7. Add email to emails list in add-emails saga on search page *
+8. Separate between Lists in database of fake emails and user-emails. *
+9. When enter the my-emails page: get total emails number, and update the userEmailsCount (both on state and localStorage).
+-On User-Emails saga - delete email like this: https://stackoverflow.com/questions/33999813/delete-object-from-list-via-firebase-rest-api
+-After all saga done - Combine all categories of component so to import will be just by *.
+-Each method that throw exception - Put try catch.
+-Use same Search engine enum both in Node.js and in React.
+
+-My emails tasks missions:
+--------------------------
+1. Create one root shape that will import all the shapes (import * as shapes). *
+2. Merge error messages in translations: error_general, search_options_general_error, search_bar_error_general, add_email_modal_error_general, delete_email_modal_error_general. *
+3. Implement an general error message in "user-emails" page in case there is an error when getting the user's emails list. *
+4. Refactoring: Change all places "user" to "userAuthentication", and create another one named "userEmails" (actions, reducers, watchers, all the places needed). On search page get the userData instance from userData state. All the "userEmails" state will be the "my-emails" fields. *
+5. Change the "AddEmail" class to "ManageEmail" since the delete modal has the same properties. *
+6. Change all "userAuth" to "userAuthentication". *
+7. Change "emails" path to "user-emails". *
+8. Change user to userInstances. *
+9. Check for no "AuthenticationAuthentication" cases. *
+10. Add "PropType" file shape to "ManageEmail" class. *
+11. Change all "my-emails" to "user-emails". *
+12. Build "map" of routings paths (New folder named "routes" and "routes.js" file with enum like with all the routes). *
+13. Change all "homepage" or "home page" to home-page. *
+14. Remove all "" from all names. *
+15. Change all "more info" to "More information". *
+16. Change "MustAuthentication" to "AuthenticationRequired" *
+17. Insert "'No response data'" to translate. *
+18. In each error try catch write in the comments of the error " Set the error message:" *
+19. Convert "    // Create the template to update the state. *
+    const addEmailData = { *
+        emailId: null, *
+        email: null, *
+        errorMessage: null *
+    };" into a ManageEmail class instance. *
+20. Change the folder of "states" to "initialStates". *
+21. Change all "moreInfo" to "moreInformation". *
+22. Fix bug in authentication after switching to login. *
+23. Fix bug of logout from user-emails page. *
+24. Fix bug of logout after delay - don't work. *
+25. Where you can, use "yield all" - Not working. *
+26. Check also for duplicates calls for localStorage functions in login process, and merge them into login saga. *
+27. The toggle validation can be merged into one function in userEmailsUtils, same validation of add and delete. *
+28. Build multi import of shapes (import * from shapes). *
+29. Rename all sagas, add the "start" or "success" in the end of the name, to all sagas. *
+30. Change "errorErrorType" to "functionName" and make sure all have function name. *
+31. Replace all places when error need to be printed to the console to one centered place. *
+32. *
+a. Need to preform logic on production that is no fakeEmails exists - Generate them and store them automatically. *
+b. Build a flag in the settings to turn on and off this logic. *
+c. Transfer the "isGenerateFakeEmails" also to the settings. Build logic to get bool (Similar to getNumbers with default value). *
+33. Convert the "settings" of "application" from json to normal JS file for 2 reasons: *
+a. Write comments on each field (On json file you can't write comments). *
+b. To get rid of all the "getNumber" with default value (Make sure to remove only the places that calls the old settings). *
+c. Write comment on each field. *
+d. Rename changes: "email" to "creatorEmail", "creator" to "creatorName". *
+e. Add "test" environment. *
+34. If no comments don't write "this is example". *
+35. Create one method function that does this: Object.assign(Object.create(Object.getPrototypeOf( - (Logic repeats itself). *
+36. Fix Bug on toggle more information panel: "This synthetic event is reused for performance reasons. If you're seeing this, you're accessing the property". *
+37. Build generic function on textUtils that check if array is not empty and has elements: * if (!errorParamatersList ||  errorParamatersList.length <= 0) { (Also build an object.keys array check generic method: *
+!emailsArrayData.emailsArray || Object.keys(emailsArrayData.emailsArray).length <= 0)) *
+38. Add autoComplete attribute to TextBox. *
+39. Build generic function that check basic authentication: !basicEmailValidationData.userAuthentication.userId || *
+        !basicEmailValidationData.userAuthentication.userToken || !basicEmailValidationData.userAuthentication.isUserAuthenticated() || *
+40. *
+a. Build function to generate the class name and all places with "errorErrorType" (that already changed) change to call of this function. *
+function getFunctionName() { *
+    var re = /function (.*?)\(/ *
+    var s = getFunctionName.caller.toString(); *
+    var m = re.exec( s ) *
+    return m[1]; *
+} *
+
+function me() { *
+    console.log( getFunctionName() ); *
+} *
+
+me(); *
+b. Test it in one place, in a simple function and in a saga. After everything works, replace all places. *
+c. Don't forget to test this function also on sagas functions. *
+41. Detect the name of the saga that in charge of adding the email to the database, and change the name of the saga according to the name of the saga that delete an email from the database. *
+42. Build general function for the check "!response || !response.data". *
+43. Build general function that check for any errors on the fields: "validationResult.errorType", "validationResult.errorErrorType" (or the new name), "validationResult.errorToConsole", "validationResult.errorMessage"), *
+44. Fix bug on comments that is throwing exception to the console. *
+45. Build regularExpressionUtils.js with map of regular expressions, and a function that get key of regular expression and the value and return if match or not. The map will include comments about what each one does. - Cancelled. *
+46. Try to convert action types to enum, instead of repeat all const and exports. *
+47. Add validation on counter that the given number is not over the total emails count or under or equal zero. *
+48. Add validation on pager that the given number is not the same like the current number (On saga). *
+49. All places that check "isNaN" check with same function (If not exists one, build it). *
+50. All operations in user-emails page - Add check authentication (Pass all parameters that needed) - Cancelled. *
+51. Check all places that numbers are valid, in the enter to the function. *
+52. Add check on "userPagerUpdate" function for maximum page number count that no bigger than possible pages count. *
+53. Go throw all sagas names and rename all by the action called them with "saga" in the end. *
+54. Convert to redux on App.jsx. *
+55. After finish user emails saga - Check if token expired in this page - The user redirect to home page. *
+56. Add dynamic limit count to the "emails_limit_modal_text" tranlation from logic settings. *
+57. Build class of     const validationResult = { *
+        emailItem: null, *
+        errorToConsole: null, *
+        errorMessage: null *
+    }; *
+Since it's repeated itself. *
+58. Add "Added date" field view in user-emails page. *
+59. Add button icon on the top the emails on user-emails page, it will do nothing. What's the idea of that? - Cancelled. *
+60. Add "on" and "off" to enum of the autocomplete and add the validation check and see it it's works. *
+61. This part is duplicated, can be in a saga: *
+
+    // Check if validationResult exists. If there it's not exists - *
+    // Print it to console and show the user general error message. *
+    if (!validationResult) { *
+
+        // Print error to the console and don't do nothing. *
+        yield call(userGetEmailsProcessErrorSaga, { *
+            errorToConsole: { *
+                errorType: enums.ErrorType.INVALID, *
+                parameters: ['validationResult'], *
+                functionName: getFunctionName() *
+            } *
+        }); *
+
+        // Stop any further actions. *
+        return; *
+    } *
+
+    // Check if there is unexpected error from the validationResult object. *
+    // If there is - Print it to console and show the user general error message. *
+    if (validationResult.errorType || validationResult.parameters || validationResult.functionName) { *
+
+        // Call the error saga to show error message to the user. *
+        yield call(userGetEmailsProcessErrorSaga(validationResult)); *
+
+        // Stop any further actions. *
+        return; *
+    } *
+
+    // Check if update state is needed. If not, don't do anything. *
+    if (!validationResult.isUpdateState) { *
+
+        // Stop any further actions. *
+        return; *
+    } *
+
+62. Object.keys(emailsArrayData.emailsArray).length - Make a function that get keys length. *
+63. All delays in the application load from logic.settings - Cancel. *
+64. Fix bug that when user tries to save email with previous search that is invalid. *
+65. Add logic to prevent same id when generating fake email or when adding email to emails list. *
+66. Add end file according to the type. For example: inside actions, "search.js" will become "searchActions.js" - Cancel. *
+67. Remove all end file according to the type. For example: inside actions, "searchActions.js" will return to be "search.js". *
+68. Refactoring of all site application according to: https://github.com/airbnb/javascript/tree/master/react: *
+a. PropTypes + default values to top. *
+b. All state properties and dispatch also to top. *
+c. Fix all sub-component with "bind". This is wrong. *
+d. Change all the functions to be "handle" in the beginning, instead of "handler" (Good: handleAlertClick). *
+e. Children properties always last. *
+f. Required properties first, then non-required properties. Both on settings and implementation on JSX (In strings and numbers). *
+g. Make sure that all default values equals like the initial state (In strings and numbers). *
+h. Add role="presentation" to all images. *
+69. Add generic with logic function to replace all "#count#" and all others - Cancelled. *
+70. Fix bug that missing key not working on search bar. *
+71. Fix bug that search mode stay still when changed. Need to be reset on-load. *
+72. QA on all site application. Check many places of error can happen and see if the error message is displayed. In each condition put a case that can fail, also put throw exception on API server calls. *
+
+Points to do after finish all, including QA, (Cosmetic changes):
+----------------------------------------------------------------
+1. Clean all commented codes parts to Helper.txt file. *
+2. All places of "// Check the" or "// Validate" - Check if described what happen if not exists. *
+3. Check that all places of comments end with dot. *
+4. Replace all " "/"  " to " " (Search all not trimmed, search it on Google). *
+5. Go throw all files - Complete comments and comments and verify they are valid. *
+6. All () Need to start with capital letter. *
+7. Go throe all cases when the validation is invalid and return results, add the lines: *
+a. On the error console assign: // Set the error console with the error's relevant information data. *
+b. If specific error message - // Set the error message with of the relevant error. *
+c. On the return: // Return the validation results. *
+8. After each API call put: *
+// Error may occur due: *
+// General error / service unavailable / email not exists / email already added / user not logged-in *
+// Assign the error details to print to the console. *
+9. Go throw all the code and make spaces between lines in all the project. *
+10. On empty return in switch case (Like in default: return; or default: break;) put comment:
+// If not match case found - Don't do anything. *
+11. Check for multi spaces empty lines and remove them (Check on google how to do it and write it here). *
+12. Go throw all sagas, put space between parts of logic and comments. *
+13. Check again for API *, URL *, URLs *, REST *, React *, CRUD *, JSX *, Firebase *, Node.js *, are capital in all site. *
+14. Check that all comments with dot in the end. *
+15. Check for "/" and make sure separation between words. *
+16. All places of login / registration - Need to be in this order. *
+17. Search for "// // ". *
+18. All places of "id" change to "Id". *
+19. Check all "/" with a-b-c-d-e (Look for missing space). *
+20. Remove any console.log or console.error that not needed to be. *
+21. Search for all "/" and make sure that there is space. *
+22. All "etc..." must have 3 dots. *
+23. Check for all page�s names: search page, home page, user emails. Add "-". *
+24. Check for all " - " and make sure after there is capital letter. *
+25. All "local storage" convert to localStorage. *
+26. Change all "user side validation" to "Client-side validation". *
+27. Make sure all "More information" panel is with Capital "More". *
+28. All places of TEXT or URL, use capital, like: (TEXT or URL). *
+30. Check for "logical settings" and change it. *
+31. Change all "axios" / "exios" to "Axios". *
+32. Change all "PropTypes" to "PropTypes". *
+33. Search and remove all "advance ". *
+35. Replace "future" / "farther" to "further". (Search for "// Stop any"). *
+36. all "Boolean" need to convert to "Boolean". *
+37. Change "key up" and "key down" with "-". *
+38. Change "textbox" to "text-box". also "text area" to text-area". *
+39. Search "and via" and make sure all are the same. *
+40. Search all "du" and change it to "due". *
+41. Correct all "validationResult ". *
+42. Check for all "Error may occur due" that the responses with dot in the end. *
+43. Check all "existence " and "parameters: " that the parameters names are correct. *
+44. Add validation on parameters on "generateFakeEmails " function. *
+45. Add validation that userAddedDate not exists on "validateAddEmailProcessRequest" function. *
+46. Copy all the files into a word document to verify it. *
+47. Check all functions names to verify that their exists on comments - Do it with fixing spelling mistakes. Make lists of all functions. *
+48. Go throw all files and format all files. *
+
+-Install Spell checker and fix all spelling mistakes on the project (May be in parameter or function names that word misses). (Update in packages list also). *
+-Update to all the packages and verify that the application is still working as expected.
+-Build method that filters only the active emails - logic repeats itself. *
+-There is no need to validate creationDate - It will be inserted from node.js API. *
+-On user-emails - add "AddedDate" on node.js API.
+***. General QA on all site, all functionality.
+-After finish with all saga - Make backup before start to implementing node.js API - Just in case I will want to go to work interview without the node API and I'll want to upload the react project only to the air.
+
+Final project (Email searcher) react after upload to fix points:
+----------------------------------------------------------------
+1. Replace "Examples" in "Samples" in the fake results title (Search for all examples and check if need to replace to samples). *
+2. Packages documentation: *
+a. Add npm install --save-dev webpack webpack-cli less less-loader css-loader style-loader mini-css-extract-plugin to packages list in this document. *
+b. Change the format of installed packages to each row each package. *
+3. Fix the bad practice of "Footer/Footer/" to "/Footer". Find out on Google how to do it. *
+4. Props changes
+a. Change all "const props = this.props". to "const {props} = this;". *
+b. In the render method add a comment about why not separate parameters. ( // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this). *
+c. In other places put simple comment above it. (// Take the scoped props). *
+5. Add comments on all API calls that can be done with async await. *
+6. Add fake emails improvements: *
+a. Add "samplesEmailUtils" for samples emails. *
+b. Create flag determine if to create fake random characters or with samples of real emails. *
+c. Fix bug of adding fake email and key search "This is example of undefined". *
+d. Add list of 100 random names to generate them with the domain emails. *
+e. Add list of 100 random sites. Do manually search in order to get real URLs. *
+f. Add list of 100 search keys and comments. *
+g. All possible data will be generated as samples and not as fake random string data. *
+h. Each time user search or on load, take random results each time. *
+i. Auto-upload - Change the number of emails to generate to 100. *
+7. Loaders of less, try to implement like production in development. *
+8. Change connection string and keys for burger builder in development and test, for production leave it with the email searcher settings. *
+9. Build "UISettings" and merge there all the animation settings, all the delays and all the PageShell settings, include enum for random and fade-in and fade out. *
+10. Search in Google how to do "Dispatch" without declaring functions twice. *
+11. Once user click on link the panel open, should not be the case. *
+12. Upgrade all packages one by one with backup and check after each package upgrade. *
+13. Change h ref to button in cases. *
+14. Set git. *
+* Check spell mistakes in word document once again. *
+* Format all places once again. *
+15. Search for enum, and add "" on the name. *
+16. Search for "init" and replace with "initial". *
+17. Search for "saga" and check if the name of the saga ends with saga. *
+18. Search all "logged in" and change to "logged-in". *
+19. Update the firebase tools package globally.
+20. Search for "page" and fix if needed. *
+* Fix spelling mistakes in this document and split everything that related to this code - Attach to milestones-react.txt file to this project (Also create one for nilestones-node.txt).
+* Before upload delete all database.
+* After all fixes upload to air again.
+* Verify that everything works as it should be.
+* Update the code in the GitHub (One more branch).
+
+----------------------------
+
+----------------------------
+Test Data:
+test@test.com
+dsjhf12Tv~!
+----------------------------
+
+Fire base database rules:
+----------------------------
+{
+  "rules": {
+      "fake_emails": {
+        	".read": "true",
+          ".write": "true"
+      },
+      "user_emails": {
+        	".read": "auth != null",
+          ".write": "auth != null",
+          ".indexOn": ["emailId", "emailUserId"]
+      }
+  }
+}
+----------------------------
+
+BONUS:
+-Fix warning with touching the page counter:
+[Violation] Added non-passive event listener to a scroll-blocking 'mousewheel' event. Consider marking event handler as 'passive' to make the page more responsive. See https://www.chromestatus.com/feature/5745543795965952
+-Implement method that validate all require fields:
+
+var fields = ['name','age','address'];
+var info = {
+  name: "John Doe",
+  age: "",
+  phone: "123-456-7890"
+}
+
+var validateFields = function(o, required_fields) {
+  required_fields.forEach(function(field){
+    if(o.hasOwnProperty(field)){
+      if(o[field]){
+        console.log(field + ": " + o[field]);
+      }else{
+        console.log(field + " exists but is empty");
+      }
+    }else{
+      console.log(field + " doesn't exist in object");
+    }
+  });
+}
+-Possible React OOP Refactoring:
+a. All actions in user (increment / decrement emails count + later email itself) - build inner instance method.
+b. All Email actions (Comments, added date, action) - build inner instance method.
+c. Convert SearchOption + AddEmail into class models with all the inner instance method needed. *
+-Add button on my emails page for export emails to excel file.
+-After finish my emails page - add small search bar: small textbox and 2 buttons: submit and clear. It will go to the node.js server and bring all emails contains the search key, (Limits: 200 characters, validation of alphanumeric with -, @, .).
+---------------------------
+
+4 Pages:
+Main Page (Search bar on top, and show emails results).
+Auth (Login / registration).
+User emails (Like main page by design, but with options).
+Add email modal content.
+
+App:
+----
+App, Layout
+-Make all results with animation, modal with animation, hover, and so on.
+-Routes also should be with animation. Refer to: https://reacttraining.com/react-router/web/example/animated-transitions
+
+General UI Components:
+--------------
+-Modal: You can take from money tracker or from burger builder.
+3 Modal:
+1. Add email to emails list:
+Title: Any comments?
+Email added: prdlskfsd@walla.com (if to long 3 dots)
+Comments text area
+Cancel / Add
+Loading icon and close window
+Mark email as added (blue background and V symbol instead of add symbol)
+2. Must Register/Login when try to search and not logged in.
+Register button will redirect the user to Register/Login page.
+3. Confirm delete of email from emails list.
+Are you sure you want to delete prdlskfsd@walla.com (if to long 3 dots)?
+Cancel / Delete
+Loading icon, close window, and remove the row.
+-Header Title (Register/Login / My Emails / 404)
+-Input
+-BoxButton
+-SubmitButton
+-TextArea
+-Button (with option to loader after clicking)
+-PreLoader of page
+-In the end - add async components:
+*Search options
+*Email more info
+
+Navigation + NavigationItems:
+-----------
+-Site Header
+-Site Footer
+Search
+My Emails (If authenticated)
+Register/Login (If not authenticated)
+UserName (If authenticated)
+
+Main Search (Also home page):
+----------
+*root end point: "/"
+*Container: MainSearch
+*Components:
+-SearchBar:
+&Search bar on top. User enter key and it search emails within multi-search engines to get relevant emails.
+&Search limited to 50 characters and 2 character that must include at least 1 alphabetic.
+&Add button next to the search text box that reset and remove all results (only if the results are not default) - will delete search bar and all text of advance search.
+&There will a button next to the search bar that will transition up and down advance search.
+&There will be options for advanced search to:
+&exclude email domains (TextArea) (max characters 200) / include search only for email domains (TextArea). (max characters 200)
+&exclude URL domains (TextArea). (max characters 200) / include URL domains (TextArea). (max characters 200)
+&exclude contains email key (TextArea). (max characters 200) / contains email key (TextArea). (max characters 200)
+&The design will be 3 Textboxes next to each other. On the top of them will be drop down of "Only with" (include) and "Only without" (exclude).
+&SearchOption component: Will have 3 of these components. The array will include for each one will have the title, the switcher include/exclude, text area, explanation + example of input, validation function to pass.
+-SearchResults: (no pager). The results will be random each time by logic in the API to search different places each time. The search will be in a method on node.js and will be similar to CVSpider I built in the past with mullite engines search. Limit the search for 10 seconds to reduce CPU.
+-SearchResult: Each result in table, you can see the email and URL that fetch the email. When clicking on the row, it will pop up a model to add to list. When adding, you can add comments and all fields are editable. (max characters 200)
+-When user not logged in, display fake emails list and when press on one, redirect the user to auth page. *
+
+Add email:
+----------
+*root end point: (inside popup modal)
+*Container: AddEmail
+*Components:
+
+-It will pop up a model to add to list. When adding, you can add comments and all fields are editable.
+-If the results check on database (need index on emails table for that) that email already there. If email already exists - override the row in database.
+
+User emails:
+------------
+*root end point: "/emails"
+*Container: UserEmails
+*Components:
+-TopBar: Title + Button (export the emails list to excel)
+-SearchResults
+-SearchResult: Each row will have email address, date added, URL, found by search engine, search by key, comments and the ability to be deleted with a button.
+-Pager
+-BottomBar: pager + dropdown on side to render number of emails to display.
+
+-If user is not authenticated redirect to home page.
+-The saved emails page will have pager (can select 10/20/50 rows per page).
+-You have page with all of your emails you collected.
+-Can export the emails list to excel.
+
+-------------------------------
+
+Auth:
+-----
+*root end point: "/auth"
+*Container: Auth
+-Switch between login to register
+-To use the service must register as user.
+-Email (Username) + Password.
+-Email limitations: minlength: 6, maxlength: 150.
+-Password limitations: minlength 8, max: 20. Must be difficult password.
+-After user logged-in / Register - redirect to home page with his name on the navigation component.
+-If user is authenticated redirect to home page.
+
+--------------
+--------------
+--------------
+--**Server**--
+--------------
+--------------
+--------------
+*Database entities:
+User:
+-----
+Id
+CreationDate
+Username
+Password
+
+Email:
+-----
+Id
+EmailAddress
+CreationDate
+URLAddress
+SearchEngine
+SearchKey
+Comments
+-----------
+
+*API end points:
+Main Search (Also home page):
+----------
+-emails/search: (POST) emails/search - will get query params to search and return json with email results.
+query params:
+userId
+userToken
+searchMode
+searchKey
+searchOptions: [
+	{
+ 	searchOptionType: searchOptionType.DOMAINS,
+ 	show: true,
+ 	mode: searchOption.INCLUDE,
+ 	value: '',
+ 	error: null
+ 	},
+ 	{
+ 	searchOptionType: searchOptionType.KEYS,
+ 	show: true,
+ 	mode: searchOption.INCLUDE,
+ 	value: '',
+ 	error: null
+ 	},
+ 	{
+ 	searchOptionType: searchOptionType.URLS,
+ 	show: true,
+ 	mode: searchOption.INCLUDE,
+ 	value: '',
+ 	error: null
+ 	}
+],
+
+*Make sure to look on all versions of CVSpider on C# and implement logic from there.
+*Both on client and server limit the search for alphanumeric only.
+*Make the same validations you did in react - and return appropriate errors.
+*Limit the website viewsource length so no search will be taking place on really big websites.
+*Don't bring duplicate results.
+*limits: 200 characters, validation of alphanumeric with -, @, .
+*Limit the time for the search to 20 seconds + 10 emails max.
+*Both in node and in react convert to creationdate and enum of search engine.
+*Both in node and in react need to hold enum on search engines.
+*Use same Search engine enum both in Node.js and in React.
+*Build map of all counts of validations and all recourses will take it from there. Also build map for all definitions in all places, separated from validations map. Build all this in "settings" folder by separating settings files. Separate for "Development" and "Production" folders. Make sure to use it also in Node.js API Server.
+
+Will return json of multiply objects - each object: / error
+
+Email
+UrlAddress
+creationDate
+searchEngine
+emailType ("SEARCH")
+If not found will display a message.
+--------
+
+Add email:
+----------
+-emails/add: (POST) emails/add - will get query params to add the emails to the user emails list.
+query params:
+userId
+userToken
+email
+link
+engine
+key
+comments
+
+*Limit the number of emails of user to 200 (put the limitation on settings.js and also check it on Node.js server-side API)
+
+Will return json of the email + updated totalemails count / error
+--------
+
+User:
+-----
+-user/userAuth: (POST) user/userAuth - will get email and password and login the user to the system.
+query params:
+userAuthMode
+email
+password
+Will return json of the user + userToken + updated totalemails count (totalemails number only in login) / error
+--------
+
+User emails:
+------------
+-emails/get: (GET) emails/get - will get Id of user and page number and rows count and return json with his saved email results.
+query params:
+userId
+userToken
+pageNumber
+count
+
+Will return json of multiply objects - count of total emails + each object:
+EmailAddress
+CreationDate
+URLAddress
+SearchEngine
+SearchKey
+Comments
+updated totalemails count
+--------
+-emails/delete: (DELETE) emails/delete - will get id of email and delete it.
+query params:
+userId
+userToken
+emailId
+
+*Make sure that the user id has the email id.
+
+Will return json of the email + updated totalemails count / error
+
+
+BONUS:
+---------
+-emails/export: (POST) emails/export - will return stream of the excel.
+query params:
+userToken
+userId
+pageNumber
+count
+
+Will return stream of the excel / error
+--------
+
+
+-----------------------------
+Cleaning regular expressions:
+-----------------------------
+1. 2 blank lines: \n\n\n
+
+
+
+-------------------------------
+
+------------------------------------------
+-----------INSTALLED EXTENTIONS-----------
+------------------------------------------
+code spell checker
+Trailing Spaces
+Autoprefixer
+Auto Close Tag
+Auto Rename Tag
+Beautify
+Beautify css/sass/scss/less
+Debugger for Chrome
+ESLint
+IntelliSense for CSS class names in HTML
+stylelint
+vscode-icons
+------------------------------------------
+-----------GLOBAL PACKAGES----------------
+------------------------------------------
++-- babel-eslint@8.2.6
++-- create-react-app@1.5.2
++-- cross-env@5.2.0
++-- eslint@5.3.0
++-- eslint-plugin-react@7.10.0
++-- firebase-tools@4.0.3
++-- nodemon@1.17.5
++-- npm@5.6.0
+`-- npm-check-updates@2.14.2
+------------------------------------------
+
+------------------------------------------
+-----------WORKSPACE PACKAGES-------------
+------------------------------------------
++-- autoprefixer@7.1.6
++-- axios@0.18.0
++-- babel-core@6.26.0
++-- babel-eslint@7.2.3
++-- babel-jest@20.0.3
++-- babel-loader@7.1.2
++-- babel-polyfill@6.26.0
++-- babel-preset-react-app@3.1.2
++-- babel-runtime@6.26.0
++-- case-sensitive-paths-webpack-plugin@2.1.1
++-- chalk@1.1.3
++-- css-loader@0.28.11
++-- dotenv@4.0.0
++-- dotenv-expand@4.2.0
++-- enzyme@3.5.0
++-- enzyme-adapter-react-16@1.3.0
++-- eslint@4.10.0
++-- eslint-config-react-app@2.1.0
++-- eslint-loader@1.9.0
++-- eslint-plugin-flowtype@2.39.1
++-- eslint-plugin-import@2.8.0
++-- eslint-plugin-jsx-a11y@5.1.1
++-- eslint-plugin-react@7.11.1
++-- extract-text-webpack-plugin@3.0.2
++-- file-loader@1.1.5
++-- fs-extra@3.0.1
++-- html-webpack-plugin@2.29.0
++-- jest@20.0.4
++-- less@3.8.1
++-- less-loader@4.1.0
++-- less-watch-compiler@1.12.1
++-- mini-css-extract-plugin@0.4.4
++-- moment@2.22.2
++-- object-assign@4.1.1
++-- postcss-flexbugs-fixes@3.2.0
++-- postcss-loader@2.0.8
++-- promise@8.0.1
++-- prop-types@15.6.2
++-- raf@3.4.0
++-- react@16.4.2
++-- react-addons-css-transition-group@15.6.2
++-- react-dev-utils@5.0.2
++-- react-dom@16.4.2
++-- react-helmet@5.2.0
++-- react-redux@5.0.7
++-- react-router@4.3.1
++-- react-router-dom@4.3.1
++-- react-test-renderer@16.4.2
++-- redux@4.0.0
++-- redux-saga@0.16.0
++-- resolve@1.6.0
++-- style-loader@0.19.1
++-- sw-precache-webpack-plugin@0.11.4
++-- url-loader@0.6.2
++-- webpack@3.8.1
++-- webpack-cli@3.1.2
++-- webpack-dev-server@2.9.4
++-- webpack-manifest-plugin@1.3.2
+`-- whatwg-fetch@2.0.3
+------------------------------------------
+
+VS CODE USER SETTINGS:
+{
+    "git.enabled": true,
+    "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "eslint.alwaysShowStatus": true,
+    "workbench.iconTheme": "vscode-icons",
+    "eslint.options": { "configFile": "C:/Or/Web/ReactLearning/26/burger-builder-css/.eslintrc.json" },
+    "beautify.config": {
+        "brace_style": "collapse,preserve-inline",
+        "unformatted": ["a", "li"]
+    },
+    "search.useRipgrep": false,
+    "search.location": "panel",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "workbench.colorCustomizations": {
+        "scrollbarSlider.activeBackground": "#00AA00",
+        "scrollbarSlider.background": "#00AA00",
+        "scrollbarSlider.hoverBackground": "#00AA00"
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
+}
+
+.stylelintrc file:
+{
+  "rules": {
+    "block-no-empty": null,
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "max-empty-lines": 1,
+    "unit-whitelist": ["em", "rem", "%", "s", "px", "ms", "deg", "dpi", "cm"],
+    "declaration-block-trailing-semicolon": "always",
+    "unit-case": "lower",
+    "color-hex-length": "long",
+    "color-hex-case": "lower"
+  }
+}
+
+-Run .\node_modules\.bin\eslint --init and then re-write the file:
+.eslintrc.json file for REACT:
+
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": ["react-app", "plugin:react/recommended"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "no-shadow": [
+            "error",
+            {
+                "builtinGlobals": false,
+                "hoist": "functions",
+                "allow": []
+            }
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/no-unescaped-entities": 0,
+        "react/display-name": 0,
+        "jsx-a11y/href-no-hash": "off",
+        "no-useless-escape": 0
+    }
+}
+
+
+-HTML TEMPLATES:
+https://uicookies.com/downloads/haus-free-real-estate-html5-website-template/
+
+-Copy this doc to word to clear spell mistakes.
+-Copy .vscode folder options from burger-project.
+********************
+FINAL PROJECT IDEAS:
+********************
+(1)
+-Email searcher.
+-User enter key and it search emails within multi-search engines to get relevant emails. *
+-The results will be random each time by logic in the API to search different places each time. *
+-Results in table, you can see the email, URL that fetch the email, relevant name or something. When clicking on the row, it will pop up a model to add to list. When adding, you can add comments and all fields are editable. *
+-The results will be displayed in pager. *
+-If the results check on database (need index on emails table for that) that email already there - don't enter duplicate rows. On submit tell the user that the email already exists and if he wants to override it. *
+-The search will be in a method on node.js and will be similar to CVSpider I built in the past with mullite engines search. *
+-Limit the search for 10 seconds to reduce CPU. *
+-You have page with all of your emails you collected. *
+-To use the service must register as user. *
+-There will be options for advanced search to: *
+*exclude email domains / include search only for email domains. *
+*exclude URL domains. *
+-Can export the emails list to excel. *
+-The saved emails page will have pager (can select 10/20/50 emails per page). *
+-The saved emails page will include for each row: email address, date added, URL, found by engine, search by key, comments. *
+-When user not logged in, display fake emails list and when press on one, pop up the sign in / login modal. *
+-Add button next to the search text box that reset and remove all results. *
+-Make all results with animation, modal with animation, hover, and so on. *
+-Routes also should be with animation. Refer to: https://reacttraining.com/react-router/web/example/animated-transitions *
+-Start with the design with dummy data from: https://jsonplaceholder.typicode.com/ *
+
+https://finder.startupnationcentral.org/startups/search?
+
+(2)
+-Mini-Twitter with user and comments.
+-Login user only can comment.
+-Scores for the user for popular twitters (validation for the score both client and server).
+-Bonus: Google Recaptcha on registration form.
+
+******************
+CLIENT - REACT JS:
+******************
+
+ToDo React Practice:
+---------------------
+Section 07:
+-----------
+1. Restructure the recipe book for components (folders of containers, components, asserts) and recipe component, and recipes component. *
+2. Create Main container component for the add recipe. *
+3. On recipes component change all from this to props accordingly. *
+4. Add hoc folder and implement WithClass component and use it in recipes and recipe component. *
+5. Add counter of the total number of likes, by updating the state with prevState. *
+
+Section 04:
+-----------
+1. Convert the list of recipes to a single array and display the list by the number of elements in the starting array dynamically. *
+2. Add button to display or not display the recipes list. *
+3. Add keys to the id of each recipe. *
+4. Add button on each recipe called "Delete". Once clicked, will be removed from display. *
+5. Add 2 textboxes on each recipe: one that updates the title, and one that updates the description. *
+
+Section 03:
+-----------
+1. Build react project called "recipe-book" that have 1 app component and second component is recipe. *
+Each recipe has: *
+* title *
+* description *
+* list of ingredients *
+* likes count *
+Populate 3 recipes. *
+2. Add button and 3 text inputs on the top. One for title, one for description, and one for the list of ingredients. *
+Without any validation at this point, when filling these 3 inputs and click on the button, the state is updated with additional *
+recipe. console.log the updated state. *
+3. For each recipe place a button call it like. for each like, update the recipe�s likes count in the state. *
+
+*****************
+
+Send email to Max:
+business@academind.com
+
+Hi Max!
+How are you?
+My name is Or Assayag, I'm 33 years old from Israel, web developer since 2010 (Mostly ASP.NET C# MVC + Angular 1.6).
+Just finished watching your React Course from Udemy (React 16 - The Complete Guide (incl. React Router 4 & Redux)),
+And I got to say that this course is just great. From someone that took a few online courses in life, this one is one of the best i ever took. From someone that in the industry for a long time now, you are a wonderful instructor and you have the ability to explain things in the simplest and clean way there is. I very much enjoyed from this course, and would definitely recommend (already did it actually) to friends about it.
+
+If you don't mind, and would like to hear my comments about the course and maybe to implement on future courses, it would be great to share them with you:
+
+*The translations (str) files for the course are google translated and not readable (English in my case), in some point I just disabled them.
+
+*I think that in my experience, using radium and CSS modules is good. it's good practice when you publish this burger project as an NPM package and someone uses it, so it won't destroy his CSS style, but you can publish an alternative video about how to work with LESS/SCSS in the project.
+
+*I think a lot of time on your lectures spent on CSS styling. Styling is indeed important but when have a lot of styling issues the movies take longer than they should.
+
+*Could be nice to have some 1-2 lectures about what you can do for rtl-ltr culture.
+
+*Also, I think it's important to make a lecture or 2 about implementing the base for SEO.
+
+*One little thing about the burger project - the currency of the price is missing. You do enter the price later in the orders page, but I think it should be related to managed by the state.
+
+*In the Route section (11 Multi-Page-Feeling in a Single-Page-App Routing) - You get a bug when navigating too fast between "home" and "new post" pages:
+"Warning: Can only update a mounted or mounting component. This usually means you called setState, replaceState, or forceUpdate on an unmounted component. This is a no-op.
+
+Please check the code for the Posts component." (I also post about it on, and solve the bug here (I answered myself there with solution): StackOverFlow: https://stackoverflow.com/questions/51591743/react-warning-can-only-update-a-mounted-or-mounting-component).
+
+*This bug (in another version) repeats itself once implemented routing between burger builder and orders page:
+"index.js:2178 Warning: Can't call setState (Or forceUpdate) on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    in Orders (at ErrorHandler.jsx:40)
+    in Auxiliary (at ErrorHandler.jsx:34)
+    in _class2 (created by Route)"
+
+For this i also published an issue on StackOverFlow but without any working solution: https://stackoverflow.com/questions/51609276/react-warning-cant-call-setstate-or-forceupdate-on-an-unmounted-component
+
+*In the section of (12 Adding Routing to our Burger Project) - video: (213 Order Submission Passing Data Between Pages.mp4), you change the lifecycle hook from componentDidMount to componentWillMount, but unfortunately, it�s the wrong approach since in react 16.3 this hook deprecated. The best approach is to check if the ingredient and the totalprice (like you did in the burger builder component).
+
+*Also, in the section of (12 Adding Routing to our Burger Project) you forgot to plug in the Spinner component before loading the orders.
+
+*In the section of (13 Forms and Form Validation) - You never show when you added the email and numeric validations.
+
+*In the section of (14 Redux) - Your start up project, in the Counter component, you missing a lot of semi-columns and a default case. This is the fixed version:
+
+    counterChangedHandler = ( action, value ) => {
+        switch ( action ) {
+            case 'inc':
+                this.setState( ( prevState ) => { return { counter: prevState.counter + 1 }; } );
+                break;
+            case 'dec':
+                this.setState( ( prevState ) => { return { counter: prevState.counter - 1 }; } );
+                break;
+            case 'add':
+                this.setState( ( prevState ) => { return { counter: prevState.counter + value }; } );
+                break;
+            case 'sub':
+                this.setState( ( prevState ) => { return { counter: prevState.counter - value }; } );
+                break;
+            default:
+                break;
+        }
+    }
+
+*In the section of (14 Redux) - Your persons assignment missing semi-columns in the Persons component, here is the fix:
+
+    personAddedHandler = () => {
+        const newPerson = {
+            id: Math.random(), // not really unique but good enough here!
+            name: 'Max',
+            age: Math.floor( Math.random() * 40 )
+        };
+        this.setState( ( prevState ) => {
+            return { persons: prevState.persons.concat(newPerson)};
+        } );
+    }
+
+    personDeletedHandler = (personId) => {
+        this.setState( ( prevState ) => {
+            return { persons: prevState.persons.filter(person => person.id !== personId)};
+        } );
+    }
+
+*In the section of (16 Redux Advanced) - your start up project, in many files, you missing a lot of semi-columns and a default case. This is the fixed version:
+
+counter.js
+const reducer = ( state = initialState, action ) => {
+    switch ( action.type ) {
+        case actionTypes.INCREMENT:
+            const newState = Object.assign({}, state);
+            newState.counter = state.counter + 1;
+            return newState;
+        case actionTypes.DECREMENT:
+            return {
+                ...state,
+                counter: state.counter - 1
+            };
+        case actionTypes.ADD:
+            return {
+                ...state,
+                counter: state.counter + action.val
+            };
+        case actionTypes.SUBTRACT:
+            return {
+                ...state,
+                counter: state.counter - action.val
+            };
+        default:
+            break;
+    }
+    return state;
+};
+
+result.js
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionTypes.STORE_RESULT:
+            return {
+                ...state,
+                results: state.results.concat({ id: new Date(), value: action.result })
+            };
+        case actionTypes.DELETE_RESULT:
+            // const id = 2;
+            // const newArray = [...state.results];
+            // newArray.splice(id, 1)
+            const updatedArray = state.results.filter(result => result.id !== action.resultElId);
+            return {
+                ...state,
+                results: updatedArray
+            };
+        default:
+            break;
+    }
+    return state;
+};
+
+Counter.js
+const mapStateToProps = state => {
+    return {
+
+        ctr: state.ctr.counter,
+        storedResults: state.res.results
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
+        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
+        onAddCounter: () => dispatch({type: actionTypes.ADD, val: 10}),
+        onSubtractCounter: () => dispatch({type: actionTypes.SUBTRACT, val: 15}),
+        onStoreResult: (result) => dispatch({type: actionTypes.STORE_RESULT, result: result}),
+        onDeleteResult: (id) => dispatch({type: actionTypes.DELETE_RESULT, resultElId: id})
+    };
+};
+
+*In the section of (17 Redux Advanced Burger Project) - Conflict what you told before about local state that related to the UI, by passing the error to redux. Also, you manage the purchaseBurgerStart - but the concept of redux is to manage the state, we don't manage any state here. The same for the "loading" in the ContactData component - it's local UI state, why need to manage it with redux? Maybe you should mention that something about redux-saga that will be introduced later to solved issue of side effects not related directly to updating the store and the state.
+
+*In the section of (17 Redux Advanced Burger Project) - You refactor all the reducer to each method for each switch case. It's great - but most of the methods doesn't do anything with the "action" parameter, so why pass it? (like set loading or purchasing to true/false). Actually - there are a lot of methods that just repeat themselves, why not do one method that will manage the true/false of the loading parameter, for example? like:
+const showLoading = (state, action) =>
+{
+    return updateObject(state, {
+        loading: action.show
+    });
+}
+
+*In the section of (18 Adding Authentication to our Burger Project) - The best practice of localStorage is to build separate file of auth.js in utilities folder and there to manage all the localStorage issues (including the calculation of the expirationDate parameter, get the token to check if the user is still signed in or not, cleaning the localStorage parameters during logout action and so on...)
+
+*In the section of (18 Adding Authentication to our Burger Project) - After finishing with teaching the what happen when trying to login without any parameter - it�s better to implement again, like in the ContactData component, some validation on this sign in/signup component.
+
+*In the section of (19 Improving our Burger Project) - You said in the video of (329 Fixing the Redirect to the Frontpage.mp4) that adding auth route in App.js file if user is authenticated will then cause to issue that if user is authenticated it still can access to auth component. When, this is actually not true, try to go to auth you will see that the redirect is working fine :)
+
+*In the section of (22 Bonus Working with Webpack) - in the attached asyncComponent file you missing semi-columns, here is the corrected file:
+import React, { Component } from 'react';
+
+const asyncComponent = (importComponent) => {
+    return class extends Component {
+        state = {
+            component: null
+        }
+
+        componentDidMount () {
+            importComponent()
+                .then(cmp => {
+                    this.setState({component: cmp.default});
+                });
+        }
+
+        render () {
+            const C = this.state.component;
+
+            return C ? <C {...this.props} /> : null;
+        }
+    };
+};
+
+export default asyncComponent;
+
+*In the section of (22 Bonus Working with Webpack) - you should reference (add a link or note) that the when upgrading from webpack 3 to 4, it shows an error: "webpack.optimize.UglifyJsPlugin has been removed, please use config.optimization.minimize instead", you should:
+1. npm i -D uglifyjs-webpack-plugin
+2. Add instead the following (after the "plugins") section:
+    optimization: {
+        namedModules: true, // NamedModulesPlugin()
+        splitChunks: { // CommonsChunkPlugin()
+            name: 'vendor',
+            minChunks: 2
+        },
+        noEmitOnErrors: true, // NoEmitOnErrorsPlugin
+        concatenateModules: true, //ModuleConcatenationPlugin
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            })
+        ]
+    }
+
+*In the section of (22 Bonus Working with Webpack) - Also, in the end, when you refresh on /pizza page, you get an error on the page: "Cannot GET /pizza". This can be solved by adding webpackdevserver.js configuration and adding
+    historyAPIFallback: {
+      disableDotRule: true
+    }
+
+*In the section of (22 Bonus Working with Webpack) - About the babel-polyfill (attached html file you explain how to implement it) - In Webpack 4, you need to add the following (You get an error "Error: Can't resolve 'core-js/modules/es7.string.pad-start'"):
+1. Run npm i --save-dev core-js
+2. Add in index.js file: import 'core-js'; (before import 'babel-polyfill';).
+Now it will work.
+
+*In general, I strongly recommend to add 3-4 videos about upgrading to webpack 4, it's not straightforward (and your link to the guide is good, but not enough).
+
+*In the section of (23 Bonus Next.js) - From what I understand from your course, React and Next are 2 different types of projects.
+From what i read in Google, you need to choose between create-react-app and using next.js. Maybe add "Warp-up" video in the end of this module that talks about the different between the 2 types of applications.
+
+*In the section of (24 Bonus Animations in React Apps) - You mention an alternative package name react-router-transition, but unfortunately its not cross-browser (IE not supported), a good example can be found here (without this package, but with the Transaction package): https://reacttraining.com/react-router/web/example/animated-transitions
+
+*In the section of (25 Bonus A Brief Introduction to Redux Saga) - The one thing that really missing here is how to test a saga, or a generator in a saga with jest. You can show also that you no longer need the thunk middleware by removing it from index.js to prove that all now controlled by redux saga. It's very important module, thank you!
+
+In the bottom line, It was a fun and great course for me, and I thank you for that, and wish to see more of your courses in the future. :)
+
+-------------------------------------------------------
+Prettier + ESLint:
+https://www.youtube.com/watch?v=bfyI9yl3qfE
+1. Run: npm i prettier eslint-config-prettier eslint-plugin-prettier -D
+-------------------------------------------------------
+*Build create-react-app to test how to work with less. These are the steps to configure:
+1. create-react-app and eject.
+2. npm i less less-loader style-loader css-loader -D
+3. on config/webpack.config.dev.js and webpack.config.prod.js add:
+rules: [
+      // Whatever other rules you have here...
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
+      }
+    ]
+// Rest of your webpack.config.js
+-------------------------------------------------------
+-Clean the public/index.html file.
+
+.stylelintrc file:
+{
+  "rules": {
+    "block-no-empty": null,
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "max-empty-lines": 1,
+    "unit-whitelist": ["em", "rem", "%", "s", "px", "ms", "deg", "dpi", "cm"],
+    "declaration-block-trailing-semicolon": "always",
+    "unit-case": "lower",
+    "color-hex-length": "long",
+    "color-hex-case": "lower",
+    "no-duplicate-selectors": true,
+    "declaration-block-no-duplicate-properties": true
+  }
+}
+
+-Run .\node_modules\.bin\eslint --init and then re-write the file:
+.eslintrc.json file for REACT:
+
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "no-shadow": [
+            "error",
+            {
+                "builtinGlobals": false,
+                "hoist": "functions",
+                "allow": []
+            }
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
+    }
+}
+
+-Structure of the components:
+Feature/
+TestComponent1
+TestComponent2
+-Pass functions with the same name, from up to the last component. Not once "disabled" and other "thisIsDisabled".
+-Build each component in a separate folder.
+-For both class and functional components use UpperCase in the beginning.
+-For routing with 'withRouter' use lowerCase in the beginning.
+-Use prop-types npm package to validate the type of input.
+-Don't use stateful component unless you need the state.
+-Use PropTypes of function components like this:
+BurgerIngredient.propTypes = {
+    type: PropTypes.string.isRequired
+};
+-Use the syntax in each component of: (both for state and props):
+  propTypes: {
+    isReturning: PropTypes.bool,
+    date: PropTypes.string
+  },
+  render() {
+    const {isReturning, departureDate} = this.props;
+    return (
+      <div>
+          {isReturning}
+          {departureDate}
+      </div>
+    )
+  }
+-Use LESS and separated LESS file for each component, don't use inline style, and of course compile to CSS files.
+-If want to update the array in the state - first create a copy, not a pointer: const arrayCopy = [...this.state.array]; if you want to add new item: arrayCopy.splice(personIndex, 1); this.setState({ array: array });
+-When update the state by old values - always make a copy, or use the previous state:
+this.setState((prevState => {
+     return { showSideDrawer: !prevState.showSideDrawer };
+}));
+-COMMENTS COMMENTS COMMENTS, in each component/container
+-Attach this note in a readme file on GitHub.
+-When building a modal window or other things that not affect the UI, use lifecycle hooks to improve performance.
+-IMPORTANT: use best practice in this article:
+https://engineering.musefind.com/our-best-practices-for-writing-react-components-dec3eb5c3fc8
+
+-Snippet for creating function component:
+import React from 'react';
+
+const B = (props) => {
+    return (
+
+    );
+};
+
+export default B;
+
+-Each component, whether its container, or functional component, use the export keyword for testing.
+-Validation on inputs: each input with his own validation method on utils folder.
+-For routes use Switch and Route components, don't use redirect, but use this.props.history.replace();
+-Leave 1 empty Route component in the end for 404 pages redirect.
+-Use axios package for http calls.
+-For each CRUD do an error case (display to the user something).
+-Must handle error globally by axios.interceptors.request.use + axios.interceptors.response.use.
+-Build instance for most of the calls.
+-For API calls by axios, build "API" folder and build instance, and separate for files.
+-The connections string for the API will be stored in config folder, same as for node.js project.
+-For each service build separate file, and call the specific service, not to import the all the axios instance. In each actions service file build the methods for each action.
+-Error handling - For specific errors, in the same window, show specific error. For global errors - build ErrorHandle modal that wrap the layout container like in the course.
+
+*************
+REDUX - START
+*************
+Work with Saga - more convenient and organized: all sagas import in one place to the root of the sagas in index.jsx file, like in:
+Here's my approach to this:
+rootSaga.js
+
+import saga1 from './path/to/1/sagas';
+import saga2 from './path/to/2/sagas';
+
+export default [
+    saga1,
+    saga2
+];
+path/to/1/sagas.js
+
+function* watcher1 (){...}
+function* watcher2 (){...}
+
+export default function* root {
+    yield fork(watcher1);
+    yield fork(watcher2);
+}
+index.js
+
+import createSagaMiddleware from 'redux-saga';
+import createStore from './store';
+import rootSaga from './rootSaga';
+/*
+...
+*/
+const sagaMiddleware = createSagaMiddleware();
+rootSaga.map(saga => sagaMiddleware.run(saga))  // Register all sagas
+
+*Redux will handle ALL the state of each component, no local UI state.
+
+-Redux logic structure
+1. Build logic of web API call in API.js. In the API.js file return resolve and reject up to the action:
+const getData = () => {
+  return new Promise((resolve, reject) => {
+    Axios.post(URL, {APIKey}).then((response) => {
+      resolve(response);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+}
+
+2. On the saga itself, decide what to do with the promise from API.js, put loader, save error, ect.
+export function* purchaseBurgerSaga(action) {
+    yield put(actions.purchaseBurgerStart());
+    try {
+        const response = API.post(`/orders.json?auth=${action.token}`, action.orderData);
+        yield put(actions.purchaseBurgerSuccess(response.data.name, action.orderData));
+    } catch (error) {
+        yield put(actions.purchaseBurgerFail(error));
+    }
+};
+3. If there is more than one place for going to the server with loading and error messages, name the parameters accordingly. Don't re-use in different places for the same parameter - it's confusing.
+
+***Actions***
+*structure:
+store
+/users:
+usersActions.js - all the functions of the actions.
+usersActionTypes.js - all action types.
+usersExport.js - export all functions - instead if big index.js file.
+
+
+***Reducers***
+*structure:
+store
+/users:
+/users:Core.js - all the switch case statement referring to the methods.
+/users:Reducer.js - the switch case and the export of the reducer
+*Split reducer: each reducer contains switch case and a separate file which will contain all the methods. The switch case will only handle the calls to the functions
+*Redux Adv: on reducer - keep it clean, only manage the state, other logic (like converting to the object you want to update) - do in utility.js for it.
+
+utilities:
+base.js
+users.js
+
+***
+Old
+***
+-Redux: use the store folder + reducer.js + each case in a separated function.
+-Redux: use multiply reducers. each reducer by each feature.
+-Redux: use it not for all state, but only for the core. The things that effect on UI - keep them in local state.
+-Redux Adv: in actions.js add action creator and const enum like.
+-Redux Adv: on reducer - keep it clean, only manage the state, other logic (like converting to the object you want to update) - do in utility.js for it.
+-Redux Adv: actions - actionsTypes.js + separate to multiple actions like reducer. Use index.js to export all actions.
+-Redux Adv: Logic of data - do in the reducer. Action creator only for fetching the data or to transfer it.
+-Redux Adv: Clean reducers - use utility.js for repeatable logic like update objects.
+-Redux Adv: Clean reducers - each switch case inside a function.
+-Redux Adv: In the actions with async calls - each API model return a promise, so get the data from API folder of the model, and use the returned promise to the action, and then do the rest of the logic. Keep the clean order and separation between API and actions.
+(Like in jumbo angular - service that return promise and, in the controller, do the logic with resolve and reject inside the controller - so here it will be inside the action dispatch).
+-Redux Adv: To avoid handling local UI state in redux like in the course (like error parameter) - You should take the route not of the course - but to create normal action (define in mapDispatchToProps). Something like this:
+ingredients.getIngredients()
+                    .then(response => {
+                        this.props.onIngredientFetched(ingredients)
+                    }).catch(error => {
+                        this.setState({ error: true });
+                    });
+***********
+REDUX - END
+***********
+
+**********************
+AUTHENTICATION - START
+**********************
+-Think of a way to re-use inputs dynamic logic in different components (Like in burger project in ContactData and Auth components).
+-For each axios call use instance of axios.
+-Add check token timeout like in the burger project.
+-To the API methods get token directly from localStorage in the API file itself, don't pass around the token within each method.
+Reference: https://auth0.com/blog/secure-your-react-and-redux-app-with-jwt-authentication/
+-Auth and checking logic should be done in utilities folder under auth.js, there save the token on localStorage and so on.
+-Double security on components allowed only by auth users:
+1. In the layout on the switch router, display the routes relevant only to the authenticated users.
+2. On each component that allowed by authenticated users only, preform a check and redirect if needed.
+-Build a file to load all relevant async components.
+********************
+AUTHENTICATION - END
+********************
+
+***************
+TESTING - START
+***************
+***DO TESTINGS AFTER FINISH ALL***
+**Component**:
+-Test each component, with .test.jsx file with the same name of the component name.
+-Check if like node.js, can't check multiply files due to listen port bug issue.
+-When finish testing copy to word to make sure no spelling mistakes.
+-Copy to your project from node (C:\Or\Web\NodejsLearning\15\NodeVidlyDeployment\.vscode) the launch.json file for debug unit-tests.
+-Like in node.js, number of tests depending on the number of props. Test each props outcome.
+-Unlike node.js, component test files should not be in separate folders "tests" on the root, for each component need to be a test file in his folder.
+-What to test on components:
+*Length of items, contain specific items.
+*Also test when not passing props, or invalid props values.
+-For other things, utils, API, redux, reducer, actions, and so on, you should add "unit" and "integration" testing like in node.js and build the folders like the project's folder structure.
+-Test if sub-components exist.
+**Container**:
+-What to test on containers:
+-Like in node.js, number of tests depending on the number of props and local state props. Test each props outcome.
+*Length of items, contain specific items.
+*Also test when not passing props, or invalid props values (Redux state is the container props, test them).
+IMPORTANT: don't forget to import { ContainerName } with {}, make sure!
+-Test if sub-components exist.
+-DON'T TDD mode - it takes a long time. First write the code, then test it.
+Testing actions: https://stackoverflow.com/questions/45081717/how-can-i-test-action-of-redux-thunk-use-unit-test-jest
+
+*************
+TESTING - END
+*************
+
+***************************************
+NEW REACT EXAMPLE PROJECT STEPS - START
+***************************************
+1. Basic .gitignore file with:
+/node_modules
+.DS_Store
+/dist
+2. .vscode folder with settings.json and launch.json configured files.
+3. .eslintrc.json configured.
+(Take both files from recent projects).
+4. Configure both user settings and workspace settings to use the eslintrc file.
+5. Run npm init --yes
+6. If new computer lets configure eslint by:
+* Run npm i -g eslint
+* Run npm i -g eslint-plugin-react
+* Run npm i -g babel-eslint
+7. Run npm i --save-dev webpack, webpack-dev-server
+8. Create "src" folder.
+9. Inside, create html file names "index.html"
+10. Create default template by writing "html:5" and press tab, it will create automatically the default template.
+11. Rename the title "React App".
+12. Inside the body, create div with id of "root" (write #root and press tab, it will create it automatically).
+13. Inside src folder, create "assets" folder.
+14. Inside src folder, create "components" folder.
+15. Inside src folder, create "containers" folder.
+16. Inside src folder, create Javascript file named "index.jsx".
+17. Inside src folder, create CSS file named "index.CSS".
+18. In index.jsx file, import the index.CSS file.
+19. Add default CSS style to index.CSS:
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+20. Inside src folder, create Javascript file named "App.jsx".
+21. Create 2 components in the containers folder: Users, Pizza (Create for each a folder, and jsx file inside it).
+22. Create 1 components in the components folder: PizzaImage (Create a folder, and jsx file and CSS file inside it).
+23. Find a pizza image in Google and save it on assets folder. Rename it to "pizza.jpg".
+24. In PizzaImage.jsx file create a functional component:
+import React from 'react';
+
+const PizzaImage = (props) => {
+    return (
+    );
+};
+
+export default PizzaImage;
+25. We will use CSS modules. Add "<div className={classes['pizza-image-container']}></div>" to the render method in the return statement.
+26. Add to PizzaImage.jsx: import classes from './PizzaImage.CSS';
+27. Inside the div in PizzaImage.jsx add <img src={} />.
+28. Add import to the image on PizzaImage.jsx: import pizzaImage from '../../assets/pizza.jpg';
+29. Fill the src of the image with the imported image on PizzaImage.jsx: <img src={pizzaImage} />.
+30. Add className to image on PizzaImage.jsx: <img src={pizzaImage} className={classes['pizza-image']} />
+31. In the PizzaImage.CSS file give default styles:
+.pizza-image-container {
+    width: 80%;
+    height: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.pizza-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+32. In the Pizza.jsx file inside the container folder, build class component:
+import React, { Component } from 'react';
+
+class Pizza extends Component {
+    render() {
+        return (
+        );
+    }
+};
+
+export default Pizza;
+33. Inside Pizza.jsx file, import the pizza image: import PizzaImage from '../../components/PizzaImage/PizzaImage';
+34. Add the PizzaImage component to Pizza container in the render method in the return statement:
+            <div>
+                <h1>The Pizza</h1>
+                <PizzaImage />
+            </div>
+35.In the Users.jsx container add the following:
+import React, { Component } from 'react';
+
+class Users extends Component {
+    render() {
+        return (
+            <div>
+                <h1>The Users</h1>
+                <p>Awesome users on board of this course!</p>
+            </div>
+        );
+    }
+};
+
+export default Users;
+36. Add the following to App.jsx file:
+import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
+import Users from './containers/Users/Users';
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <div>
+                    <Link to="/">Users</Link> | <Link to="/pizza">Pizza</Link>
+                </div>
+                <div>
+                    <Route path="/" exact component={Users} />
+                    <Route path="/pizza" component={} />
+                </div>
+            </div>
+        );
+    }
+};
+
+export default App;
+37. Inside src folder, create "hoc" folder.
+38. Inside the hoc folder, create folder "AsyncComponent".
+39. Inside of AsyncComponent folder create AsyncComponent.jsx file.
+40. Fill the AsyncComponent.jsx file as the following:
+import React, { Component } from 'react';
+
+const asyncComponent = (importComponent) => {
+    return class extends Component {
+        state = {
+            component: null
+        }
+
+        componentDidMount () {
+            importComponent()
+                .then(cmp => {
+                    this.setState({component: cmp.default});
+                });
+        }
+
+        render () {
+            const C = this.state.component;
+            return C ? <C {...this.props} /> : null;
+        }
+    };
+};
+
+export default asyncComponent;
+41. In App.jsx file, import the AsyncComponent: import AsyncComponent from './hoc/AsyncComponent/AsyncComponent';
+42. Add above the class declaration in App.jsx the following:
+const AsyncPizza = AsyncComponent(() => {
+    return import('./containers/Pizza/Pizza');
+});
+43. Fill the missing route on the App.jsx file like this: <Route to="/pizza" component={AsyncPizza} />
+44. In index.jsx file import react: import React from 'react';
+45. In index.jsx file import reactDom: import ReactDom from 'react-dom';
+46. In index.jsx file import browser: import { BrowserRouter } from 'react-router-dom';
+47. Add the following to index.jsx:
+import App from './App';
+
+const app = (
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+);
+
+ReactDom.render(app, document.getElementById('root'));
+48. Run npm i react react-dom react-router-dom
+49. In package.json file add under "scripts" above test: "start": "webpack-dev-server",
+50. On the root project, create "webpack.config.js" file.
+51. Add the following to webpack.config.js:
+const path = require('path');
+const ROOT_DIR = path.resolve(__dirname, '../');
+const DIST_DIR = path.resolve(ROOT_DIR, 'dist');
+
+module.exports = {
+    mode: 'development',
+    devtool: 'cheap-module-eval-source-map',
+    entry: './src/index.jsx',
+    output: {
+        path: DIST_DIR,
+        filename: 'bundle.js',
+        chunkFilename: '[id].js',
+        publicPath: ''
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js|jsx$/,
+                loader: ,
+                exclude: /node_modules/
+            }
+        ]
+    }
+};
+52. Run npm i --save-dev babel-loader babel-core babel-preset-react babel-preset-env
+53. On the root project, create ".babelrc" file.
+54. Fill the .babelrc file as the following:
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "browsers": [
+                    "> 1%",
+                    "last 2 versions"
+                ]
+            }
+        }],
+        "stage-2",
+        "react"
+    ],
+    "plugins": [
+        "syntax-dynamic-import"
+    ]
+}
+55. Complete the webpack.config.js by adding loader to babel: loader: 'babel-loader',
+56. Add to webpack.config.js the rules for CSS (under module/rules, after js/jsx rule):
+            {
+                test: /\.CSS$/,
+                exclude: /node_modules/,
+                use: [
+
+                ]
+            }
+57. Run npm i --save-dev CSS-loader style-loader
+58. Continue with the rules part, continue the use:
+ use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'CSS-loader',
+                        options: {
+			    importLoaders: 1,
+                            modules: true,
+                            localIdentName: '[name]__[local]__[hash:base64:5]'
+                        }
+                    }
+                ]
+59. Run npm i --save-dev postCSS-loader
+60. Add another loader to the "use:":
+                    {
+                        loader: 'postCSS-loader',
+                        options: {
+                            ident: 'postCSS',
+                            plugins: () => [
+
+                            ]
+                        }
+                    }
+61. Run npm i --save-dev autoprefixer
+62. Add on the top of webpack.config.js file: const autoprefixer = require('autoprefixer');
+63. Complete the plugins section:
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: [
+                                        '> 1%',
+                                        'last 2 versions'
+                                    ]
+                                })
+                            ]
+64. Add new rule under the CSS rule in the webpack.config.js:
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader:
+            }
+65. Run npm i --save-dev url-loader
+66. Run npm i --save-dev file-loader
+67. Complete the loader empty section: loader: 'url-loader?limit=8000&name=images/[name].[ext]'
+68. Run npm i webpack-cli -D
+69. Run npm i --save-dev babel-plugin-syntax-dynamic-import
+70. Run npm i --save-dev babel-preset-stage-2
+71. Run npm i --save-dev html-webpack-plugin
+72. Add on the top of webpack.config.js file: const HtmlWebpackPlugin = require('html-webpack-plugin');
+73. Then, on the webpack.config.js file add new section under "module:":
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: __dirname + '/src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })
+    ]
+74. Add new folder to the root of the application named "config".
+75. Move the webpack.config.js to there.
+75. Rename the "webpack.config.js" to "webpack.dev.config.js".
+76. In webpack.dev.config.js file, change the HtmlWebpackPlugin to this configuration:
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })
+77. In package.json, in "scripts" add under "test" the following:
+        "build": "rimraf dist && webpack --config config/webpack.dev.config.js --mode development --progress --profile --color",
+        "build:prod": "rimraf dist && webpack --config config/webpack.prod.config.js --mode production --progress --profile --color"
+78. In config folder, copy the webpack.dev.config.js and rename it to "webpack.prod.config.js"
+79. In the webpack.prod.config.js file rename the "mode" to "production".
+80. In the webpack.prod.config.js remove the "devtool:"
+81. Run npm i -D uglifyjs-webpack-plugin
+82. Add on the top of the webpack.prod.config.js file: const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+83. In the webpack.prod.config.js, add the "optimization" section:
+    optimization: {
+        namedModules: true, // NamedModulesPlugin()
+        splitChunks: { // CommonsChunkPlugin()
+            name: 'vendor',
+            minChunks: 2
+        },
+        noEmitOnErrors: true, // NoEmitOnErrorsPlugin
+        concatenateModules: true, //ModuleConcatenationPlugin
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            })
+        ]
+    }
+84. Run npm i --save-dev rimraf
+85. The webpack.prod.config.js file should look like this in the end:
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ROOT_DIR = path.resolve(__dirname, '../');
+const DIST_DIR = path.resolve(ROOT_DIR, 'dist');
+
+module.exports = {
+    mode: 'production',
+    entry: './src/index.jsx',
+    output: {
+        path: DIST_DIR,
+        filename: 'bundle.js',
+        chunkFilename: '[id].js',
+        publicPath: ''
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    module: {
+        rules: [{
+                test: /\.js|.jsx$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.CSS$/,
+                exclude: /node_modules/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'CSS-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                            localIdentName: '[name]__[local]__[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: 'postCSS-loader',
+                        options: {
+                            ident: 'postCSS',
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: [
+                                        '> 1%',
+                                        'last 2 versions'
+                                    ]
+                                })
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader: 'url-loader?limit=8000&name=images/[name].[ext]'
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        })
+    ],
+    optimization: {
+        namedModules: true, // NamedModulesPlugin()
+        splitChunks: { // CommonsChunkPlugin()
+            name: 'vendor',
+            minChunks: 2
+        },
+        noEmitOnErrors: true, // NoEmitOnErrorsPlugin
+        concatenateModules: true, //ModuleConcatenationPlugin
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            })
+        ]
+    }
+};
+86. In package.json file, on "scripts", change the "start" script to:
+"start": "webpack-dev-server --config config/webpack.dev.config.js --mode development",
+87. Run npm i --save babel-polyfill
+88. Run npm i --save-dev core-js
+89. Config the .babelrc file to be:
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "browsers": [
+                    "> 1%",
+                    "last 2 versions"
+                ]
+            },
+            "useBuiltIns": "entry"
+        }],
+        "stage-2",
+        "react"
+    ],
+    "plugins": [
+        "syntax-dynamic-import"
+    ]
+}
+90. In the index.jsx file, add on the top the following:
+import 'core-js';
+import 'babel-polyfill';
+*************************************
+NEW REACT EXAMPLE PROJECT STEPS - END
+*************************************
+
+-Structure of the React App as the following:
+-TAKE A LOOK IN PROJECT OF C:\Or\Web\ReactExamples (react-redux-jwt-authentication-example-master) + good-old-react-authentication-flow (inside strAPI-examples-master.zip)
+-Don't user "Redirect" component for redirect the user - use this.props.history.replace('/checkout');
+-Take best practices from there before start to develop.
+-first run create-react-app, then npm run eject (
+https://daveceddia.com/react-project-structure/
+https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1 (take the first common example)
+)
+-packages to add:
+axios, redux, react-redux, redux-saga, prop-types, react-router, react-router-dom, enzyme, enzyme-adapter-react-16, react-test-renderer, eslint-plugin-react, babel-polyfill
+-The "babel-polyfill" needs to be imported on the index.js file to support IE11 + Edge.
+-Plan which state you want to manage and manage it with redux actions.js
+-Rename all the relevant js files to jsx.
+-The stateful class component should be the main feature of the project.
+-Each page with feature will be stateful class component.
+-Add prototype validation to each component.
+---------------
+config
+node_modules(.gitignore)
+public
+scripts
+src:
+-api (each model in separate folder with his service. An API file will be general place).
+-assets
+-components: Layout + Divided by features (Like Burger)
+-containers: MainApp (Stateful components)
+-hoc (Aux component)
+-store:
+*reducers (all reducer files)
+*actions (all actions files)
+*sagas (all sagas files)
+*utilities: utility.js
+-utils: auth
+.gitignore
+package.json
+package-lock.json
+readme.txt - Created and developed by Or Assayag 2018-2019

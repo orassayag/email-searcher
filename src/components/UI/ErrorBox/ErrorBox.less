@@ -1,25 +1,30 @@
 @-webkit-keyframes shake {
+
     2%,
     18% {
         -webkit-transform: translate3d(-1px, 0, 0);
         transform: translate3d(-1px, 0, 0);
     }
+
     4%,
     16% {
         -webkit-transform: translate3d(2px, 0, 0);
         transform: translate3d(2px, 0, 0);
     }
+
     6%,
     10%,
     14% {
         -webkit-transform: translate3d(-4px, 0, 0);
         transform: translate3d(-4px, 0, 0);
     }
+
     8%,
     12% {
         -webkit-transform: translate3d(4px, 0, 0);
         transform: translate3d(4px, 0, 0);
     }
+
     100% {
         -webkit-transform: translate3d(0px, 0, 0);
         transform: translate3d(0px, 0, 0);
@@ -27,27 +32,32 @@
 }
 
 @keyframes shake {
+
     2%,
     18% {
         -webkit-transform: translate3d(-1px, 0, 0);
         transform: translate3d(-1px, 0, 0);
     }
+
     4%,
     16% {
         -webkit-transform: translate3d(2px, 0, 0);
         transform: translate3d(2px, 0, 0);
     }
+
     6%,
     10%,
     14% {
         -webkit-transform: translate3d(-4px, 0, 0);
         transform: translate3d(-4px, 0, 0);
     }
+
     8%,
     12% {
         -webkit-transform: translate3d(4px, 0, 0);
         transform: translate3d(4px, 0, 0);
     }
+
     100% {
         -webkit-transform: translate3d(0px, 0, 0);
         transform: translate3d(0px, 0, 0);
@@ -71,6 +81,7 @@
     border-bottom-left-radius: 4px;
     display: none;
     z-index: 100;
+
     &.active {
         display: block;
         -webkit-animation: shake 3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
@@ -82,13 +93,16 @@
         -webkit-perspective: 1000px;
         perspective: 1000px;
     }
+
     &.search-option-error {
         max-width: 90%;
     }
+
     &.search-option-general {
         display: inline-block;
         position: static;
     }
+
     .error-message {
         outline: none !important;
         list-style: none;
@@ -100,6 +114,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+
         &::after {
             content: "";
             display: inline-block;
@@ -110,6 +125,7 @@
             top: -6px;
             left: 3px;
         }
+
         &.no-arrow {
             &::after {
                 display: none;

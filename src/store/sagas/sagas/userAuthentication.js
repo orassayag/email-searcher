@@ -90,9 +90,9 @@ export function* userAuthenticationModeChangeStartSaga(action) {
     // Validate that the userAuthenticationMode is valid. Check the validity of the userAuthenticationMode
     // parameter. If invalid - Show a message to the user and console error.
     if (!validateEnumValue({
-            enum: enums.UserAuthenticationModeType,
-            value: action.userAuthenticationMode
-        })) {
+        enum: enums.UserAuthenticationModeType,
+        value: action.userAuthenticationMode
+    })) {
 
         // Assign the error details to print to the console.
         // Call the error saga to show error message to the user.

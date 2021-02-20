@@ -85,7 +85,7 @@ const generateRandomLink = () => {
     };
 
     // Return random URL address.
-    return `http${ generateRandomBoolean() ? 's' : '' }://www.${linkData.linkKey}.${linkData.linkEnd}`;
+    return `http${generateRandomBoolean() ? 's' : ''}://www.${linkData.linkKey}.${linkData.linkEnd}`;
 };
 
 // This function generates random search engine.
@@ -176,9 +176,9 @@ export const generateFakeEmails = (generateData) => {
     // Validate that the emailType is valid. Check the validity of the emailType
     // parameter. If invalid - Don't generate the fake emails.
     if (!validateEnumValue({
-            enum: enums.EmailType,
-            value: generateData.emailType
-        })) {
+        enum: enums.EmailType,
+        value: generateData.emailType
+    })) {
 
         // Stop any further actions.
         return;

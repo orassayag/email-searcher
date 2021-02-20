@@ -40,9 +40,9 @@ export const getAuthenticationImageSourceByType = (authenticationRequiredModalTy
 
         // If invalid enum key, throw new exception to the user.
         if (!validateEnumValue({
-                enum: enums.AuthenticationRequiredModalType,
-                value: authenticationRequiredModalType
-            })) {
+            enum: enums.AuthenticationRequiredModalType,
+            value: authenticationRequiredModalType
+        })) {
 
             // Throw exception to the user.
             throw new Error(translate.error_invalid.replace('#params#', 'authenticationRequiredModalType'));

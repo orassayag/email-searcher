@@ -255,10 +255,10 @@ export const validateRegistrationUserAuthenticationModeRequest = (userAuthentica
 
     // Check that the email is not exceeded maximum length. If invalid - Display a message to the user.
     if (!validateCharactersLength({
-            value: userAuthenticationDataRequest.emailText,
-            validationType: enums.ValidateCharactersType.MAXIMUM,
-            charactersCount: logicSettings.maximumUserEmailLength
-        })) {
+        value: userAuthenticationDataRequest.emailText,
+        validationType: enums.ValidateCharactersType.MAXIMUM,
+        charactersCount: logicSettings.maximumUserEmailLength
+    })) {
 
         // Assign the text-box type.
         validationResult.textBoxType = enums.UserAuthenticationInputType.EMAIL;
@@ -272,10 +272,10 @@ export const validateRegistrationUserAuthenticationModeRequest = (userAuthentica
 
     // Check that the email is not under minimum length. If invalid - Display a message to the user.
     if (!validateCharactersLength({
-            value: userAuthenticationDataRequest.emailText,
-            validationType: enums.ValidateCharactersType.MINIMUM,
-            charactersCount: logicSettings.minimumUserEmailLength
-        })) {
+        value: userAuthenticationDataRequest.emailText,
+        validationType: enums.ValidateCharactersType.MINIMUM,
+        charactersCount: logicSettings.minimumUserEmailLength
+    })) {
 
         // Assign the text-box type.
         validationResult.textBoxType = enums.UserAuthenticationInputType.EMAIL;
@@ -304,10 +304,10 @@ export const validateRegistrationUserAuthenticationModeRequest = (userAuthentica
 
     // Check that the password is not exceeded maximum length. If invalid - Display a message to the user.
     if (!validateCharactersLength({
-            value: userAuthenticationDataRequest.passwordText,
-            validationType: enums.ValidateCharactersType.MAXIMUM,
-            charactersCount: logicSettings.maximumUserPasswordLength
-        })) {
+        value: userAuthenticationDataRequest.passwordText,
+        validationType: enums.ValidateCharactersType.MAXIMUM,
+        charactersCount: logicSettings.maximumUserPasswordLength
+    })) {
 
         // Assign the text-box type.
         validationResult.textBoxType = enums.UserAuthenticationInputType.PASSWORD;
@@ -321,10 +321,10 @@ export const validateRegistrationUserAuthenticationModeRequest = (userAuthentica
 
     // Check that the password is not under minimum length. If invalid - Display a message to the user.
     if (!validateCharactersLength({
-            value: userAuthenticationDataRequest.passwordText,
-            validationType: enums.ValidateCharactersType.MINIMUM,
-            charactersCount: logicSettings.minimumUserPasswordLength
-        })) {
+        value: userAuthenticationDataRequest.passwordText,
+        validationType: enums.ValidateCharactersType.MINIMUM,
+        charactersCount: logicSettings.minimumUserPasswordLength
+    })) {
 
         // Assign the text-box type.
         validationResult.textBoxType = enums.UserAuthenticationInputType.PASSWORD;

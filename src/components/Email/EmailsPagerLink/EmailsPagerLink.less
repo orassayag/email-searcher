@@ -1,25 +1,30 @@
 .pagination {
     li {
         display: inline;
+
         &:first-child {
             a {
                 border-left-width: 1px;
                 border-radius: 3px 0 0 3px;
             }
+
             span {
                 border-left-width: 1px;
                 border-radius: 3px 0 0 3px;
             }
         }
+
         &:last-child {
             a {
                 border-radius: 0 3px 3px 0;
             }
+
             span {
                 border-radius: 0 3px 3px 0;
             }
         }
     }
+
     a {
         float: left;
         padding: 0 14px;
@@ -29,10 +34,12 @@
         border: 1px solid #dddddd;
         border-left-width: 0;
         cursor: pointer;
+
         &:hover {
             background-color: #f5f5f5;
         }
     }
+
     .active {
         a {
             background-color: #f5f5f5;
@@ -40,12 +47,14 @@
             cursor: default;
         }
     }
+
     >li {
         >a {
             border-radius: 50%;
             margin: 0 2px;
             color: #777777;
         }
+
         &:first-child {
             >a {
                 border-radius: 50%;
@@ -53,6 +62,7 @@
                 color: #777777;
             }
         }
+
         &:last-child {
             >a {
                 border-radius: 50%;
@@ -61,18 +71,21 @@
             }
         }
     }
+
     >li.active {
         >a {
             background-color: #2ca8ff;
             border: 0;
             color: #ffffff;
             padding: 7px 13px;
+
             &:hover {
                 background-color: #2ca8ff;
                 border: 0;
                 color: #ffffff;
                 padding: 7px 13px;
             }
+
             &:focus {
                 background-color: #2ca8ff;
                 border: 0;

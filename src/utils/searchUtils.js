@@ -20,60 +20,60 @@ import { isUserVerifiedAuthentication } from './userAuthenticationUtils';
 // error texts in case of errors, and limits of the input to validate.
 const dataArray = new Map([
     [enums.SearchMode.TEXT,
-        {
-            searchOptionType: enums.SearchElementType.TEXT,
-            emptyErrorText: translate.search_bar_error_empty_search_key,
-            validationFunction: validationUtils.validateSearchKey,
-            errorValidationText: translate.search_bar_error_alphanumeric,
-            maximumCharactersCount: logicSettings.maximumTextSearchLength,
-            maximumCharactersErrorText: translate.search_bar_search_key_error_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.TEXT,
+        emptyErrorText: translate.search_bar_error_empty_search_key,
+        validationFunction: validationUtils.validateSearchKey,
+        errorValidationText: translate.search_bar_error_alphanumeric,
+        maximumCharactersCount: logicSettings.maximumTextSearchLength,
+        maximumCharactersErrorText: translate.search_bar_search_key_error_length_exceeds
+    }
     ],
     [enums.SearchMode.URL,
-        {
-            searchOptionType: enums.SearchElementType.URL,
-            emptyErrorText: translate.search_bar_error_empty_URL,
-            validationFunction: validationUtils.validateURL,
-            errorValidationText: translate.search_bar_error_URL,
-            maximumCharactersCount: logicSettings.maximumURLSearchLength,
-            maximumCharactersErrorText: translate.search_bar_URL_error_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.URL,
+        emptyErrorText: translate.search_bar_error_empty_URL,
+        validationFunction: validationUtils.validateURL,
+        errorValidationText: translate.search_bar_error_URL,
+        maximumCharactersCount: logicSettings.maximumURLSearchLength,
+        maximumCharactersErrorText: translate.search_bar_URL_error_length_exceeds
+    }
     ],
     [enums.SearchElementType.DOMAINS,
-        {
-            searchOptionType: enums.SearchElementType.DOMAINS,
-            validationFunction: validationUtils.validateEmailDomains,
-            errorValidationText: translate.search_bar_email_domains_invalid_input,
-            maximumCharactersCount: logicSettings.maximumDomainsLength,
-            maximumCharactersErrorText: translate.search_bar_email_domains_error_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.DOMAINS,
+        validationFunction: validationUtils.validateEmailDomains,
+        errorValidationText: translate.search_bar_email_domains_invalid_input,
+        maximumCharactersCount: logicSettings.maximumDomainsLength,
+        maximumCharactersErrorText: translate.search_bar_email_domains_error_length_exceeds
+    }
     ],
     [enums.SearchElementType.KEYS,
-        {
-            searchOptionType: enums.SearchElementType.KEYS,
-            validationFunction: validationUtils.validateEmailKeys,
-            errorValidationText: translate.search_bar_email_keys_invalid_input,
-            maximumCharactersCount: logicSettings.maximumKeysLength,
-            maximumCharactersErrorText: translate.search_bar_email_keys_error_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.KEYS,
+        validationFunction: validationUtils.validateEmailKeys,
+        errorValidationText: translate.search_bar_email_keys_invalid_input,
+        maximumCharactersCount: logicSettings.maximumKeysLength,
+        maximumCharactersErrorText: translate.search_bar_email_keys_error_length_exceeds
+    }
     ],
     [enums.SearchElementType.URLS,
-        {
-            searchOptionType: enums.SearchElementType.URLS,
-            validationFunction: validationUtils.validateURLDomains,
-            errorValidationText: translate.search_bar_URL_domains_invalid_input,
-            maximumCharactersCount: logicSettings.maximumURLSLength,
-            maximumCharactersErrorText: translate.search_bar_URL_domains_error_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.URLS,
+        validationFunction: validationUtils.validateURLDomains,
+        errorValidationText: translate.search_bar_URL_domains_invalid_input,
+        maximumCharactersCount: logicSettings.maximumURLSLength,
+        maximumCharactersErrorText: translate.search_bar_URL_domains_error_length_exceeds
+    }
     ],
     [enums.SearchElementType.COMMENTS,
-        {
-            searchOptionType: enums.SearchElementType.COMMENTS,
-            validationFunction: validationUtils.validateAddEmailComments,
-            errorValidationText: translate.add_email_modal_error_invalid_comments,
-            maximumCharactersCount: logicSettings.maximumEmailCommentsLength,
-            maximumCharactersErrorText: translate.add_email_modal_error_comments_length_exceeds
-        }
+    {
+        searchOptionType: enums.SearchElementType.COMMENTS,
+        validationFunction: validationUtils.validateAddEmailComments,
+        errorValidationText: translate.add_email_modal_error_invalid_comments,
+        maximumCharactersCount: logicSettings.maximumEmailCommentsLength,
+        maximumCharactersErrorText: translate.add_email_modal_error_comments_length_exceeds
+    }
     ]
 ]);
 
@@ -268,7 +268,7 @@ const validateSearchOptions = (validateSearchOptionsData) => {
         // And check the search option type and if needed, Skip validation on URL domains if the search mode is URL.
         // (Search emails on specific URL, no need to include / exclude URL domains) and continue to the next search option.
         if (!searchOption.value || (validateSearchOptionsData.searchData.searchMode === enums.SearchMode.URL &&
-                searchOption.searchOptionType === enums.SearchElementType.URLS)) {
+            searchOption.searchOptionType === enums.SearchElementType.URLS)) {
 
             // Set the error status of the specific search option.
             validateSearchOptionsData.validationResult.searchOptionsList = setSearchOptionStatus({
@@ -304,10 +304,10 @@ const validateSearchOptions = (validateSearchOptionsData) => {
 
         // Check that the value is not exceeded maximum length.
         if (!validationUtils.validateCharactersLength({
-                value: searchOption.value,
-                validationType: enums.ValidateCharactersType.MAXIMUM,
-                charactersCount: searchModeData.maximumCharactersCount
-            })) {
+            value: searchOption.value,
+            validationType: enums.ValidateCharactersType.MAXIMUM,
+            charactersCount: searchModeData.maximumCharactersCount
+        })) {
 
             // Assign the error details to show the user.
             validateSearchOptionsData.validationResult.searchOptionsList = setSearchOptionStatus({
@@ -543,10 +543,10 @@ export const validateAddEmailProcessRequest = (addEmailData) => {
 
     // Check that the emailSearchKey is not exceeded maximum length. If is, print error to the console.
     if (!validationUtils.validateCharactersLength({
-            value: validationResult.emailItem.emailSearchKey,
-            validationType: enums.ValidateCharactersType.MAXIMUM,
-            charactersCount: searchModeData.maximumCharactersCount
-        })) {
+        value: validationResult.emailItem.emailSearchKey,
+        validationType: enums.ValidateCharactersType.MAXIMUM,
+        charactersCount: searchModeData.maximumCharactersCount
+    })) {
 
         // Assign the error details to print to the console.
         validationResult.errorToConsole = {
@@ -575,9 +575,9 @@ export const validateAddEmailProcessRequest = (addEmailData) => {
 
     // Validate that the search engine is valid. If not, print error to the console.
     if (!validationUtils.validateEnumValue({
-            enum: enums.SearchEngine,
-            value: validationResult.emailItem.emailSearchEngine
-        })) {
+        enum: enums.SearchEngine,
+        value: validationResult.emailItem.emailSearchEngine
+    })) {
 
         // Assign the error details to print to the console.
         validationResult.errorToConsole = {
@@ -598,10 +598,10 @@ export const validateAddEmailProcessRequest = (addEmailData) => {
 
         // Check that the comments is not exceeded maximum length. If not, print error to the console.
         if (!validationUtils.validateCharactersLength({
-                value: validationResult.emailItem.emailComments,
-                validationType: enums.ValidateCharactersType.MAXIMUM,
-                charactersCount: commentsData.maximumCharactersCount
-            })) {
+            value: validationResult.emailItem.emailComments,
+            validationType: enums.ValidateCharactersType.MAXIMUM,
+            charactersCount: commentsData.maximumCharactersCount
+        })) {
 
             // Set the error message with of the relevant error.
             validationResult.errorMessage = commentsData.maximumCharactersErrorText.replace('#count#', commentsData.maximumCharactersCount);
@@ -623,9 +623,9 @@ export const validateAddEmailProcessRequest = (addEmailData) => {
 
     // Finally, validate that the email type is valid. If not, print error to the console.
     if (!validationUtils.validateEnumValue({
-            enum: enums.EmailType,
-            value: validationResult.emailItem.emailType
-        })) {
+        enum: enums.EmailType,
+        value: validationResult.emailItem.emailType
+    })) {
 
         // Assign the error details to print to the console.
         validationResult.errorToConsole = {
@@ -775,10 +775,10 @@ export const validateSearchRequest = (searchData) => {
 
         // Check that the value is not exceeded maximum length. If invalid - Display error to the user.
         if (!validationUtils.validateCharactersLength({
-                value: searchData.searchKeyTempValue,
-                validationType: enums.ValidateCharactersType.MAXIMUM,
-                charactersCount: searchModeData.maximumCharactersCount
-            })) {
+            value: searchData.searchKeyTempValue,
+            validationType: enums.ValidateCharactersType.MAXIMUM,
+            charactersCount: searchModeData.maximumCharactersCount
+        })) {
 
             // Set the error message with of the relevant error.
             validationResult.searchOptionsList = setSearchOptionStatus({

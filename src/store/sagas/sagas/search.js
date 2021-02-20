@@ -49,9 +49,9 @@ export function* searchModalToggleStartSaga(action) {
 
         // Validate the type of the authentication required type. If invalid - Print error to the console and don't do nothing.
         if (!validateEnumValue({
-                enum: enums.AuthenticationRequiredModalType,
-                value: action.toggleModalData.authenticationRequiredModalType
-            })) {
+            enum: enums.AuthenticationRequiredModalType,
+            value: action.toggleModalData.authenticationRequiredModalType
+        })) {
 
             // Assign the error details to print to the console.
             yield call(printErrorToConsole, {
@@ -227,9 +227,9 @@ export function* searchModeChangeStartSaga(action) {
     // Validate that the search option is valid.
     // Check the validity of the search mode parameter. If invalid - Show a message to the user and console error.
     if (!validateEnumValue({
-            enum: enums.SearchMode,
-            value: action.searchModeData.newSearchMode
-        })) {
+        enum: enums.SearchMode,
+        value: action.searchModeData.newSearchMode
+    })) {
 
         // Assign the error details to print to the console.
         yield call(searchOptionErrorSaga, {

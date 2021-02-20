@@ -9,26 +9,33 @@
     height: 24px;
     font-weight: normal;
     margin: 0px;
+
     input {
         display: none;
+
         &:checked+.search-option-slider {
             background-color: #fdc600 !important;
+
             &:before {
                 -webkit-transform: translateX(75px);
                 transform: translateX(75px);
             }
+
             .on {
                 display: none;
             }
+
             .off {
                 display: block !important;
             }
         }
+
         &:focus+.search-option-slider {
             -webkit-box-shadow: 0 0 1px #b9d9f9;
             box-shadow: 0 0 1px #b9d9f9;
         }
     }
+
     .search-option-slider {
         position: absolute;
         cursor: pointer;
@@ -39,6 +46,7 @@
         background-color: #b9d9f9;
         -webkit-transition: .4s;
         transition: .4s;
+
         &:before {
             position: absolute;
             content: "";
@@ -50,15 +58,19 @@
             -webkit-transition: .4s;
             transition: .4s;
         }
+
         &.round {
             border-radius: 34px;
+
             &:before {
                 border-radius: 50%;
             }
         }
+
         .off {
             display: none;
         }
+
         .on,
         .off {
             text-transform: capitalize;
