@@ -1,12 +1,11 @@
-# Client
+# Email Searcher
 
-Start to be built in July 2018.
-The client application's role is to contain the UI and display it to the user.
+Built in July 2018. The client application's role is to contain the UI and display it to the user.
 Email-searcher is a website that helps to demonstrate how to display crawler results from the server to the user UI.
-The client built in React, and always updated with the latest version of create-react-up
+The client built in React, and always updated with the latest version of create-react-app
 (https://github.com/facebook/create-react-app).
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
