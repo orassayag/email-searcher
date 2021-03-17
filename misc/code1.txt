@@ -1,0 +1,243 @@
+import React, { Component, Fragment } from "react";
+import { render } from "react-dom";
+import request from "superagent";
+
+class InfiniteUsers extends Component {
+  constructor(props) {
+    super(props);
+    
+    // Sets up our initial state
+    this.state = {
+      error: false,
+      hasMore: true,
+      isLoading: false,
+      users: [],
+    };
+
+    // Binds our scroll event handler
+    window.onscroll = () => {
+      const {
+        loadUsers,
+        state: {
+          error,
+          isLoading,
+          hasMore,
+        },
+      } = this;
+
+      // Bails early if:
+      // * there's an error
+      // * it's already loading
+      // * there's nothing left to load
+      if (error || isLoading || !hasMore) return;
+
+      // Checks that the page has scrolled to the bottom
+      if (
+        window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight
+      ) {
+        loadUsers();
+      }
+    };
+  }
+
+  componentWillMount() {
+    // Loads some users on initial load
+    this.loadUsers();
+  }
+
+  loadUsers = () => {
+    this.setState({ isLoading: true }, () => {
+      request
+        .get('https://randomuser.me/api/?results=10')
+        .then((results) => {          
+          // Creates a massaged array of user data
+          const nextUsers = results.body.results.map(user => ({
+            email: user.email,
+            name: Object.values(user.name).join(' '),
+            photo: user.picture.medium,
+            username: user.login.username,
+            uuid: user.login.uuid,
+          }));
+
+          // Merges the next users into our existing users
+          this.setState({
+            // Note: Depending on the API you're using, this value may be
+            // returned as part of the payload to indicate that there is no
+            // additional data to be loaded
+            hasMore: (this.state.users.length < 100),
+            isLoading: false,
+            users: [
+              ...this.state.users,
+              ...nextUsers,
+            ],
+          });
+        })
+        .catch((err) => {
+          this.setState({
+            error: err.message,
+            isLoading: false,
+           });
+        })
+    });
+  }
+
+  render() {
+    const {
+      error,
+      hasMore,
+      isLoading,
+      users,
+    } = this.state;
+
+    return (
+      <div>
+        <h1>Infinite Users!</h1>
+        <p>Scroll down to load more!!</p>
+        {users.map(user => (
+          <Fragment key={user.username}>
+            <hr />
+            <div style={{ display: 'flex' }}>
+              <img
+                alt={user.username}
+                src={user.photo}
+                style={{
+                  borderRadius: '50%',
+                  height: 72,
+                  marginRight: 20,
+                  width: 72,
+                }}
+              />
+              <div>
+                <h2 style={{ marginTop: 0 }}>
+                  @{user.username}
+                </h2>
+                <p>Name: {user.name}</p>
+                <p>Email: {user.email}</p>
+              </div>
+            </div>
+          </Fragment>
+        ))}
+        <hr />
+        {error &&
+          <div style={{ color: '#900' }}>
+            {error}
+          </div>
+        }
+        {isLoading &&
+          <div>Loading...</div>
+        }
+        {!hasMore &&
+          <div>You did it! You reached the end!</div>
+        }
+      </div>
+    );
+  }
+}
+
+const container = document.createElement("div");
+document.body.appendChild(container);
+render(<InfiniteUsers />, container);
+
+
+------------------------------------
+var InfiniteData = React.createClass({
+  getInitialState: function() {
+    return ({data: [], requestSent: false});
+  },
+
+  componentDidMount: function() {
+    window.addEventListener('scroll', this.handleOnScroll);
+
+    this.initFakeData();
+  },
+
+  componentWillUnmount: function() {
+    window.removeEventListener('scroll', this.handleOnScroll);
+  },
+
+  initFakeData: function() {
+    var data = this.createFakeData(this.state.data.length, 100);
+
+    this.setState({data: data});
+  },
+
+  createFakeData: function(startKey, counter) {
+    var i = 0;
+    var data = [];
+    for (i = 0; i < counter; i++) {
+      var fakeData = (<div key={startKey+i} className="data-info">Fake Data {startKey+i}</div>);
+      data.push(fakeData);
+    }
+
+    return data;
+  },
+
+  querySearchResult: function() {
+    if (this.state.requestSent) {
+      return;
+    }
+
+    // enumerate a slow query
+    setTimeout(this.doQuery, 2000);
+
+    this.setState({requestSent: true});
+  },
+
+  doQuery: function() {
+    // use jQuery
+    $.ajax({
+      url: "#",
+      data: null,
+      method: "GET",
+      success: function(data, textStatus, jqXHR) {
+        var fakeData = this.createFakeData(this.state.data.length, 20);
+        var newData = this.state.data.concat(fakeData);
+        this.setState({data: newData, requestSent: false});
+      }.bind(this),
+      error: function(jqXHR, textStatus, errorThrown) {
+        this.setState({requestSent: false});
+      }.bind(this)
+    });
+  },  
+
+  handleOnScroll: function() {
+    // http://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom
+    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+    var clientHeight = document.documentElement.clientHeight || window.innerHeight;
+    var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+    if (scrolledToBottom) {
+      this.querySearchResult();
+    }
+  },
+
+  render: function() {
+    return (
+      <div>
+        <div className="data-container">
+          {this.state.data}
+        </div>
+        {(() => {
+          if (this.state.requestSent) {
+            return(
+              <div className="data-loading">
+                <i className="fa fa-refresh fa-spin"></i>
+              </div>
+            );
+          } else {
+            return(
+              <div className="data-loading"></div>
+            );
+          }
+        })()}
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <InfiniteData />,
+  document.getElementById("example")
+);

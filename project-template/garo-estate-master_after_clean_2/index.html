@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EmailSearcher | Search emails everywhere</title>
+    <meta name="description" content="Email Searcher">
+    <meta name="author" content="Email Searcher">
+    <meta name="keyword" content="Email Searcher">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- HEADER START -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <label for="toggle" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </label>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo.png" alt="Email Searcher" title="Email Searcher" />
+                    </a>
+                </div>
+                <!-- Collect the nav links-->
+                <input type="checkbox" id="toggle" name="toggle">
+                <div class="sub-menu">
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="fadeIn"><a class="" href="index.html">Search</a></li>
+                        <li class="fadeIn"><a class="" href="register.html">Register/Login</a></li>
+                        <li class="fadeIn"><a href="user-properties.html">My Emails</a></li>
+                        <li class="fadeIn">
+                            <span>orassayag@walla.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- HEADER END -->
+        <!-- BODY START -->
+        <!-- SEARCH BAR START -->
+        <div class="slider-area">
+            <div class="slider-content">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>Search your emails</h2>
+                        <div class="search-form pulse animated">
+                            <form action="" class="form-inline">
+                                <button class="btn toggle-btn" type="button">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <div class="form-group">
+                                    <input type="text" class="form-control search-bar" placeholder="Key word">
+                                </div>
+                                <button class="btn search-btn" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <div class="search-toggle slideup">
+                                    <div class="row row-centered">
+                                        <h3>Advance search</h3>
+                                        <div class="col-md-3 col-centered">
+                                            <div class="search-label">Email domains</div>
+                                            <label class="search-option">
+                                                <input type="checkbox" class="togBtn">
+                                                <div class="search-option-slider round">
+                                                    <span class="exclude">Exclude</span>
+                                                    <span class="include">Include</span>
+                                                </div>
+                                            </label>
+                                            <div class="search-info">
+                                                Define the email domain you want to include/exclude.
+                                            </div>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                        <div class="col-md-3 col-centered">
+                                            <div class="search-label">Email keys</div>
+                                            <label class="search-option">
+                                                <input type="checkbox" class="togBtn">
+                                                <div class="search-option-slider round">
+                                                    <span class="exclude">Exclude</span>
+                                                    <span class="include">Include</span>
+                                                </div>
+                                            </label>
+                                            <div class="search-info">
+                                                Define the email key you want to include/exclude.
+                                            </div>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                        <div class="col-md-3 col-centered">
+                                            <div class="search-label">Urls</div>
+                                            <label class="search-option">
+                                                <input type="checkbox" class="togBtn">
+                                                <div class="search-option-slider round">
+                                                    <span class="exclude">Exclude</span>
+                                                    <span class="include">Include</span>
+                                                </div>
+                                            </label>
+                                            <div class="search-info">
+                                                Define the email key you want to include/exclude.
+                                            </div>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                        <div class="search-ok">
+                                            <button type="submit" class="btn btn-default">Apply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SEARCH BAR END -->
+        <!-- SEARCH RESULTS START -->
+        <div class="recent-property">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title search not-found" style="display: none;">
+                        <p>Sorry, no emails found for "Programer"</p>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title search">
+                        <p>Results for "Programer":</p>
+                    </div>
+                    <div class="content-area">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="section">
+                                <div id="list-type" class="proerty-th-list">
+                                    <div class="col-md-4 p0">
+                                        <div class="item-result">
+                                            <div class="search-result-container">
+                                                <div class="row result-top">
+                                                    <div class="col-sm-5">
+                                                        <div class="result-label">
+                                                            Email:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            orassaorassayagorassayagorassayagorassayagorassayagyag@gmail.com
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <div class="result-label">
+                                                            Link:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            <a href="https://www.walla.com" target="_blank">https://www.walla.com.waa.com.walla.com.com.waa.com.walla.com.com.waa.com.walla.com.walla.com</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 p0">
+                                        <div class="item-result">
+                                            <div class="search-result-container">
+                                                <div class="row result-top">
+                                                    <div class="col-sm-5">
+                                                        <div class="result-label">
+                                                            Email:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            orassaorassagyag@gmail.com
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <div class="result-label">
+                                                            Link:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            <a href="https://www.walla.com" target="_blank">https://wm.waa.com.walla.com.walla.com</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 p0">
+                                        <div class="item-result">
+                                            <div class="search-result-container">
+                                                <div class="row result-top">
+                                                    <div class="col-sm-5">
+                                                        <div class="result-label">
+                                                            Email:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            orassaorassayagorassayagorassayagorassayagorassayagyag@gmail.com
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <div class="result-label">
+                                                            Link:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            <a href="https://www.walla.com" target="_blank">https://www.walla.com.waa.com.walla.com.com.waa.com.walla.com.com.waa.com.walla.com.walla.com</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 p0">
+                                        <div class="item-result">
+                                            <div class="search-result-container">
+                                                <div class="row result-top">
+                                                    <div class="col-sm-5">
+                                                        <div class="result-label">
+                                                            Email:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            orassaorassagyag@gmail.com
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <div class="result-label">
+                                                            Link:
+                                                        </div>
+                                                        <div class="result-value result-dynamic">
+                                                            <a href="https://www.walla.com" target="_blank">https://wm.waa.com.walla.com.walla.com</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SEARCH RESULTS END -->
+        <!-- BODY END -->
+        <!-- FOOTER START -->
+        <div class="footer-area">
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-left">
+                            <span> (C) <a href="mailto:orassayag@gmail.com">Or Assayag</a>, All rights reserved 2018 | App icon by <a href="https://icons8.com/" target="_blank">icons8</a></span>
+                        </div>
+                        <div class="bottom-menu pull-right">
+                            <ul>
+                                <li class="fadeIn"><a href="index.html">Search</a></li>
+                                <li class="fadeIn"><a href="register.html">Register/Login</a></li>
+                                <li class="fadeIn"><a href="user-properties.html">My Emails</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER END -->
+    </div>
+</body>
+
+</html>

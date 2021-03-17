@@ -1,0 +1,1 @@
+-Fix all README.me + package.json from 'create-react-up' to 'create-react-app'. *
