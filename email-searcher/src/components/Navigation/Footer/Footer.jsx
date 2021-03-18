@@ -26,7 +26,7 @@ const defaultProps = {
 const Footer = (props) => {
 
     // Check user-authentication data for relevant pages:
-    // If user is authenticated don't display a link to user-authentication (Login / registration) page,
+    // If user is authenticated don't display a link to user-authentication (Login / Registration) page,
     // If user is not authenticated, don't display link to user-emails page.
     // Default values for users that are not authenticated.
     let footerData = null;

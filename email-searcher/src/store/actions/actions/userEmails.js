@@ -100,7 +100,7 @@ export const onUserToggleEmailMoreInformationStart = (toggleEmailData) => {
     };
 };
 
-// This action function called when the "More information" panel was successfully
+// This action function called when the 'More information' panel was successfully
 // toggled on the user-emails page, to show / hide the full information
 // about the email row item.
 export const onUserToggleEmailMoreInformationSuccess = (emails) => {

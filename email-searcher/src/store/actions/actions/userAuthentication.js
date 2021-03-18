@@ -33,7 +33,7 @@ export const onUserAuthenticationInputChangeSuccess = (userAuthenticationInputCh
 };
 
 // This action function called when user-authentication mode link
-// clicked (Login or registration) on user-authentication page.
+// clicked (Login or Registration) on user-authentication page.
 export const onUserAuthenticationModeChangeStart = (userAuthenticationMode) => {
     return {
         type: actionTypes.userAuthenticationActions.USER_AUTHENTICATION_MODE_CHANGE_START,

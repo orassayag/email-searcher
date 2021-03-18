@@ -177,7 +177,7 @@ class Search extends Component {
         // Take the scoped props.
         const { props } = this;
 
-        // If the user is not authenticated or - Show to the user the authentication required (Login / register) modal window.
+        // If the user is not authenticated or - Show to the user the authentication required (Login / Register) modal window.
         // Since its email action icon clicks, display the add authentication required modal.
         if (!this.isUserAuthenticated) {
 

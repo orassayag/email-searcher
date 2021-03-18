@@ -164,17 +164,17 @@ export const getFunctionName = () => {
     }
 
     // Get the caller name trimmed, it would generate something like
-    // this: "at searchModalToggleStartSaga$ (http://localhost:3000/static/js/bundle.js:78588:106)".
+    // this: 'at searchModalToggleStartSaga$ (http://localhost:3000/static/js/bundle.js:78588:106)'.
     let caller = stack.split('\n')[2].trim();
 
     // We want to get rid of the round brackets. We will
-    // left with: "at searchModalToggleStartSaga$".
+    // left with: 'at searchModalToggleStartSaga$'.
     caller = caller.replace(/ *\([^)]*\) */g, '');
 
-    // Now we want to remove the '$' sign. We will be left with: "at searchModalToggleStartSaga".
+    // Now we want to remove the '$' sign. We will be left with: 'at searchModalToggleStartSaga'.
     caller = caller.replace(/[^\w\s]/gi, '');
 
-    // Finally, we will remove the "at " key. The result will be only the caller function name ("searchModalToggleStartSaga").
+    // Finally, we will remove the 'at ' key. The result will be only the caller function name ('searchModalToggleStartSaga').
     caller = caller.replace('at ', '');
 
     // Return the calculated result.

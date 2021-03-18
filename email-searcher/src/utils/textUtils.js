@@ -105,7 +105,7 @@ export const getErrorParametersString = (errorParametersList) => {
     // Will hold the final result.
     let result = '';
 
-    // Concat all parameters by generate the "or" word by language
+    // Concat all parameters by generate the 'or' word by language
     errorParamatersList.forEach(param => {
         result += `${param} ${translate.error_or_key} `;
     });

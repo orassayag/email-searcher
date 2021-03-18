@@ -68,7 +68,7 @@ const Email = (props) => {
 
     // If the user is not in the search-page (Home-page), he is in the user-emails
     // page, and for that, the actions of each email are different,
-    // and enable the user to view the "More information" panel and comments.
+    // and enable the user to view the 'More information' panel and comments.
     if (!props.isHomePage) {
         emailDesignData.modeClass = ' user-emails';
         emailDesignData.sideIcon = 'close';
@@ -89,7 +89,7 @@ const Email = (props) => {
             );
         }
 
-        // Creates the "More information" panel with all the email's details.
+        // Creates the 'More information' panel with all the email's details.
         emailDesignData.moreInformation = (
             <div className={emailDesignData.moreInformationClass}>
                 <div className="row">

@@ -350,8 +350,8 @@ function* userGetEmailsProcessErrorSaga(userGetEmailsErrorData) {
 }
 
 // This saga function is called when the user clicks on the email row item on
-// the user-emails page, when he wants to hide / show the email's "More
-// information" panel, on toggle operation.
+// the user-emails page, when he wants to hide / show the email's 'More
+// information' panel, on toggle operation.
 export function* userToggleEmailMoreInformationStartSaga(action) {
 
     // Validate all parameters and perform the toggle

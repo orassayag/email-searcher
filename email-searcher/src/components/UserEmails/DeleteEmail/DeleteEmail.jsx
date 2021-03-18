@@ -2,7 +2,7 @@
 // right after the user clicked on an X to remove an email item from this
 // emails list. This component displays a message that asks the user to confirm
 // the email removal. The user can cancel the operation by clicking on the
-// cancel button, and can confirm it by clicking on the "Delete" button.
+// cancel button, and can confirm it by clicking on the 'Delete' button.
 
 import React from 'react';
 import PropTypes from 'prop-types';

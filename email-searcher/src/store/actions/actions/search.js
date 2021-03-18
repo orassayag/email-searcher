@@ -190,7 +190,7 @@ export const onSearchProcessFail = () => {
     };
 };
 
-// This action function is called when the user clicks on the "Add" button on the add user email modal window
+// This action function is called when the user clicks on the 'Add' button on the add user email modal window
 // to add the email to this emails list.
 export const onSearchAddEmailProcessStart = (addEmailData) => {
     return {

@@ -198,7 +198,7 @@ export const validateURLDomains = (value) => {
 };
 
 // This function validates the user comments when the user clicks on
-// "Add" button to add the email to this emails list on add email modal.
+// 'Add' button to add the email to this emails list on add email modal.
 export const validateAddEmailComments = (value) => {
 
     // Check for existence of the value parameter. If not exists, return false.

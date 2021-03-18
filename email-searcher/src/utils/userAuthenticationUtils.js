@@ -356,7 +356,7 @@ export const validateRegistrationUserAuthenticationModeRequest = (userAuthentica
     return validationResult;
 };
 
-// This function determines which method to send with the API request to the server (Login or registration).
+// This function determines which method to send with the API request to the server (Login or Registration).
 export const getUserAPIMethodType = (userAuthenticationMode) => {
 
     // Select the function to call the API server for authentication, login or registration.

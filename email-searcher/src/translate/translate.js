@@ -3,7 +3,7 @@
 // will be loaded. In the future there can be logic to be added here by adding
 // the selected culture of the user, to load the translations in the site
 // according to the selected culture. The selected culture implemented on
-// the "translate.{culture}.json" to be loaded dynamically.
+// the 'translate.{culture}.json' to be loaded dynamically.
 
 const settings = require('../settings/application/settings.js').default;
 

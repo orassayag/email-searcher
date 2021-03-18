@@ -16,8 +16,14 @@ ToDo tasks:
 -Add logic that if the database is not available, place static email objects, from a local JSON file.
 -Make sure all work well.
 -Add the project to the maintenance projects in 'WorkPlanNextWork' TXT file.
+-Update packages + Re-create package.json files.
+-Remove all comments.
+-Rewrite error numbers + in error_index.txt file.
 -Format all documents.
 -Add 'INSTRUCTIONS.MD' file.
+-Edit package.json (copy from a past project) and 'README.MD' again.
+-Check spell mistakes via Gmail.
+-Clear complete tasks.
 -Upload to GitHub.
 -Deploy on Heroku.
 -Add the link of the site to the daily check-list.

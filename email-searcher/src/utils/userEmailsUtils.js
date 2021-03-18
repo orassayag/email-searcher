@@ -186,8 +186,8 @@ export const getUserEmails = (userGetEmailsRequest) => {
 
     // If the total count number is less than the minimum number of pagers, just return the emails.
     // Slice the emails from the database by the calculated section.
-    // Note that unfortunately, due to limitations of Firebase REST API we can't do "real" paging of
-    // sending "from" and "take" like in real world applications, so we do the paging programmatically.
+    // Note that unfortunately, due to limitations of Firebase REST API we can't do 'real' paging of
+    // sending 'from' and 'take' like in real world applications, so we do the paging programmatically.
     if (getUserEmailsResultData.totalEmailsCount > logicSettings.minimumEmailsCountToShowPager) {
 
         // Slice the desired emails rows by indexes.
@@ -199,7 +199,7 @@ export const getUserEmails = (userGetEmailsRequest) => {
 };
 
 // This function validates the data request to toggle the email
-// item row "More information" panel to show / hide it by clicking
+// item row 'More information' panel to show / hide it by clicking
 // on the email row. This function validates all the parameters and
 // toggle the email row, and return an updated emails list, ready to
 // be updated on the state.

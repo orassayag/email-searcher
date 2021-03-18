@@ -42,7 +42,7 @@ const onUserAuthenticationInputChangeSuccess = (state, action) => {
 };
 
 // This reducer function updates the state after the user change
-// the user-authentication mode was successful (Login to registration
+// the user-authentication mode was successful (Login to Registration
 // and via versa).
 const onUserAuthenticationModeChangeSuccess = (state, action) => {
 

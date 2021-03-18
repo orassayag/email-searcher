@@ -2195,7 +2195,7 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         })
-77. In package.json, in 'scripts' add under "test" the following:
+77. In package.json, in 'scripts' add under 'test' the following:
         "build": "rimraf dist && webpack --config config/webpack.dev.config.js --mode development --progress --profile --color",
         "build:prod": "rimraf dist && webpack --config config/webpack.prod.config.js --mode production --progress --profile --color"
 78. In the config folder, copy the webpack.dev.config.js and rename it to 'webpack.prod.config.js'

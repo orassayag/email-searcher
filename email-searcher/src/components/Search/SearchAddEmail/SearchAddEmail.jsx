@@ -35,7 +35,7 @@ const defaultProps = {
 
 const SearchAddEmail = (props) => {
 
-    // Check if email address exists. If no email address exists - Don't raise the model.
+    // Check if the email address exists. If no email address exists - Don't raise the model.
     if (!props.emailAddress) {
 
         // Don't render any content of the modal window.
