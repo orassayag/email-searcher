@@ -7,7 +7,7 @@ import * as sagas from '../sagas/app';
 
 // Watch on all the actions that require a saga function.
 export function* watchAppSaga() {
-    yield all([
-        takeEvery(actionTypes.appActions.APP_ON_LOAD_START, sagas.appOnLoadStartSaga)
-    ]);
+    yield all([
+        takeEvery(actionTypes.appActions.APP_ON_LOAD_START, sagas.appOnLoadStartSaga)
+    ]);
 }

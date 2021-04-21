@@ -11,33 +11,33 @@ import * as enums from '../../../enums/enums';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    buttonType: PropTypes.string.isRequired,
-    buttonTitle: PropTypes.string.isRequired,
-    classType: PropTypes.string.isRequired,
-    iconType: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    buttonType: PropTypes.string.isRequired,
+    buttonTitle: PropTypes.string.isRequired,
+    classType: PropTypes.string.isRequired,
+    iconType: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 };
 
 // Components default values.
 const defaultProps = {
-    onClick: null
+    onClick: null
 };
 
 const BoxButton = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParametersAndType({
-        props: props,
-        parametersList: ['buttonType', 'classType', 'iconType', 'buttonTitle'],
-        targetParameters: ['buttonType'],
-        validationTypes: [enums.ValidationFunctionType.BUTTON]
-    });
+    // Manually validate parameters just in case.
+    validateParametersAndType({
+        props: props,
+        parametersList: ['buttonType', 'classType', 'iconType', 'buttonTitle'],
+        targetParameters: ['buttonType'],
+        validationTypes: [enums.ValidationFunctionType.BUTTON]
+    });
 
-    return (
-        <button type={props.buttonType} className={`btn ${props.classType}-btn`} onClick={props.onClick} title={props.buttonTitle}>
-            <i className={`fa fa-${props.iconType}`} title={props.buttonTitle}></i>
-        </button>
-    );
+    return (
+        <button type={props.buttonType} className={`btn ${props.classType}-btn`} onClick={props.onClick} title={props.buttonTitle}>
+            <i className={`fa fa-${props.iconType}`} title={props.buttonTitle}></i>
+        </button>
+    );
 };
 
 // Set the PropTypes validators and default values.

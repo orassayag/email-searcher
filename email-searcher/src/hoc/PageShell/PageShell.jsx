@@ -11,20 +11,20 @@ import { getTransitionSettings } from '../../utils/UIUtils';
 
 const PageShell = (Container) => {
 
-    // Get the settings to determine the transition effects configurations.
-    const settings = getTransitionSettings();
+    // Get the settings to determine the transition effects configurations.
+    const settings = getTransitionSettings();
 
-    return (props) => (
-        <ReactCSSTransitionGroup
-            transitionAppear={settings.PageTransitionAppear}
-            transitionAppearTimeout={settings.PageTransitionAppearTimeout}
-            transitionEnterTimeout={settings.PageTransitionEnterTimeout}
-            transitionLeaveTimeout={settings.PageTransitionLeaveTimeout}
-            transitionName={`Slide${settings.PageTransitionType}`}
-        >
-            <Container {...props} />
-        </ReactCSSTransitionGroup>
-    );
+    return (props) => (
+        <ReactCSSTransitionGroup
+            transitionAppear={settings.PageTransitionAppear}
+            transitionAppearTimeout={settings.PageTransitionAppearTimeout}
+            transitionEnterTimeout={settings.PageTransitionEnterTimeout}
+            transitionLeaveTimeout={settings.PageTransitionLeaveTimeout}
+            transitionName={`Slide${settings.PageTransitionType}`}
+        >
+            <Container {...props} />
+        </ReactCSSTransitionGroup>
+    );
 };
 
 export default PageShell;

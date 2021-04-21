@@ -18,61 +18,61 @@ import { ErrorBox, SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    emailAddress: PropTypes.string,
-    commentsValue: PropTypes.string,
-    errorMessage: PropTypes.string,
-    onCommentsChange: PropTypes.func.isRequired,
-    onAddClick: PropTypes.func.isRequired,
-    onCancelClick: PropTypes.func.isRequired
+    emailAddress: PropTypes.string,
+    commentsValue: PropTypes.string,
+    errorMessage: PropTypes.string,
+    onCommentsChange: PropTypes.func.isRequired,
+    onAddClick: PropTypes.func.isRequired,
+    onCancelClick: PropTypes.func.isRequired
 };
 
 // Components default values.
 const defaultProps = {
-    emailAddress: null,
-    commentsValue: '',
-    errorMessage: null
+    emailAddress: null,
+    commentsValue: '',
+    errorMessage: null
 };
 
 const SearchAddEmail = (props) => {
 
     // Check if the email address exists. If no email address exists - Don't raise the model.
-    if (!props.emailAddress) {
+    if (!props.emailAddress) {
 
-        // Don't render any content of the modal window.
-        return null;
-    }
+        // Don't render any content of the modal window.
+        return null;
+    }
 
-    return (
-        <Auxiliary>
-            <div className="modal-header">
-                <h4 className="modal-title">{translate.add_email_modal_title}</h4>
-                <p>{translate.add_email_modal_text} {props.emailAddress}?</p>
-            </div>
-            <div className="modal-body">
-                <textarea className="form-control" onChange={props.onCommentsChange} value={props.commentsValue} spellCheck={false} rows="5"></textarea>
-                <ErrorBox
-                    isNoArrow={false}
-                    isSearchOption={false}
-                    isSearchOptionGeneral={false}
-                    text={props.errorMessage}
-                />
-            </div>
-            <div className="modal-footer">
-                <SubmitButton
-                    buttonType="button"
-                    isDifferentColor={true}
-                    title={translate.add_email_modal_cancel_button}
-                    onClick={props.onCancelClick}
-                />
-                <SubmitButton
-                    buttonType="submit"
-                    isDifferentColor={false}
-                    title={translate.add_email_modal_ok_button}
-                    onClick={props.onAddClick}
-                />
-            </div>
-        </Auxiliary>
-    );
+    return (
+        <Auxiliary>
+            <div className="modal-header">
+                <h4 className="modal-title">{translate.add_email_modal_title}</h4>
+                <p>{translate.add_email_modal_text} {props.emailAddress}?</p>
+            </div>
+            <div className="modal-body">
+                <textarea className="form-control" onChange={props.onCommentsChange} value={props.commentsValue} spellCheck={false} rows="5"></textarea>
+                <ErrorBox
+                    isNoArrow={false}
+                    isSearchOption={false}
+                    isSearchOptionGeneral={false}
+                    text={props.errorMessage}
+                />
+            </div>
+            <div className="modal-footer">
+                <SubmitButton
+                    buttonType="button"
+                    isDifferentColor={true}
+                    title={translate.add_email_modal_cancel_button}
+                    onClick={props.onCancelClick}
+                />
+                <SubmitButton
+                    buttonType="submit"
+                    isDifferentColor={false}
+                    title={translate.add_email_modal_ok_button}
+                    onClick={props.onAddClick}
+                />
+            </div>
+        </Auxiliary>
+    );
 };
 
 // Set the PropTypes validators and default values.

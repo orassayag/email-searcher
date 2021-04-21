@@ -8,32 +8,32 @@ import { validateParameters } from '../../../utils/validationUtils';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    link: PropTypes.string.isRequired,
-    linkText: PropTypes.string.isRequired,
-    exact: PropTypes.bool.isRequired,
-    children: PropTypes.node
+    link: PropTypes.string.isRequired,
+    linkText: PropTypes.string.isRequired,
+    exact: PropTypes.bool.isRequired,
+    children: PropTypes.node
 };
 
 // Components default values.
 const defaultProps = {
-    children: null
+    children: null
 };
 
 const NavigationItem = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParameters({
-        props: props,
-        parametersList: ['link', 'linkText']
-    });
+    // Manually validate parameters just in case.
+    validateParameters({
+        props: props,
+        parametersList: ['link', 'linkText']
+    });
 
-    return (
-        <li className="fadeIn">
-            <NavLink
-                to={props.link}
-                exact={props.exact}>{props.linkText}</NavLink>
-        </li>
-    );
+    return (
+        <li className="fadeIn">
+            <NavLink
+                to={props.link}
+                exact={props.exact}>{props.linkText}</NavLink>
+        </li>
+    );
 };
 
 // Set the PropTypes validators and default values.

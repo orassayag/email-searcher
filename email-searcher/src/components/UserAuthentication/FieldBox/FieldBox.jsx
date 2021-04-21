@@ -9,43 +9,43 @@ import { TextBox } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    labelText: PropTypes.string.isRequired,
-    inputType: PropTypes.string.isRequired,
-    placeHolder: PropTypes.string.isRequired,
-    onTextBoxChange: PropTypes.func.isRequired,
-    autoComplete: PropTypes.string.isRequired,
-    errorMessage: PropTypes.string
+    labelText: PropTypes.string.isRequired,
+    inputType: PropTypes.string.isRequired,
+    placeHolder: PropTypes.string.isRequired,
+    onTextBoxChange: PropTypes.func.isRequired,
+    autoComplete: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string
 };
 
 // Components default values.
 const defaultProps = {
-    errorMessage: ''
+    errorMessage: ''
 };
 
 const FieldBox = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParameters({
-        props: props,
-        parametersList: ['labelText', 'inputType', 'placeHolder']
-    });
+    // Manually validate parameters just in case.
+    validateParameters({
+        props: props,
+        parametersList: ['labelText', 'inputType', 'placeHolder']
+    });
 
-    // Calculate the class to display.
-    const classType = props.errorMessage ? 'error' : null;
+    // Calculate the class to display.
+    const classType = props.errorMessage ? 'error' : null;
 
-    return (
-        <div className="form-group">
-            <label htmlFor={props.inputType}>{props.labelText}</label>
-            <TextBox
-                inputType={props.inputType}
-                classType={classType}
-                placeHolder={props.placeHolder}
-                errorMessage={props.errorMessage}
-                onChange={props.onTextBoxChange}
-                autoComplete={props.autoComplete}
-            />
-        </div>
-    );
+    return (
+        <div className="form-group">
+            <label htmlFor={props.inputType}>{props.labelText}</label>
+            <TextBox
+                inputType={props.inputType}
+                classType={classType}
+                placeHolder={props.placeHolder}
+                errorMessage={props.errorMessage}
+                onChange={props.onTextBoxChange}
+                autoComplete={props.autoComplete}
+            />
+        </div>
+    );
 };
 
 // Set the PropTypes validators and default values.

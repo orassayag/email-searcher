@@ -9,15 +9,15 @@ import * as actionTypes from '../actionTypes';
 // This action function called when the app page is starting to load, before
 // the UI ready to load and displayed to the user.
 export const onAppOnLoadStart = () => {
-    return {
-        type: actionTypes.appActions.APP_ON_LOAD_START
-    };
+    return {
+        type: actionTypes.appActions.APP_ON_LOAD_START
+    };
 };
 
 // This action function is called when the app page loads to mark that the site
 // application is mounted and ready to display the UI to the user.
 export const onAppOnLoadSuccess = () => {
-    return {
-        type: actionTypes.appActions.APP_ON_LOAD_SUCCESS
-    };
+    return {
+        type: actionTypes.appActions.APP_ON_LOAD_SUCCESS
+    };
 };

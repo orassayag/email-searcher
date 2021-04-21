@@ -12,7 +12,7 @@ import { generateClassName } from '../../../utils/textUtils';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    isInsideModal: PropTypes.bool.isRequired
+    isInsideModal: PropTypes.bool.isRequired
 };
 
 // Components default values.
@@ -20,16 +20,16 @@ const defaultProps = {};
 
 const Loader = (props) => {
 
-    // Generates the loader with appropriate class if inside a modal or not.
-    const loaderClass = generateClassName({
-        condition: props.isInsideModal,
-        originalClassName: 'loader',
-        newClassName: 'modal'
-    });
+    // Generates the loader with appropriate class if inside a modal or not.
+    const loaderClass = generateClassName({
+        condition: props.isInsideModal,
+        originalClassName: 'loader',
+        newClassName: 'modal'
+    });
 
-    return (
-        <div className={loaderClass} title={translate.loader_alternative_text}>{translate.loader_alternative_text}</div>
-    );
+    return (
+        <div className={loaderClass} title={translate.loader_alternative_text}>{translate.loader_alternative_text}</div>
+    );
 };
 
 // Set the PropTypes validators and default values.

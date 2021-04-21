@@ -12,10 +12,10 @@ import { AppRoute } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    isUserAuthenticated: PropTypes.bool.isRequired,
-    path: PropTypes.string.isRequired,
-    exact: PropTypes.bool.isRequired,
-    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
+    isUserAuthenticated: PropTypes.bool.isRequired,
+    path: PropTypes.string.isRequired,
+    exact: PropTypes.bool.isRequired,
+    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
 };
 
 // Components default values.
@@ -23,21 +23,21 @@ const defaultProps = {};
 
 const PrivateRoute = (props) => {
 
-    // In private route the default is not to allow the user to get into the
-    // path. If the user is authenticated- Only then he is allowed to be redirected to the path.
-    let route = (<Redirect to={Routes.SEARCH} />);
+    // In private route the default is not to allow the user to get into the
+    // path. If the user is authenticated- Only then he is allowed to be redirected to the path.
+    let route = (<Redirect to={Routes.SEARCH} />);
 
-    // Check if the user is authenticated. If so, create the private route.
-    if (props.isUserAuthenticated) {
-        route = (<AppRoute
-            path={props.path}
-            exact={props.exact}
-            component={props.component}
-        />);
-    }
+    // Check if the user is authenticated. If so, create the private route.
+    if (props.isUserAuthenticated) {
+        route = (<AppRoute
+            path={props.path}
+            exact={props.exact}
+            component={props.component}
+        />);
+    }
 
-    // Return the render route (Or redirect).
-    return route;
+    // Return the render route (Or redirect).
+    return route;
 };
 
 // Set the PropTypes validators and default values.

@@ -11,31 +11,31 @@ import { SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    onHomeClick: PropTypes.func.isRequired
+    onHomeClick: PropTypes.func.isRequired
 };
 
 // Components default values.
 const defaultProps = {};
 
 const Page404 = (props) => {
-    return (
-        <div className="error-page">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-10 col-md-offset-1 col-sm-12 text-center">
-                        <h2 className="error-title">{translate.page_not_found_sub_title}</h2>
-                        <p>{translate.page_not_found_text}</p>
-                        <SubmitButton
-                            buttonType="button"
-                            isDifferentColor={false}
-                            title={translate.page_not_found_home_button}
-                            onClick={props.onHomeClick}
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    return (
+        <div className="error-page">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-10 col-md-offset-1 col-sm-12 text-center">
+                        <h2 className="error-title">{translate.page_not_found_sub_title}</h2>
+                        <p>{translate.page_not_found_text}</p>
+                        <SubmitButton
+                            buttonType="button"
+                            isDifferentColor={false}
+                            title={translate.page_not_found_home_button}
+                            onClick={props.onHomeClick}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 // Set the PropTypes validators and default values.

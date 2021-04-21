@@ -12,9 +12,9 @@ import { PageShell } from '../../../hoc';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    path: PropTypes.string.isRequired,
-    exact: PropTypes.bool.isRequired,
-    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
+    path: PropTypes.string.isRequired,
+    exact: PropTypes.bool.isRequired,
+    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
 };
 
 // Components default values.
@@ -22,19 +22,19 @@ const defaultProps = {};
 
 const AppRoute = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParameters({
-        props: props,
-        parametersList: ['path', 'component']
-    });
+    // Manually validate parameters just in case.
+    validateParameters({
+        props: props,
+        parametersList: ['path', 'component']
+    });
 
-    return (
-        <Route
-            path={props.path}
-            exact={props.exact}
-            component={PageShell(props.component)}
-        />
-    );
+    return (
+        <Route
+            path={props.path}
+            exact={props.exact}
+            component={PageShell(props.component)}
+        />
+    );
 };
 
 // Set the PropTypes validators and default values.

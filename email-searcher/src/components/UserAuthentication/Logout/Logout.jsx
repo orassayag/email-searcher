@@ -12,7 +12,7 @@ import * as actions from '../../../store/actions/actions';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    onUserAuthenticationLogoutStart: PropTypes.func.isRequired
+    onUserAuthenticationLogoutStart: PropTypes.func.isRequired
 };
 
 // Components default values.
@@ -20,24 +20,24 @@ const defaultProps = {};
 
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
-    return {
-        onUserAuthenticationLogoutStart: () => dispatch(actions.onUserAuthenticationLogoutStart())
-    };
+    return {
+        onUserAuthenticationLogoutStart: () => dispatch(actions.onUserAuthenticationLogoutStart())
+    };
 };
 
 class Logout extends Component {
 
-    // Perform the userAuthenticationLogoutStartSaga saga.
-    componentDidMount() {
-        this.props.onUserAuthenticationLogoutStart();
-    }
+    // Perform the userAuthenticationLogoutStartSaga saga.
+    componentDidMount() {
+        this.props.onUserAuthenticationLogoutStart();
+    }
 
-    // After the userAuthenticationLogoutStartSaga saga finished, redirect the user back to search-page (Home-page).
-    render() {
-        return (
-            <Redirect to={Routes.SEARCH} />
-        );
-    }
+    // After the userAuthenticationLogoutStartSaga saga finished, redirect the user back to search-page (Home-page).
+    render() {
+        return (
+            <Redirect to={Routes.SEARCH} />
+        );
+    }
 }
 
 // Set the PropTypes validators and default values.

@@ -13,64 +13,64 @@ import { EmailsPagerLink } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    isPagerShow: PropTypes.bool.isRequired,
-    totalEmailsCount: PropTypes.number.isRequired,
-    pagesCountToShow: PropTypes.number.isRequired,
-    currentPageNumber: PropTypes.number.isRequired,
-    totalPagesCount: PropTypes.number.isRequired,
-    onChangePage: PropTypes.func
+    isPagerShow: PropTypes.bool.isRequired,
+    totalEmailsCount: PropTypes.number.isRequired,
+    pagesCountToShow: PropTypes.number.isRequired,
+    currentPageNumber: PropTypes.number.isRequired,
+    totalPagesCount: PropTypes.number.isRequired,
+    onChangePage: PropTypes.func
 };
 
 // Components default values.
 const defaultProps = {
-    onChangePage: null
+    onChangePage: null
 };
 
 const EmailsPager = (props) => {
 
-    // If the user is in search-page (Home-page) or less than a logic settings number of emails,
-    // and totalPagesCount is one or less, or invalid parameters, don't show the pager.
-    if (!props.isPagerShow || props.totalEmailsCount <= logicSettings.minimumEmailsCountToShowPager || !props.pagesCountToShow ||
-        !props.currentPageNumber || !props.totalPagesCount || props.totalPagesCount <= 1) {
+    // If the user is in search-page (Home-page) or less than a logic settings number of emails,
+    // and totalPagesCount is one or less, or invalid parameters, don't show the pager.
+    if (!props.isPagerShow || props.totalEmailsCount <= logicSettings.minimumEmailsCountToShowPager || !props.pagesCountToShow ||
+        !props.currentPageNumber || !props.totalPagesCount || props.totalPagesCount <= 1) {
 
-        // Don't render the emails pager.
-        return null;
-    }
+        // Don't render the emails pager.
+        return null;
+    }
 
-    // Calculate and build the link of pages.
-    const firstPagePar = Number(props.pagesCountToShow / 2);
-    let firstShownPage = 1;
-    if (props.currentPageNumber > firstPagePar) {
-        firstShownPage = props.currentPageNumber - firstPagePar;
-    }
+    // Calculate and build the link of pages.
+    const firstPagePar = Number(props.pagesCountToShow / 2);
+    let firstShownPage = 1;
+    if (props.currentPageNumber > firstPagePar) {
+        firstShownPage = props.currentPageNumber - firstPagePar;
+    }
 
-    // Generate the paging links within an array.
-    const emailLinksArray = [];
-    for (let i = firstShownPage; i < (firstShownPage + props.pagesCountToShow) && i <= props.totalPagesCount; i++) {
-        emailLinksArray.push(
-            <EmailsPagerLink key={i} value={i} isActive={props.currentPageNumber === i} onChangePage={props.onChangePage}>{i}</EmailsPagerLink>
-        );
-    }
+    // Generate the paging links within an array.
+    const emailLinksArray = [];
+    for (let i = firstShownPage; i < (firstShownPage + props.pagesCountToShow) && i <= props.totalPagesCount; i++) {
+        emailLinksArray.push(
+            <EmailsPagerLink key={i} value={i} isActive={props.currentPageNumber === i} onChangePage={props.onChangePage}>{i}</EmailsPagerLink>
+        );
+    }
 
-    return (
-        <div className="section">
-            <div className="pull-right">
-                <div className="pagination">
-                    <ul>
-                        <EmailsPagerLink
-                            value={enums.PagerLink.PREVIOUS}
-                            isActive={false}
-                            onChangePage={props.onChangePage}>&lt;</EmailsPagerLink>
-                        {emailLinksArray}
-                        <EmailsPagerLink
-                            value={enums.PagerLink.NEXT}
-                            isActive={false}
-                            onChangePage={props.onChangePage}>&gt;</EmailsPagerLink>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
+    return (
+        <div className="section">
+            <div className="pull-right">
+                <div className="pagination">
+                    <ul>
+                        <EmailsPagerLink
+                            value={enums.PagerLink.PREVIOUS}
+                            isActive={false}
+                            onChangePage={props.onChangePage}>&lt;</EmailsPagerLink>
+                        {emailLinksArray}
+                        <EmailsPagerLink
+                            value={enums.PagerLink.NEXT}
+                            isActive={false}
+                            onChangePage={props.onChangePage}>&gt;</EmailsPagerLink>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 // Set the PropTypes validators and default values.

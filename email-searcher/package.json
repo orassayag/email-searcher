@@ -1,7 +1,23 @@
 {
   "name": "email-searcher",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "The client application's role is to contain the UI and display it to the user. Email-searcher is a website that helps to demonstrate how to display crawler results from the server to the user UI.",
+  "keywords": [
+    "links",
+    "emails",
+    "email addresses",
+    "search"
+  ],
+  "license": "UNLICENSED",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",

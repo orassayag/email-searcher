@@ -16,32 +16,32 @@ import { SubmitButton } from '../../UI';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    onOkClick: PropTypes.func.isRequired
+    onOkClick: PropTypes.func.isRequired
 };
 
 // Components default values.
 const defaultProps = {};
 
 const SearchEmailsLimit = (props) => {
-    return (
-        <Auxiliary>
-            <div className="modal-header">
-                <h4 className="modal-title">{translate.emails_limit_modal_title}</h4>
-            </div>
-            <div className="modal-body">
-                <img src={full} alt={translate.emails_limit_modal_image_alt_title} title={translate.emails_limit_modal_image_alt_title} role="presentation" />
-                <p>{translate.emails_limit_modal_text.replace('#count#', settings.maximumUserEmailsTotalCountLimit)}</p>
-            </div>
-            <div className="modal-footer">
-                <SubmitButton
-                    buttonType="button"
-                    isDifferentColor={false}
-                    title={translate.emails_limit_modal_ok_button}
-                    onClick={props.onOkClick}
-                />
-            </div>
-        </Auxiliary>
-    );
+    return (
+        <Auxiliary>
+            <div className="modal-header">
+                <h4 className="modal-title">{translate.emails_limit_modal_title}</h4>
+            </div>
+            <div className="modal-body">
+                <img src={full} alt={translate.emails_limit_modal_image_alt_title} title={translate.emails_limit_modal_image_alt_title} role="presentation" />
+                <p>{translate.emails_limit_modal_text.replace('#count#', settings.maximumUserEmailsTotalCountLimit)}</p>
+            </div>
+            <div className="modal-footer">
+                <SubmitButton
+                    buttonType="button"
+                    isDifferentColor={false}
+                    title={translate.emails_limit_modal_ok_button}
+                    onClick={props.onOkClick}
+                />
+            </div>
+        </Auxiliary>
+    );
 };
 
 // Set the PropTypes validators and default values.

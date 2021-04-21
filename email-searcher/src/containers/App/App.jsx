@@ -24,123 +24,123 @@ import * as containers from '../../containers';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-  userAuthentication: userAuthenticationShape,
-  onUserAuthenticationCheckState: PropTypes.func.isRequired,
-  onAppOnLoadStart: PropTypes.func.isRequired
+    userAuthentication: userAuthenticationShape,
+    onUserAuthenticationCheckState: PropTypes.func.isRequired,
+    onAppOnLoadStart: PropTypes.func.isRequired
 };
 
 // Components default values.
 const defaultProps = {
-  userAuthentication: null
+    userAuthentication: null
 };
 
 // State properties from sagas.
 const mapStateToProps = (state) => {
-  return {
-    isComponentMounted: state.app.isComponentMounted,
-    userAuthentication: state.userAuthentication.userAuthentication
-  };
+    return {
+        isComponentMounted: state.app.isComponentMounted,
+        userAuthentication: state.userAuthentication.userAuthentication
+    };
 };
 
 // Dispatch functions from actions to reducers / sagas.
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onUserAuthenticationCheckState: () => dispatch(actions.onUserAuthenticationCheckState()),
-    onAppOnLoadStart: () => dispatch(actions.onAppOnLoadStart())
-  };
+    return {
+        onUserAuthenticationCheckState: () => dispatch(actions.onUserAuthenticationCheckState()),
+        onAppOnLoadStart: () => dispatch(actions.onAppOnLoadStart())
+    };
 };
 
 class App extends Component {
 
-  // Will determine if the user is authenticated or not.
-  isUserAuthenticated = false;
+    // Will determine if the user is authenticated or not.
+    isUserAuthenticated = false;
 
-  // On page load, check if users have user-authentication credentials on localStorage, if so - Auto login.
-  componentDidMount() {
+    // On page load, check if users have user-authentication credentials on localStorage, if so - Auto login.
+    componentDidMount() {
 
-    // Take the scoped props.
-    const { props } = this;
+        // Take the scoped props.
+        const { props } = this;
 
-    // On load, check if the user is already authenticated to the site by checking the
-    // localStorage. If so, initial the state according to the localStorage values
-    // within this saga.
-    props.onUserAuthenticationCheckState();
+        // On load, check if the user is already authenticated to the site by checking the
+        // localStorage. If so, initial the state according to the localStorage values
+        // within this saga.
+        props.onUserAuthenticationCheckState();
 
-    // Delay the loading of the site to let the UI load,
-    // meanwhile display a loading animation to the user.
-    props.onAppOnLoadStart();
-  }
+        // Delay the loading of the site to let the UI load,
+        // meanwhile display a loading animation to the user.
+        props.onAppOnLoadStart();
+    }
 
-  render() {
+    render() {
 
-    // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
-    const { props } = this;
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
 
-    // Will hold the JSX code of the layout body.
-    let layoutBody = (<Loader isInsideModal={false} />);
+        // Will hold the JSX code of the layout body.
+        let layoutBody = (<Loader isInsideModal={false} />);
 
-    // Check if the component is mounted to check if the user is authenticated.
-    if (props.isComponentMounted) {
-      this.isUserAuthenticated = isUserAuthenticated(props.userAuthentication);
+        // Check if the component is mounted to check if the user is authenticated.
+        if (props.isComponentMounted) {
+            this.isUserAuthenticated = isUserAuthenticated(props.userAuthentication);
 
-      // Check user-authentication data for relevant pages:
-      // If user is authenticated don't allow redirection to user-authentication (Login / Registration) page,
-      // If user is not authenticated, don't allow redirection to user-emails page.
-      // Default values for users not authenticated.
+            // Check user-authentication data for relevant pages:
+            // If user is authenticated don't allow redirection to user-authentication (Login / Registration) page,
+            // If user is not authenticated, don't allow redirection to user-emails page.
+            // Default values for users not authenticated.
 
-      // Private routes - Only authenticated users are allowed to be redirected to the page.
-      // App route - All users can be redirected to the page.
+            // Private routes - Only authenticated users are allowed to be redirected to the page.
+            // App route - All users can be redirected to the page.
 
-      layoutBody = (
-        <Auxiliary>
-          <Helmet>
-            <meta property="og:title" content={translate.general_meta_title} />
-            <meta property="og:description" content={translate.general_meta_description} />
-            <meta property="og:url" content={`${process.env.PUBLIC_URL}`} />
-            <meta name="description" content={translate.general_meta_description} />
-            <meta name="title" content={translate.general_meta_title} />
-            <meta name="author" content={settings.creatorName} />
-            <meta name="keyword" content={translate.general_meta_keywords} />
-            <title>{translate.general_browser_title}</title>
-          </Helmet>
-          <Layout>
-            <Switch>
-              <PrivateRoute
-                path={`/${Routes.USER_EMAILS}`}
-                exact={true}
-                isUserAuthenticated={this.isUserAuthenticated}
-                component={containers.UserEmails}
-              />
-              <PrivateRoute
-                path={`/${Routes.LOGOUT}`}
-                exact={true}
-                isUserAuthenticated={this.isUserAuthenticated}
-                component={Logout}
-              />
-              <PrivateRoute
-                path={`/${Routes.USER_AUTHENTICATION}`}
-                exact={true}
-                isUserAuthenticated={!this.isUserAuthenticated}
-                component={containers.UserAuthentication}
-              />
-              <AppRoute
-                path={Routes.SEARCH}
-                exact={true}
-                component={containers.Search}
-              />
-              <AppRoute
-                path={Routes.NOT_FOUND}
-                exact={false}
-                component={containers.NotFound}
-              />
-              <Redirect to={Routes.SEARCH} />
-            </Switch>
-          </Layout>
-        </Auxiliary>
-      );
-    }
-    return layoutBody;
-  }
+            layoutBody = (
+                <Auxiliary>
+                    <Helmet>
+                        <meta property="og:title" content={translate.general_meta_title} />
+                        <meta property="og:description" content={translate.general_meta_description} />
+                        <meta property="og:url" content={`${process.env.PUBLIC_URL}`} />
+                        <meta name="description" content={translate.general_meta_description} />
+                        <meta name="title" content={translate.general_meta_title} />
+                        <meta name="author" content={settings.creatorName} />
+                        <meta name="keyword" content={translate.general_meta_keywords} />
+                        <title>{translate.general_browser_title}</title>
+                    </Helmet>
+                    <Layout>
+                        <Switch>
+                            <PrivateRoute
+                                path={`/${Routes.USER_EMAILS}`}
+                                exact={true}
+                                isUserAuthenticated={this.isUserAuthenticated}
+                                component={containers.UserEmails}
+                            />
+                            <PrivateRoute
+                                path={`/${Routes.LOGOUT}`}
+                                exact={true}
+                                isUserAuthenticated={this.isUserAuthenticated}
+                                component={Logout}
+                            />
+                            <PrivateRoute
+                                path={`/${Routes.USER_AUTHENTICATION}`}
+                                exact={true}
+                                isUserAuthenticated={!this.isUserAuthenticated}
+                                component={containers.UserAuthentication}
+                            />
+                            <AppRoute
+                                path={Routes.SEARCH}
+                                exact={true}
+                                component={containers.Search}
+                            />
+                            <AppRoute
+                                path={Routes.NOT_FOUND}
+                                exact={false}
+                                component={containers.NotFound}
+                            />
+                            <Redirect to={Routes.SEARCH} />
+                        </Switch>
+                    </Layout>
+                </Auxiliary>
+            );
+        }
+        return layoutBody;
+    }
 }
 
 // Set the PropTypes validators and default values.

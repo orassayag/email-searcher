@@ -9,51 +9,51 @@ import { validateParameters } from '../../../utils/validationUtils';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    colNumberClass: PropTypes.number.isRequired,
-    labelText: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    isLinkMode: PropTypes.bool.isRequired,
-    valueClass: PropTypes.string
+    colNumberClass: PropTypes.number.isRequired,
+    labelText: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    isLinkMode: PropTypes.bool.isRequired,
+    valueClass: PropTypes.string
 };
 
 // Components default values.
 const defaultProps = {
-    valueClass: ''
+    valueClass: ''
 };
 
 const EmailDetail = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParameters({
-        props: props,
-        parametersList: ['colNumberClass', 'labelText', 'value']
-    });
+    // Manually validate parameters just in case.
+    validateParameters({
+        props: props,
+        parametersList: ['colNumberClass', 'labelText', 'value']
+    });
 
-    // Only if this is a link mode, generates a link.
-    let value = props.value;
-    if (props.isLinkMode) {
-        value = (
-            <a href={props.value} className="url" target="_blank" rel="noopener noreferrer">{props.value}</a>
-        );
-    }
+    // Only if this is a link mode, generates a link.
+    let value = props.value;
+    if (props.isLinkMode) {
+        value = (
+            <a href={props.value} className="url" target="_blank" rel="noopener noreferrer">{props.value}</a>
+        );
+    }
 
-    // Get class according to the cols number.
-    const resultClass = generateClassName({
-        condition: props.valueClass,
-        originalClassName: 'result-value',
-        newClassName: props.valueClass
-    });
+    // Get class according to the cols number.
+    const resultClass = generateClassName({
+        condition: props.valueClass,
+        originalClassName: 'result-value',
+        newClassName: props.valueClass
+    });
 
-    return (
-        <div className={`col-sm-${props.colNumberClass}`}>
-            <div className="result-label">
-                {props.labelText}:
+    return (
+        <div className={`col-sm-${props.colNumberClass}`}>
+            <div className="result-label">
+                {props.labelText}:
         </div>
-            <div className={resultClass}>
-                {value}
-            </div>
-        </div>
-    );
+            <div className={resultClass}>
+                {value}
+            </div>
+        </div>
+    );
 };
 
 // Set the PropTypes validators and default values.

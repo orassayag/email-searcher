@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 
 // Create the searchOptionShape shape PropType.
 const searchOptionsShape = PropTypes.arrayOf(
-    PropTypes.shape({
-        searchOptionType: PropTypes.string.isRequired,
-        isSearchOptionShow: PropTypes.bool.isRequired,
-        mode: PropTypes.string.isRequired,
-        value: PropTypes.string,
-        errorMessage: PropTypes.string
-    }).isRequired
+    PropTypes.shape({
+        searchOptionType: PropTypes.string.isRequired,
+        isSearchOptionShow: PropTypes.bool.isRequired,
+        mode: PropTypes.string.isRequired,
+        value: PropTypes.string,
+        errorMessage: PropTypes.string
+    }).isRequired
 ).isRequired;
 
 export default searchOptionsShape;

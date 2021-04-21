@@ -8,7 +8,7 @@ import settings from '../settings/application/settings';
 
 // Create the API route instance by Axios.
 const api = axios.create({
-    baseURL: settings.apiBaseURL
+    baseURL: settings.apiBaseURL
 });
 
 export default api;

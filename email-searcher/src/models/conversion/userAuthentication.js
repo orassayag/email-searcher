@@ -8,20 +8,20 @@ import UserAuthentication from '../models/user';
 // This function converts a single data of strings into UserAuthentication object instance.
 export const toUserAuthentication = (userAuthenticationData) => {
 
-    // Check for existence of userAuthenticationData parameter. If not exists return null instance.
-    if (!userAuthenticationData) {
+    // Check for existence of userAuthenticationData parameter. If not exists return null instance.
+    if (!userAuthenticationData) {
 
-        // Don't create any new instance.
-        return null;
-    }
+        // Don't create any new instance.
+        return null;
+    }
 
-    // Return a new UserAuthentication object instance.
-    return new UserAuthentication({
-        userId: userAuthenticationData.userId,
-        userName: userAuthenticationData.userName,
-        userPassword: userAuthenticationData.userPassword,
-        userToken: userAuthenticationData.userToken,
-        userTokenExpirationDate: userAuthenticationData.userTokenExpirationDate,
-        userTokenExpireInSeconds: userAuthenticationData.userTokenExpireInSeconds
-    });
+    // Return a new UserAuthentication object instance.
+    return new UserAuthentication({
+        userId: userAuthenticationData.userId,
+        userName: userAuthenticationData.userName,
+        userPassword: userAuthenticationData.userPassword,
+        userToken: userAuthenticationData.userToken,
+        userTokenExpirationDate: userAuthenticationData.userTokenExpirationDate,
+        userTokenExpireInSeconds: userAuthenticationData.userTokenExpireInSeconds
+    });
 };

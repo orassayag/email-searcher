@@ -13,31 +13,31 @@ import { Page404 } from '../../components/NotFound';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object
 };
 
 // Components default values.
 const defaultProps = {
-    history: null
+    history: null
 };
 
 class NotFound extends Component {
 
-    // This handler method handles a click of the home-page button - To redirect the user back to search-page (Home-page).
-    handleHomeClick = () => {
+    // This handler method handles a click of the home-page button - To redirect the user back to search-page (Home-page).
+    handleHomeClick = () => {
 
-        // Redirect to search-page (Home-page).
-        this.props.history.push(Routes.SEARCH);
-    }
+        // Redirect to search-page (Home-page).
+        this.props.history.push(Routes.SEARCH);
+    }
 
-    render() {
-        return (
-            <Auxiliary>
-                <PageTitle title={translate.page_not_found_main_title} />
-                <Page404 onHomeClick={this.handleHomeClick} />
-            </Auxiliary>
-        );
-    }
+    render() {
+        return (
+            <Auxiliary>
+                <PageTitle title={translate.page_not_found_main_title} />
+                <Page404 onHomeClick={this.handleHomeClick} />
+            </Auxiliary>
+        );
+    }
 }
 
 // Set the PropTypes validators and default values.

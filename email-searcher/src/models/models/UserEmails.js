@@ -11,86 +11,86 @@ import { getNumber } from '../../utils/textUtils';
 
 class UserEmails {
 
-    constructor(userEmailsData) {
+    constructor(userEmailsData) {
 
-        // Check if data received exists. If not -
-        // Don't assign any value to the UserEmails instance.
-        if (!userEmailsData) {
+        // Check if data received exists. If not -
+        // Don't assign any value to the UserEmails instance.
+        if (!userEmailsData) {
 
-            // Stop any further actions.
-            return;
-        }
+            // Stop any further actions.
+            return;
+        }
 
-        // This field will hold some parts of the user's emails
-        // list (Note that will not hold all the emails list, only what
-        // the users see at the moment). This meant to be due to
-        // API server request to display not all of the emails to reduce CPU from the browser.
-        this.userEmailsList = userEmailsData.userEmailsList;
+        // This field will hold some parts of the user's emails
+        // list (Note that will not hold all the emails list, only what
+        // the users see at the moment). This meant to be due to
+        // API server request to display not all of the emails to reduce CPU from the browser.
+        this.userEmailsList = userEmailsData.userEmailsList;
 
-        // This field determines the total count of ALL (Not like in emails list - Some part of
-        // emails, all the total count of emails) the emails list. We need to keep it to verify
-        // that the user is not over the limit of emails to save in this emails list.
-        // Since in localStorage the emails count as strings too, it needs to convert to a number and return it.
-        // If not exists - Assign default value of 0.
-        // Note that the response we save this field both on state and localStorage is to reduce CPU calls,
-        // and not for each time the user add email to his emails list, go to take his total emails
-        // count to see if he is allowed to save more emails or he reached the maximum limit (This not
-        // means there isn't another check once the user decides to add the email to this list,
-        // we don't check the limit again. We do).
-        this.userEmailsTotalCount = getNumber({
-            targetNumber: userEmailsData.userEmailsTotalCount,
-            defaultNumber: 0
-        });
+        // This field determines the total count of ALL (Not like in emails list - Some part of
+        // emails, all the total count of emails) the emails list. We need to keep it to verify
+        // that the user is not over the limit of emails to save in this emails list.
+        // Since in localStorage the emails count as strings too, it needs to convert to a number and return it.
+        // If not exists - Assign default value of 0.
+        // Note that the response we save this field both on state and localStorage is to reduce CPU calls,
+        // and not for each time the user add email to his emails list, go to take his total emails
+        // count to see if he is allowed to save more emails or he reached the maximum limit (This not
+        // means there isn't another check once the user decides to add the email to this list,
+        // we don't check the limit again. We do).
+        this.userEmailsTotalCount = getNumber({
+            targetNumber: userEmailsData.userEmailsTotalCount,
+            defaultNumber: 0
+        });
 
-        // Will hold the number of emails to display in user-emails page per page
-        // (If there are more than the minimum limit to display the pager).
-        this.userEmailsCountPerPage = getNumber({
-            targetNumber: userEmailsData.userEmailsCountPerPage,
-            defaultNumber: logicSettings.defaultUserEmailsCountPerPage
-        });
+        // Will hold the number of emails to display in user-emails page per page
+        // (If there are more than the minimum limit to display the pager).
+        this.userEmailsCountPerPage = getNumber({
+            targetNumber: userEmailsData.userEmailsCountPerPage,
+            defaultNumber: logicSettings.defaultUserEmailsCountPerPage
+        });
 
-        // Will hold the number of pages to display in user-emails pager
-        // (If there are more than the minimum limit to display the pager).
-        this.userEmailsPagesTotalCount = getNumber({
-            targetNumber: userEmailsData.userEmailsPagesTotalCount,
-            defaultNumber: 0
-        });
+        // Will hold the number of pages to display in user-emails pager
+        // (If there are more than the minimum limit to display the pager).
+        this.userEmailsPagesTotalCount = getNumber({
+            targetNumber: userEmailsData.userEmailsPagesTotalCount,
+            defaultNumber: 0
+        });
 
-        // This will hold the current page that the user is placed in
-        // (If there are more than the minimum limit to display the pager).
-        this.userEmailsCurrentPageNumber = getNumber({
-            targetNumber: userEmailsData.userEmailsCurrentPageNumber,
-            defaultNumber: logicSettings.defaultUserEmailsCurrentPageNumber
-        });
+        // This will hold the current page that the user is placed in
+        // (If there are more than the minimum limit to display the pager).
+        this.userEmailsCurrentPageNumber = getNumber({
+            targetNumber: userEmailsData.userEmailsCurrentPageNumber,
+            defaultNumber: logicSettings.defaultUserEmailsCurrentPageNumber
+        });
 
-        // This will hold the number of links to display on the pager component in
-        // user-emails component (If there are more than the minimum limit to display the pager).
-        this.userEmailsPagesCountToShow = getNumber({
-            targetNumber: userEmailsData.userEmailsPagesCountToShow,
-            defaultNumber: logicSettings.defaultPagesCountToShow
-        });
+        // This will hold the number of links to display on the pager component in
+        // user-emails component (If there are more than the minimum limit to display the pager).
+        this.userEmailsPagesCountToShow = getNumber({
+            targetNumber: userEmailsData.userEmailsPagesCountToShow,
+            defaultNumber: logicSettings.defaultPagesCountToShow
+        });
 
-        // This field will hold the number of emails that are deleted. This is saved due to UI logic
-        // that after certain numbers of deletes the page is refreshed since the pager and the count are outdated.
-        this.userEmailsDeletedCount = getNumber({
-            targetNumber: userEmailsData.userEmailsDeletedCount,
-            defaultNumber: 0
-        });
-    }
+        // This field will hold the number of emails that are deleted. This is saved due to UI logic
+        // that after certain numbers of deletes the page is refreshed since the pager and the count are outdated.
+        this.userEmailsDeletedCount = getNumber({
+            targetNumber: userEmailsData.userEmailsDeletedCount,
+            defaultNumber: 0
+        });
+    }
 
-    // This method determines the user email's count on this emails list.
-    // This is important to determine if the user can keep saving emails to his emails list or not.
-    isUserEmailsTotalCountLimitExceeded() {
+    // This method determines the user email's count on this emails list.
+    // This is important to determine if the user can keep saving emails to his emails list or not.
+    isUserEmailsTotalCountLimitExceeded() {
 
-        // Will hold the final result.
-        let isLimitExceeded = false;
+        // Will hold the final result.
+        let isLimitExceeded = false;
 
-        // Check if the user has reached the limit of emails count and assign the result.
-        isLimitExceeded = this.userEmailsTotalCount >= settings.maximumUserEmailsTotalCountLimit;
+        // Check if the user has reached the limit of emails count and assign the result.
+        isLimitExceeded = this.userEmailsTotalCount >= settings.maximumUserEmailsTotalCountLimit;
 
-        // Return the result.
-        return isLimitExceeded;
-    };
+        // Return the result.
+        return isLimitExceeded;
+    };
 }
 
 export default UserEmails;

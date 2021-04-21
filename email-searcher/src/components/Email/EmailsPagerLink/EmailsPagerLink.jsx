@@ -9,26 +9,26 @@ import './EmailsPagerLink.less';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    value: PropTypes.node.isRequired,
-    isActive: PropTypes.bool.isRequired,
-    onChangePage: PropTypes.func.isRequired,
-    children: PropTypes.node
+    value: PropTypes.node.isRequired,
+    isActive: PropTypes.bool.isRequired,
+    onChangePage: PropTypes.func.isRequired,
+    children: PropTypes.node
 };
 
 // Components default values.
 const defaultProps = {
-    children: null
+    children: null
 };
 
 const EmailsPagerLink = (props) => {
 
-    // Determine if the class has a different design whether it's active or not.
-    // If the user is currently in an active page, the design of the link will be different.
-    const activeClass = props.isActive ? 'active' : null;
+    // Determine if the class has a different design whether it's active or not.
+    // If the user is currently in an active page, the design of the link will be different.
+    const activeClass = props.isActive ? 'active' : null;
 
-    return (
-        <li className={activeClass}><a data-id={props.value} href={null} onClick={props.onChangePage}>{props.children}</a></li>
-    );
+    return (
+        <li className={activeClass}><a data-id={props.value} href={null} onClick={props.onChangePage}>{props.children}</a></li>
+    );
 };
 
 // Set the PropTypes validators and default values.

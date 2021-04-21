@@ -8,12 +8,12 @@ import * as sagas from '../sagas/userAuthentication';
 
 // Watch on all the actions that require a saga function.
 export function* watchUserAuthenticationSaga() {
-    yield all([
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_INPUT_CHANGE_START, sagas.userAuthenticationInputChangeStartSaga),
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_MODE_CHANGE_START, sagas.userAuthenticationModeChangeStartSaga),
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_CHECK_TIMEOUT_START, sagas.userAuthenticationCheckTimeoutStartSaga),
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_LOGOUT_START, sagas.userAuthenticationLogoutStartSaga),
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_PROCESS_START, sagas.userAuthenticationProcessStartSaga),
-        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_CHECK_STATE_START, sagas.userAuthenticationCheckStateStartSaga)
-    ]);
+    yield all([
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_INPUT_CHANGE_START, sagas.userAuthenticationInputChangeStartSaga),
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_MODE_CHANGE_START, sagas.userAuthenticationModeChangeStartSaga),
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_CHECK_TIMEOUT_START, sagas.userAuthenticationCheckTimeoutStartSaga),
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_LOGOUT_START, sagas.userAuthenticationLogoutStartSaga),
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_PROCESS_START, sagas.userAuthenticationProcessStartSaga),
+        takeEvery(actionTypes.userAuthenticationActions.USER_AUTHENTICATION_CHECK_STATE_START, sagas.userAuthenticationCheckStateStartSaga)
+    ]);
 }

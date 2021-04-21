@@ -12,73 +12,73 @@ import * as enums from '../../enums/enums';
 
 // Handle the call to the API to get user emails' total count process.
 export const getUserEmails = (userEmailsData) => {
-    return new Promise((resolve, reject) => {
-        try {
+    return new Promise((resolve, reject) => {
+        try {
 
-            // Note that in Node.js API server we will take the emails total count with the user-authentication request and we will not need this request.
-            apiUserEmail.get(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userEmailsData.userAuthentication.userToken}&orderBy="emailUserId"&equalTo="${userEmailsData.userAuthentication.userId}"`).then((response) => {
-                resolve(response);
+            // Note that in Node.js API server we will take the emails total count with the user-authentication request and we will not need this request.
+            apiUserEmail.get(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userEmailsData.userAuthentication.userToken}&orderBy="emailUserId"&equalTo="${userEmailsData.userAuthentication.userId}"`).then((response) => {
+                resolve(response);
 
-            }).catch((error) => {
-                reject(error);
-            });
+            }).catch((error) => {
+                reject(error);
+            });
 
-        } catch (error) {
-            reject(error);
-        }
-    });
+        } catch (error) {
+            reject(error);
+        }
+    });
 };
 
 // Handle the call to the API to perform get operation of the object top Id.
 export const getFirebaseTopEmailId = (userEmailsData) => {
-    return new Promise((resolve, reject) => {
-        try {
+    return new Promise((resolve, reject) => {
+        try {
 
-            apiUserEmail.get(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userEmailsData.userAuthentication.userToken}&orderBy="emailId"&equalTo="${userEmailsData.emailItem.emailId}"`).then((response) => {
-                resolve(response);
+            apiUserEmail.get(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userEmailsData.userAuthentication.userToken}&orderBy="emailId"&equalTo="${userEmailsData.emailItem.emailId}"`).then((response) => {
+                resolve(response);
 
-            }).catch((error) => {
-                reject(error);
-            });
+            }).catch((error) => {
+                reject(error);
+            });
 
-        } catch (error) {
-            reject(error);
-        }
-    });
+        } catch (error) {
+            reject(error);
+        }
+    });
 };
 
 // Handle the call to the API to perform insert of email object to the user's emails list.
 export const addUserEmail = (userAddEmailData) => {
-    return new Promise((resolve, reject) => {
-        try {
+    return new Promise((resolve, reject) => {
+        try {
 
-            apiUserEmail.post(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userAddEmailData.userAuthentication.userToken}`, userAddEmailData.emailItem).then((response) => {
-                resolve(response);
+            apiUserEmail.post(`/${enums.APIRouteType.USER_EMAILS}.json?auth=${userAddEmailData.userAuthentication.userToken}`, userAddEmailData.emailItem).then((response) => {
+                resolve(response);
 
-            }).catch((error) => {
-                reject(error);
-            });
+            }).catch((error) => {
+                reject(error);
+            });
 
-        } catch (error) {
-            reject(error);
-        }
-    });
+        } catch (error) {
+            reject(error);
+        }
+    });
 };
 
 // Handle the call to the API to perform delete of the email object to the user's emails list.
 export const deleteUserEmail = (userDeleteEmailData) => {
-    return new Promise((resolve, reject) => {
-        try {
+    return new Promise((resolve, reject) => {
+        try {
 
-            apiUserEmail.delete(`/${enums.APIRouteType.USER_EMAILS}/${userDeleteEmailData.emailId}.json?auth=${userDeleteEmailData.userAuthentication.userToken}`).then((response) => {
-                resolve(response);
+            apiUserEmail.delete(`/${enums.APIRouteType.USER_EMAILS}/${userDeleteEmailData.emailId}.json?auth=${userDeleteEmailData.userAuthentication.userToken}`).then((response) => {
+                resolve(response);
 
-            }).catch((error) => {
-                reject(error);
-            });
+            }).catch((error) => {
+                reject(error);
+            });
 
-        } catch (error) {
-            reject(error);
-        }
-    });
+        } catch (error) {
+            reject(error);
+        }
+    });
 };

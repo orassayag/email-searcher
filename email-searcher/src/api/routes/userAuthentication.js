@@ -12,26 +12,26 @@ import settings from '../../settings/application/settings';
 
 // Handle the call to the API to perform the login / registration process.
 export const userAuthentication = (userAuthenticationData) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-        // Prepare the data to send.
-        const userAuthenticationDataRequest = {
-            email: userAuthenticationData.emailText,
-            password: userAuthenticationData.passwordText,
-            returnSecureToken: true // For Firebase database only.
-        };
+        // Prepare the data to send.
+        const userAuthenticationDataRequest = {
+            email: userAuthenticationData.emailText,
+            password: userAuthenticationData.passwordText,
+            returnSecureToken: true // For Firebase database only.
+        };
 
-        try {
+        try {
 
-            apiUserAuthentication.post(`/${userAuthenticationData.apiMethod}?key=${settings.apiBaseUserAuthenticationKey}`, userAuthenticationDataRequest).then((response) => {
-                resolve(response);
+            apiUserAuthentication.post(`/${userAuthenticationData.apiMethod}?key=${settings.apiBaseUserAuthenticationKey}`, userAuthenticationDataRequest).then((response) => {
+                resolve(response);
 
-            }).catch((error) => {
-                reject(error);
-            });
+            }).catch((error) => {
+                reject(error);
+            });
 
-        } catch (error) {
-            reject(error);
-        }
-    });
+        } catch (error) {
+            reject(error);
+        }
+    });
 };

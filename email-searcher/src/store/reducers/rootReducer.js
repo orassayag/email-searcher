@@ -7,10 +7,10 @@ import * as reducers from './reducers';
 
 // Create a root reducer from all the reducers in the application.
 const rootReducer = combineReducers({
-    app: reducers.appReducer,
-    search: reducers.searchReducer,
-    userAuthentication: reducers.userAuthenticationReducer,
-    userEmails: reducers.userEmailsReducer
+    app: reducers.appReducer,
+    search: reducers.searchReducer,
+    userAuthentication: reducers.userAuthenticationReducer,
+    userEmails: reducers.userEmailsReducer
 });
 
 export default rootReducer;

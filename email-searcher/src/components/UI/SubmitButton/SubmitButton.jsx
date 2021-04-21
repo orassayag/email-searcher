@@ -12,10 +12,10 @@ import * as enums from '../../../enums/enums';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    buttonType: PropTypes.string.isRequired,
-    isDifferentColor: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    buttonType: PropTypes.string.isRequired,
+    isDifferentColor: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 // Components default values.
@@ -23,24 +23,24 @@ const defaultProps = {};
 
 const SubmitButton = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParametersAndType({
-        props: props,
-        parametersList: ['buttonType', 'title'],
-        targetParameters: ['buttonType'],
-        validationTypes: [enums.ValidationFunctionType.BUTTON]
-    });
+    // Manually validate parameters just in case.
+    validateParametersAndType({
+        props: props,
+        parametersList: ['buttonType', 'title'],
+        targetParameters: ['buttonType'],
+        validationTypes: [enums.ValidationFunctionType.BUTTON]
+    });
 
-    // Get the class of the button within the desired color.
-    const differentClass = generateClassName({
-        condition: props.isDifferentColor,
-        originalClassName: 'btn btn-default',
-        newClassName: 'different'
-    });
+    // Get the class of the button within the desired color.
+    const differentClass = generateClassName({
+        condition: props.isDifferentColor,
+        originalClassName: 'btn btn-default',
+        newClassName: 'different'
+    });
 
-    return (
-        <button type={props.buttonType} className={differentClass} onClick={props.onClick} title={props.title}>{props.title}</button>
-    );
+    return (
+        <button type={props.buttonType} className={differentClass} onClick={props.onClick} title={props.title}>{props.title}</button>
+    );
 };
 
 // Set the PropTypes validators and default values.

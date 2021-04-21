@@ -14,38 +14,38 @@ import { Header, Footer } from '../../components/Navigation';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    userAuthentication: userAuthenticationShape,
-    children: PropTypes.node
+    userAuthentication: userAuthenticationShape,
+    children: PropTypes.node
 };
 
 // Components default values.
 const defaultProps = {
-    userAuthentication: null,
-    children: null
+    userAuthentication: null,
+    children: null
 };
 
 // State properties from sagas.
 const mapStateToProps = (state) => {
-    return {
-        userAuthentication: state.userAuthentication.userAuthentication
-    };
+    return {
+        userAuthentication: state.userAuthentication.userAuthentication
+    };
 };
 
 class Layout extends Component {
 
-    render() {
+    render() {
 
-        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
-        const { props } = this;
+        // Take the scoped props. Can be split into specific props, but due to saving memory, we can avoid this.
+        const { props } = this;
 
-        return (
-            <div className="main-container">
-                <Header userAuthentication={props.userAuthentication} />
-                {props.children}
-                <Footer userAuthentication={props.userAuthentication} />
-            </div>
-        );
-    }
+        return (
+            <div className="main-container">
+                <Header userAuthentication={props.userAuthentication} />
+                {props.children}
+                <Footer userAuthentication={props.userAuthentication} />
+            </div>
+        );
+    }
 }
 
 // Set the PropTypes validators and default values.

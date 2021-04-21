@@ -7,11 +7,11 @@ import { createEnum } from '../utils/coreUtils';
 
 // This enum route defines a dictionary of all the routes.
 const Routes = createEnum(new Map([
-    ['USER_EMAILS', 'user-emails'],
-    ['USER_AUTHENTICATION', 'user-authentication'],
-    ['LOGOUT', 'logout'],
-    ['SEARCH', '/'],
-    ['NOT_FOUND', '*']
+    ['USER_EMAILS', 'user-emails'],
+    ['USER_AUTHENTICATION', 'user-authentication'],
+    ['LOGOUT', 'logout'],
+    ['SEARCH', '/'],
+    ['NOT_FOUND', '*']
 ]));
 
 export default Routes;

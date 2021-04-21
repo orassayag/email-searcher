@@ -14,49 +14,49 @@ import { ErrorBox } from '../';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    inputType: PropTypes.string.isRequired,
-    classType: PropTypes.string,
-    placeHolder: PropTypes.string.isRequired,
-    errorMessage: PropTypes.string,
-    onChange: PropTypes.func,
-    autoComplete: PropTypes.string.isRequired
+    inputType: PropTypes.string.isRequired,
+    classType: PropTypes.string,
+    placeHolder: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string,
+    onChange: PropTypes.func,
+    autoComplete: PropTypes.string.isRequired
 };
 
 // Components default values.
 const defaultProps = {
-    classType: '',
-    errorMessage: '',
-    onChange: null
+    classType: '',
+    errorMessage: '',
+    onChange: null
 };
 
 const TextBox = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParametersAndType({
-        props: props,
-        parametersList: ['inputType', 'placeHolder', 'autoComplete'],
-        targetParameters: ['inputType', 'autoComplete'],
-        validationTypes: [enums.ValidationFunctionType.INPUT, enums.ValidationFunctionType.AUTOCOMPLETE]
-    });
+    // Manually validate parameters just in case.
+    validateParametersAndType({
+        props: props,
+        parametersList: ['inputType', 'placeHolder', 'autoComplete'],
+        targetParameters: ['inputType', 'autoComplete'],
+        validationTypes: [enums.ValidationFunctionType.INPUT, enums.ValidationFunctionType.AUTOCOMPLETE]
+    });
 
-    // Get specific behavior of the text box by adding an additional class.
-    const typeClass = generateClassName({
-        condition: props.classType,
-        originalClassName: 'form-control',
-        newClassName: props.classType
-    });
+    // Get specific behavior of the text box by adding an additional class.
+    const typeClass = generateClassName({
+        condition: props.classType,
+        originalClassName: 'form-control',
+        newClassName: props.classType
+    });
 
-    return (
-        <Auxiliary>
-            <input data-id={props.inputType} type={props.inputType} className={typeClass} placeholder={props.placeHolder} onChange={props.onChange} autoComplete={props.autoComplete} spellCheck={false} />
-            <ErrorBox
-                isNoArrow={false}
-                isSearchOption={false}
-                isSearchOptionGeneral={false}
-                text={props.errorMessage}
-            />
-        </Auxiliary>
-    );
+    return (
+        <Auxiliary>
+            <input data-id={props.inputType} type={props.inputType} className={typeClass} placeholder={props.placeHolder} onChange={props.onChange} autoComplete={props.autoComplete} spellCheck={false} />
+            <ErrorBox
+                isNoArrow={false}
+                isSearchOption={false}
+                isSearchOptionGeneral={false}
+                text={props.errorMessage}
+            />
+        </Auxiliary>
+    );
 };
 
 // Set the PropTypes validators and default values.

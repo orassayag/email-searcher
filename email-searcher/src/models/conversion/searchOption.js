@@ -7,13 +7,13 @@ import SearchOption from '../models/SearchOption';
 // This function converts a single data of string search option type into SearchOption class instance.
 export const toSearchOption = (searchOptionType) => {
 
-    // Check for existence of searchOptionType parameter. If not exists return null instance.
-    if (!searchOptionType) {
+    // Check for existence of searchOptionType parameter. If not exists return null instance.
+    if (!searchOptionType) {
 
-        // Don't create any new instance.
-        return null;
-    }
+        // Don't create any new instance.
+        return null;
+    }
 
-    // Return a new SearchOption object instance.
-    return new SearchOption(searchOptionType);
+    // Return a new SearchOption object instance.
+    return new SearchOption(searchOptionType);
 };

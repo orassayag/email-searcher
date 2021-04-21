@@ -9,7 +9,7 @@ import settings from '../settings/application/settings';
 
 // Create the user API route instance by Axios.
 const apiUserAuthentication = axios.create({
-    baseURL: settings.apiBaseUserAuthenticationURL
+    baseURL: settings.apiBaseUserAuthenticationURL
 });
 
 export default apiUserAuthentication;

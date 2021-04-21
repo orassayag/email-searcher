@@ -12,11 +12,11 @@ import { Auxiliary } from '../../../hoc';
 
 // Components parameter and functions PropTypes validations.
 const propTypes = {
-    searchOptionType: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    onTitle: PropTypes.string.isRequired,
-    offTitle: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    searchOptionType: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    onTitle: PropTypes.string.isRequired,
+    offTitle: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 
 // Components default values.
@@ -24,24 +24,24 @@ const defaultProps = {};
 
 const SearchSelect = (props) => {
 
-    // Manually validate parameters just in case.
-    validateParameters({
-        props: props,
-        parametersList: ['title', 'onTitle', 'offTitle']
-    });
+    // Manually validate parameters just in case.
+    validateParameters({
+        props: props,
+        parametersList: ['title', 'onTitle', 'offTitle']
+    });
 
-    return (
-        <Auxiliary>
-            <div className="search-label">{props.title}</div>
-            <label className="search-option">
-                <input data-id={props.searchOptionType} type="checkbox" onChange={props.onChange} />
-                <div className="search-option-slider round">
-                    <span className="off">{props.offTitle}</span>
-                    <span className="on">{props.onTitle}</span>
-                </div>
-            </label>
-        </Auxiliary>
-    );
+    return (
+        <Auxiliary>
+            <div className="search-label">{props.title}</div>
+            <label className="search-option">
+                <input data-id={props.searchOptionType} type="checkbox" onChange={props.onChange} />
+                <div className="search-option-slider round">
+                    <span className="off">{props.offTitle}</span>
+                    <span className="on">{props.onTitle}</span>
+                </div>
+            </label>
+        </Auxiliary>
+    );
 };
 
 // Set the PropTypes validators and default values.

@@ -8,6 +8,6 @@ import { createEnum } from '../../utils/coreUtils';
 // This enum is used in the user-emails page for the next and
 // previous methods and functions in the EmailPager component.
 export const PagerLink = createEnum(new Map([
-    ['NEXT', 'next'],
-    ['PREVIOUS', 'previous']
+    ['NEXT', 'next'],
+    ['PREVIOUS', 'previous']
 ]));

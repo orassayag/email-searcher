@@ -10,8 +10,8 @@ import { watchUserEmailsSaga } from './watchers/userEmails';
 
 // Export all forked watchers.
 export default function* root() {
-    yield fork(watchAppSaga);
-    yield fork(watchSearchSaga);
-    yield fork(watchUserAuthenticationSaga);
-    yield fork(watchUserEmailsSaga);
+    yield fork(watchAppSaga);
+    yield fork(watchSearchSaga);
+    yield fork(watchUserAuthenticationSaga);
+    yield fork(watchUserEmailsSaga);
 }
