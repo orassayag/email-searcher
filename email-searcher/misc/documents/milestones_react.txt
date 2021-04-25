@@ -218,7 +218,7 @@ Bonus: Add 'tokenfield' plug on each search option.
 -Fix footer padding on mobile. *
 -When click on 'Apply' button on mobile - go to top. *
 -Refactoring of all validations: Missing validations, invalid param validations, array and count validation, add ref.current validation. - StackOverFlow: https://stackoverflow.com/questions/52098535/get-parameter-name-as-passed-to-a-function-inside-array.
--Refactor gets value from array to function. *
+-Refactor get value from array to function. *
 -Merge all lists on Search.jsx into one list. *
 -Fix bug on second added email validation. *
 -Fix validation of Email Keys. *
@@ -558,7 +558,7 @@ e. Add a 'test' environment. *
 36. Fix Bug on toggle more information panel: 'This synthetic event is reused for performance reasons. If you're seeing this, you're accessing the property'. *
 37. Build a generic function on textUtils that checks if array is not empty and has elements: * if (!errorParamatersList ||  errorParamatersList.length <= 0) { (Also build an object.keys array check generic method: *
 !emailsArrayData.emailsArray || Object.keys(emailsArrayData.emailsArray).length <= 0)) *
-38. Add the autoComplete attribute to TextBox. *
+38. Add autoComplete attribute to TextBox. *
 39. Build a generic function that checks basic authentication: !basicEmailValidationData.userAuthentication.userId || *
         !basicEmailValidationData.userAuthentication.userToken || !basicEmailValidationData.userAuthentication.isUserAuthenticated() || *
 40. *
@@ -694,7 +694,7 @@ c. On the return: // Return the validation results. *
 24. Check for all ' - ' and make sure after there is a capital letter. *
 25. All 'local storage' convert to localStorage. *
 26. Change all 'user side validation' to 'Client-side validation'. *
-27. Make sure all 'More information' panels are with Capital 'More'. *
+27. Make sure all 'More information' panel is with Capital 'More'. *
 28. All places of TEXT or URL, use capital, like: (TEXT or URL). *
 30. Check for 'logical settings' and change it. *
 31. Change all 'axios' / 'exios' to 'Axios'. *
@@ -1885,7 +1885,7 @@ TESTING - START
 -When finish testing copy to word to make sure no spelling mistakes.
 -Copy to your project from node (C:\Or\Web\NodejsLearning\15\NodeVidlyDeployment\.vscode) the launch.json file for debug unit-tests.
 -Like in node.js, number of tests depending on the number of props. Test each prop's outcome.
--Unlike node.js, component test files should not be in separate folders 'tests' on the root, for each component needs to be a test file in his folder.
+-Unlike node.js, component test files should not be in separate folders 'tests' on the root, for each component need to be a test file in his folder.
 -What to test on components:
 *Length of items, contain specific items.
 *Also test when not passing props, or invalid props values.
@@ -2026,7 +2026,7 @@ class App extends Component {
 export default App;
 37. Inside the src folder, create the 'hoc' folder.
 38. Inside the hoc folder, create the folder 'AsyncComponent'.
-39. Inside the AsyncComponent folder create AsyncComponent.jsx file.
+39. Inside of AsyncComponent folder create AsyncComponent.jsx file.
 40. Fill the AsyncComponent.jsx file as the following:
 import React, { Component } from 'react';
 
@@ -2051,7 +2051,7 @@ const asyncComponent = (importComponent) => {
 };
 
 export default asyncComponent;
-41. In the App.jsx file, import the AsyncComponent: import AsyncComponent from './hoc/AsyncComponent/AsyncComponent';
+41. In App.jsx file, import the AsyncComponent: import AsyncComponent from './hoc/AsyncComponent/AsyncComponent';
 42. Add above the class declaration in App.jsx the following:
 const AsyncPizza = AsyncComponent(() => {
     return import('./containers/Pizza/Pizza');
