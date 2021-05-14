@@ -355,7 +355,7 @@ https://github.com/orassayag/node-vidly-deployment
 
 Google, Ask.com, AOL search, Walla search, BING, Yahoo
 
-https://www.linkedin.com/in/nivmorabin/
+https://linkedin.com/in/nivmorabin
 
 
 public static void main(String[] args) {
