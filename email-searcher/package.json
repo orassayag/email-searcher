@@ -2,18 +2,32 @@
   "name": "email-searcher",
   "version": "0.1.0",
   "private": false,
-  "description": "The client application's role is to contain the UI and display it to the user. Email-searcher is a website that helps to demonstrate how to display crawler results from the server to the user UI.",
+  "description": "A React-based web application that demonstrates email search functionality with advanced filtering, user authentication, and email collection management. Features Redux state management, Firebase integration, and responsive design.",
   "repository": {
     "type": "git",
     "url": "git://github.com/orassayag/email-searcher.git"
   },
   "keywords": [
-    "links",
-    "emails",
-    "email addresses",
-    "search"
+    "email",
+    "search",
+    "react",
+    "redux",
+    "redux-saga",
+    "firebase",
+    "email-addresses",
+    "web-crawler",
+    "email-search",
+    "email-finder",
+    "authentication",
+    "spa",
+    "single-page-application",
+    "react-router",
+    "axios",
+    "responsive",
+    "less",
+    "webpack"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "Or Assayag <orassayag@gmail.com>",
   "contributors": [
     {
