@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EmailSearcher | Search emails everywhere</title>
+    <meta name="description" content="company is a real-estate template">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <a href="#modal">
+        Launch A Modal
+      </a>
+    <!-- Modal -->
+    <div class="pure-css-bootstrap-modal">
+        <style>
+            #modal {
+                left: 50%;
+                margin: -250px 0 0 -32%;
+                opacity: 0;
+                position: absolute;
+                visibility: hidden;
+                width: 65%;
+                box-shadow: 0 3px 7px rgba(0, 0, 0, .25);
+                box-sizing: border-box;
+            }
+
+            #modal.in {
+                opacity: 1;
+                transform: translate(0, 10%);
+                visibility: visible;
+            }
+
+            #modal .header,
+            #modal .footer {
+                border-bottom: 1px solid #1ABC9C;
+                border-radius: 5px 5px 0 0
+            }
+
+            #modal .footer {
+                border: none;
+                border-top: 1px solid #e7e7e7;
+                border-radius: 0 0 5px 5px
+            }
+
+            #modal h2 {
+                margin: 0;
+                color: #fff
+            }
+
+            #modal .btn {
+                float: right
+            }
+
+            #modal .copy,
+            #modal .header,
+            #modal .footer {
+                padding: 10px;
+                color: #fff
+            }
+
+            .modal-content {
+                background: #34BC9D;
+                position: relative;
+                z-index: 20;
+                border-radius: 5px;
+                color: #fff
+            }
+
+            #modal .copy {
+                background: #46CFB0
+            }
+
+            #modal .overlay {
+                background-color: #000;
+                background: rgba(0, 0, 0, .8);
+                height: 100%;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 10;
+                opacity: 0.5;
+            }
+
+            .copy a {
+                color: #fff;
+                text-decoration: none;
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: #E74C3C;
+            }
+        </style>
+
+
+        <div id="modal" class="">
+            <div class="modal-content">
+                <div class="header">
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="copy">
+                    <p>Modal Body</p>
+                    <a href="#">Close Link</a> </div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+    </div>
+</body>
+
+</html>

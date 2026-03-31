@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <style>
+        .search-option {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+            height: 24px;
+        }
+
+        .search-option input {
+            display: none;
+        }
+
+        .search-option-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #b9d9f9;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .search-option-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #fff;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.search-option-slider {
+            background-color: #FDC600
+        }
+
+        input:focus+.search-option-slider {
+            box-shadow: 0 0 1px #b9d9f9;
+        }
+
+        input:checked+.search-option-slider:before {
+            -webkit-transform: translateX(75px);
+            -ms-transform: translateX(75px);
+            transform: translateX(75px);
+        }
+
+        .exclude {
+            display: none;
+        }
+
+        .include,
+        .exclude {
+            color: #fff;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            font-size: 13px;
+            font-family: Verdana, sans-serif;
+        }
+
+        input:checked+.search-option-slider .include {
+            display: none;
+        }
+
+        input:checked+.search-option-slider .exclude {
+            display: block;
+        }
+
+        .search-option-slider.round {
+            border-radius: 34px;
+        }
+
+        .search-option-slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <label class="search-option">
+        <input type="checkbox" class="togBtn">
+        <div class="search-option-slider round">
+            <span class="exclude">Exclude</span>
+            <span class="include">Include</span>
+        </div>
+    </label>
+</body>
+
+</html>
